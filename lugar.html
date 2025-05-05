@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lugar – MAB VIII</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    header, nav, section, footer {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 1rem 2%;
+    }
+    header .logo {
+      max-height: 60px;
+      margin-right: 1rem;
+    }
+    header div {
+      text-align: left;
+    }
+    nav {
+      display: flex;
+      justify-content: space-around;
+      padding: 0.5rem 0;
+    }
+    nav a {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      padding: 0.5rem 0;
+    }
+    nav a.active {
+      color: var(--azul-claro);
+      border-bottom: 3px solid var(--azul-claro);
+    }
+    section {
+      padding: 1rem 2%;
+      text-align: left;
+    }
+    .mapa {
+      width: 100%;
+      height: 500px;
+      border: 0;
+      border-radius: 8px;
+    }
+    .listado {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .columna {
+      flex: 1 1 300px;
+      max-width: 400px;
+    }
+    .columna h3 {
+      margin-bottom: 0.5rem;
+    }
+    .columna ul {
+      list-style: disc;
+      padding-left: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo">
+    <div>
+      <h1>Lugar del Encuentro</h1>
+      <p>Edificio Sergio Karakachoff · Universidad Nacional de La Plata</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="inscripcion.html">Inscripción</a>
+    <a href="lugar.html" class="active">Lugar</a>
+    <a href="conferencistas.html">Conferencistas</a>
+    <a href="abstracts.html">Envío de trabajos</a>
+    <a href="cronograma.html">Cronograma</a>
+    <a href="comite.html">Comité</a>
+    <a href="certificados.html">Certificados</a>
+  </nav>
+
+  <section>
+    <h2>Ubicación</h2>
+    <p>
+      El MAB VIII se llevará a cabo en el <strong>Edificio Sergio Karakachoff</strong>,
+      Calle 48 N.º 551 (entre 6 y 7), ciudad de La Plata, Argentina.
+    </p>
+    <iframe
+      class="mapa"
+      src="https://maps.google.com/maps?q=Edificio%20Sergio%20Karakachoff&t=&z=15&ie=UTF8&iwloc=&output=embed"
+      loading="lazy">
+    </iframe>
+  </section>
+
+  <section>
+    <h2>Alojamiento y Gastronomía</h2>
+    <div class="listado">
+      <div class="columna">
+        <h3>Hoteles recomendados</h3>
+        <ul>
+          <li><a href="https://www.hotelgrandbrizolaplata.com/en/" target="_blank">Grand Brizo La Plata</a></li>
+          <li><a href="https://sanmarcohotel.com.ar/" target="_blank">San Marco Hotel La Plata</a></li>
+          <li><a href="https://www.hjlaplata.com.ar/en/" target="_blank">Howard Johnson La Plata</a></li>
+          <li><a href="https://www.hoteldelsol-laplata.com.ar/" target="_blank">Hotel del Sol</a></li>
+        </ul>
+      </div>
+      <div class="columna">
+        <h3>Restaurantes sugeridos</h3>
+        <ul>
+          <li><a href="https://www.facebook.com/simonarestobar/" target="_blank">Simona – cerveza artesanal y tapeo</a></li>
+          <li><a href="https://www.instagram.com/losfuegosdecitybell/?hl=en" target="_blank">Los Fuegos – parrilla (City Bell)</a></li>
+          <li><a href="https://www.instagram.com/barcortezlp/?hl=en" target="_blank">Cortez – fusión argentina</a></li>
+          <li><a href="https://www.instagram.com/ninapuente/?hl=en" target="_blank">Nina – cocina contemporánea</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 MAB VIII · La Plata
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscripción – MAB VIII</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    /* —————————————————————————————
+       Ajustes globales para centrar y ocupar todo el ancho/alto
+       ————————————————————————————— */
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* distribuye header, nav, section, footer */
+    }
+    header, nav, section, footer {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header centrado */
+    header {
+      text-align: center;
+      padding-top: 1rem;
+    }
+
+    /* Menú repartido a lo ancho */
+    nav {
+      display: flex;
+      justify-content: space-around;
+    }
+    nav a.active {
+      color: var(--azul-claro);
+      border-bottom: 3px solid var(--azul-claro);
+    }
+
+    /* Sección left-aligned */
+    section {
+      text-align: left;       /* ahora todo a la izquierda */
+      padding: 1rem 2%;
+      flex: 1;
+    }
+
+    /* Tabla fluida (original) */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    thead th {
+      background-color: var(--gris-callout);
+    }
+
+    /* Descuentos (original) */
+    .descuentos {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+      max-width: 400px;
+    }
+    .descuentos li {
+      margin-bottom: 0.4rem;
+    }
+    .descuentos strong {
+      color: var(--azul-claro);
+    }
+
+    /* Botón de inscripción alineado a la izquierda */
+    .boton {
+      display: inline-block;
+      margin: 1rem 0;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-weight: 700;
+      /* opcional: si quieres que el botón empiece en el margen izquierdo, asegúrate de no tener auto margins */
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo">
+    <h1>MAB VIII – Inscripción</h1>
+    <p>Encuentro Argentino de Materia Blanda – La Plata, 18 y 19 de diciembre de 2025</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="inscripcion.html" class="active">Inscripción</a>
+    <a href="lugar.html">Lugar</a>
+    <a href="conferencistas.html">Conferencistas</a>
+    <a href="abstracts.html">Envío de trabajos</a>
+    <a href="cronograma.html">Cronograma</a>
+    <a href="comite.html">Comité</a>
+    <a href="certificados.html">Certificados</a>
+  </nav>
+
+  <section>
+    <h2>Modalidades de inscripción</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Modalidad</th>
+          <th>Incluye</th>
+          <th>Tarifa (ARS)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>RAFA + MAB</td>
+          <td>Charlas, materiales digitales, coffee breaks</td>
+          <td>A confirmar</td>
+        </tr>
+        <tr>
+          <td>MAB</td>
+          <td>Charlas, materiales digitales, coffee breaks</td>
+          <td>A confirmar</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Descuentos para estudiantes e investigadores jóvenes</h3>
+    <ul class="descuentos">
+      <li><strong>25&nbsp;%</strong> Estudiantes de <em>posdoctorado</em></li>
+      <li><strong>50&nbsp;%</strong> Estudiantes de <em>doctorado</em></li>
+      <li><strong>75&nbsp;%</strong> Estudiantes de <em>grado</em></li>
+    </ul>
+
+    <a href="https://forms.gle/cTYAmiHMVdHrWvdG6" class="boton" target="_blank">Ir al formulario de inscripción</a>
+  </section>
+
+  <footer>
+    &copy; 2025 MAB VIII · La Plata
+  </footer>
+
+</body>
+</html>

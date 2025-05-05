@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAB VIII – La Plata 2025</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+
+  <!-- Ajustes locales -->
+  <style>
+    header{ text-align:left; padding-left:5vw; }
+
+
+        nav {
+      display: flex;
+      justify-content: space-around;
+      padding: 0.5rem 0;
+    }
+    nav a {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      padding: 0.5rem 0;
+    }
+    nav a.active {
+      color: var(--azul-claro);
+      border-bottom: 3px solid var(--azul-claro);
+    }
+    /* 5. Sección principal centrada */
+.hero {
+  text-align: left;
+  /* opcional: añadir un poco de padding lateral para que no pegue al borde */
+  padding: 1rem 2%;
+}
+
+    .hero h2 {
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      line-height: 1.5;
+    }
+    /* 6. Tarjetas centradas y con flex-wrap */
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding-top: 1rem;
+    }
+    .card {
+      flex: 1 1 280px;
+      max-width: 400px;
+      background: #f9f9f9;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card h3 {
+      margin-bottom: 0.5rem;
+    }
+    .fechas li {
+      margin-bottom: 0.4rem;
+    }
+    .fechas strong {
+      font-weight: 700;
+    }
+
+    .fechas li{ margin-bottom:.4rem; }
+    .fechas strong{ font-weight:700; }
+
+
+
+/* Asegura que el párrafo ocupe todo el ancho disponible */
+.hero p {
+  margin: 0;            /* sin márgenes automáticos */
+  width: 100%;          /* 100 % del contenedor, que ya es todo el ancho */
+  display: block;       /* por si acaso */
+/* en tu <style> local, al final */
+header .logo {
+  height: 300px;  /* ajusta este valor al que necesites */
+  width: auto;    /* conserva la proporción */
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+<img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo"
+     style="height:200px; width:auto;">
+
+
+
+    <div>
+     <h1>Encuentro Argentino de Materia Blanda – La Plata, 18 y 19 de septiembre de 2025</h1>
+      
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html" class="active">Inicio</a>
+    <a href="inscripcion.html">Inscripción</a>
+    <a href="lugar.html">Lugar</a>
+    <a href="conferencistas.html">Conferencistas</a>
+    <a href="abstracts.html">Envío de trabajos</a>
+    <a href="cronograma.html">Cronograma</a>
+    <a href="comite.html">Comité</a>
+    <a href="certificados.html">Certificados</a>
+  </nav>
+
+  <section class="hero" id="inicio">
+    <h2>Bienvenidos al MAB VIII</h2>
+    <p>
+      El Encuentro Argentino de Materia Blanda (MAB VIII) es un espacio de intercambio académico y científico dedicado a materiales blandos, física y química de sistemas complejos y nanotecnología aplicada.  
+      Nos reuniremos en la ciudad de La Plata los días <strong>18 y 19 de septiembre de 2025</strong>.
+    </p>
+  </section>
+
+  <section class="cards">
+    <div class="card">
+      <h3>Fechas importantes</h3>
+      <ul class="fechas">
+        <li><strong>Envío de abstracts:</strong> hasta 1 de julio</li>
+        <li><strong>Notificación:</strong> 1 de agosto</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Modalidades</h3>
+      <p>
+        Participá con presentaciones orales, pósters.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Contacto</h3>
+      <p>albesa@inifta.unlp.edu.ar
+        apicco@inifta.unlp.edu.ar<br>
+        La Plata, Argentina
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 MAB VIII · La Plata
+  </footer>
+
+</body>
+</html>
