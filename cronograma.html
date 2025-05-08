@@ -3,53 +3,181 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cronograma – MAB VIII</title>
+  <title>Cronograma – MAB VIII</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilos.css">
+
   <style>
-    /* Ajustes locales para tablas lado a lado */
-    .dias {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .dia {
-      flex: 1 1 320px; /* mínimo 320 px y se expande */
-    }
-    .dia table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .dia th {
-      background-color: var(--gris-callout);
+    /* Estilos base para el cuerpo si estilos.css no se carga o está incompleto */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background-color: #f5f7fa; /* --gris-fondo */
+      color: #222; /* --texto */
+      display: flex; /* Para asegurar que el footer quede abajo si el contenido es corto */
+      flex-direction: column; /* Para asegurar que el footer quede abajo si el contenido es corto */
+      min-height: 100vh; /* Para asegurar que el footer quede abajo si el contenido es corto */
     }
 
-        nav {
+    /* Estilos para la barra de navegación (nav) específica de esta página */
+    nav {
       display: flex;
       justify-content: space-around;
-      padding: 0.5rem 0;
+      padding: 0.5rem 0; /* Padding vertical, horizontal se maneja en los 'a' o en el contenedor de nav */
+      background-color: #fff; /* Fondo blanco para la nav, si no está en estilos.css */
+      border-bottom: 1px solid #ddd; /* Borde inferior, si no está en estilos.css */
     }
+
     nav a {
       flex: 1;
       text-align: center;
       text-decoration: none;
-      color: inherit;
-      padding: 0.5rem 0;
+      /* color: inherit; Es mejor ser explícito, usando el color de tu variable --azul-oscuro */
+      color: #004e7c; /* var(--azul-oscuro) */
+      padding: 0.5rem 0.25rem; /* Padding vertical y un poco horizontal para evitar que se peguen */
+      font-weight: 700; /* Consistente con estilos.css */
     }
-    nav a.active {
-      color: var(--azul-claro);
-      border-bottom: 3px solid var(--azul-claro);
+
+    nav a.active { /* Estilo para el enlace activo */
+      color: #0079b8; /* var(--azul-claro) */
+      border-bottom: 3px solid #0079b8; /* var(--azul-claro) */
     }
-    
+
+    /* === ESTILOS PARA LOS ENLACES DE IDIOMA (ajustados para header oscuro) === */
+    .language-switcher {
+      position: absolute;
+      top: 1.5rem;      /* Distancia desde el borde superior del header */
+      right: 3vw;       /* Distancia desde el borde derecho del header */
+      font-family: 'Montserrat', sans-serif;
+      color: white;     /* Asegura que el separador "|" sea blanco sobre fondo oscuro */
+    }
+
+    .language-switcher a {
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 0.4rem; /* Espacio entre "ESP", "|" y "ENG" */
+      font-size: 0.9em;
+      color: white;     /* Se usa color blanco para que contraste con el header oscuro */
+    }
+
+    .language-switcher a:first-child {
+      margin-left: 0; /* Sin margen a la izquierda para el primer enlace (ESP) */
+    }
+    /* === FIN DE ESTILOS DEL SELECTOR DE IDIOMA === */
+
+    /* Estilos para el header en esta página, asegurando que el selector de idioma funcione */
+    header {
+      /* Estas propiedades son ejemplos y deberían idealmente venir de estilos.css
+         pero se añaden aquí para asegurar la funcionalidad del language switcher en esta página.
+         La más importante es 'position: relative;' */
+      background: linear-gradient(90deg, #004e7c, #0079b8); /* Ejemplo de fondo de tu estilos.css */
+      color: #fff; /* Texto blanco */
+      padding: 2rem 3vw;
+      display: flex;
+      align-items: center; /* Alinea verticalmente logo y texto */
+      gap: 1rem; /* Espacio entre logo y el bloque de texto */
+      position: relative; /* ¡MUY IMPORTANTE para el posicionamiento del language switcher! */
+    }
+
+     header .logo {
+        /* Asumiendo que estilos.css define el tamaño del logo. Si no, por ejemplo: */
+           height: 64px; /* O el valor que uses en estilos.css */
+           width: auto;
+    }
+    header div.header-content { /* Contenedor para h1 y p para asegurar alineación izquierda si header es flex */
+        text-align: left;
+    }
+
+    header h1 {
+        /* Asumiendo que estilos.css define el tamaño y margen del h1. Si no, por ejemplo: */
+           font-size: 2rem; /* O el valor que uses en estilos.css */
+           margin:0;
+           color: #fff; /* Asegurar color blanco */
+    }
+
+     header p {
+        /* Asumiendo que estilos.css define el tamaño y margen del p. Si no, por ejemplo: */
+           font-size:1rem; /* O el valor que uses en estilos.css */
+           margin:0.25rem 0 0;
+           color: #fff; /* Asegurar color blanco */
+    }
+
+    section {
+        padding: 2rem 3vw; /* Consistente con tu diseño general */
+        text-align: left; /* Asegurar alineación izquierda para el contenido de la sección */
+        flex-grow: 1; /* Para que la sección ocupe el espacio disponible y empuje el footer */
+    }
+
+    /* Estilos para las tablas del cronograma */
+    .dias {
+      display: flex;
+      gap: 2rem; /* Espacio entre las tablas de los días */
+      flex-wrap: wrap; /* Permite que las tablas se apilen en pantallas pequeñas */
+      justify-content: center; /* Centra las tablas si hay espacio */
+    }
+
+    .dia {
+      flex: 1 1 320px; /* Cada tabla de día tendrá un mínimo de 320px y crecerá si hay espacio */
+      min-width: 300px; /* Asegura un ancho mínimo incluso si flex-basis es pequeño */
+    }
+
+    .dia h2 {
+        color: #004e7c; /* var(--azul-oscuro) */
+        border-bottom: 2px solid #004e7c; /* var(--azul-oscuro) */
+        padding-bottom: 0.5rem;
+        margin-top: 0; /* Quitar margen superior si es el primer elemento de .dia */
+        margin-bottom: 1rem; /* Espacio debajo del título del día */
+        font-size: 1.5rem; /* Tamaño para los títulos de los días */
+    }
+
+    .dia table {
+      width: 100%; /* La tabla ocupa todo el ancho de su contenedor .dia */
+      border-collapse: collapse; /* Une los bordes de las celdas */
+      margin-bottom: 2rem; /* Espacio debajo de cada tabla */
+      background: #fff; /* Fondo blanco para las tablas */
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Sombra sutil para las tablas */
+    }
+
+    .dia th, .dia td {
+      border: 1px solid #ddd; /* var(--gris-borde) para las celdas */
+      padding: 0.75rem; /* Padding dentro de las celdas */
+      text-align: left; /* Alineación del texto a la izquierda */
+      vertical-align: top; /* Alinea el contenido de las celdas arriba */
+    }
+
+    .dia th {
+      background-color: #eaf4fb; /* var(--gris-callout) para los encabezados de la tabla */
+      font-weight: 700; /* Texto en negrita para los encabezados */
+    }
+    .dia td:first-child { /* Estilo para la columna de la hora */
+        width: 80px; /* Ancho fijo para la columna de la hora */
+        font-weight: bold;
+        color: #004e7c; /* var(--azul-oscuro) */
+        white-space: nowrap; /* Evita que la hora se parta en dos líneas */
+    }
+
+
+    footer {
+        /* Asumiendo que estilos.css define el footer. Si no, por ejemplo: */
+           background: #004e7c; /* var(--azul-oscuro) */
+           color: #fff;
+           text-align: left; /* O el que uses en estilos.css */
+           padding: 1rem 3vw;
+           /* margin-top: 3rem; /* No es estrictamente necesario si body es flex y section tiene flex-grow */
+           font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo">
-    <h1>MAB VIII – Cronograma Tentativo</h1>
-    <p>Actividades del 18 y 19 de septiembre de 2025</p>
+    <img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo">
+    <div class="header-content"> <h1>MAB VIII – Cronograma Tentativo</h1>
+      <p>Actividades del 18 y 19 de septiembre de 2025</p>
+    </div>
+    <div class="language-switcher">
+      <a href="https://mab-viii.github.io/esp/" lang="es">ESP</a> | <a href="https://mab-viii.github.io/eng/" lang="en">ENG</a>
+    </div>
   </header>
 
   <nav>
@@ -58,55 +186,59 @@
     <a href="lugar.html">Lugar</a>
     <a href="conferencistas.html">Conferencistas</a>
     <a href="abstracts.html">Envío de trabajos</a>
-    <a href="cronograma.html" class="active">Cronograma</a>
-    <a href="comite.html">Comité</a>
+    <a href="cronograma.html" class="active">Cronograma</a> <a href="comite.html">Comité</a>
     <a href="certificados.html">Certificados</a>
   </nav>
 
   <section>
     <div class="dias">
-      <!-- Jueves -->
       <div class="dia">
         <h2>Jueves 18&nbsp;de&nbsp;septiembre</h2>
         <table>
-          <tr><th>Hora</th><th>Actividad</th></tr>
-          <tr><td>09:00</td><td>Registro</td></tr>
-          <tr><td>09:20</td><td>Apertura</td></tr>
-          <tr><td>09:30</td><td>Charla 1</td></tr>
-          <tr><td>10:10</td><td>Charla 2</td></tr>
-          <tr><td>10:50</td><td>Coffee Break</td></tr>
-          <tr><td>11:10</td><td>Charla 3</td></tr>
-          <tr><td>11:50</td><td>Charla 4</td></tr>
-          <tr><td>12:30</td><td>Almuerzo</td></tr>
-          <tr><td>14:00</td><td>Charla 5</td></tr>
-          <tr><td>14:40</td><td>Charla 6</td></tr>
-          <tr><td>15:20</td><td>Coffee Break</td></tr>
-          <tr><td>15:40</td><td>Charlas Cortas (x5)</td></tr>
-          <tr><td>17:30</td><td>Sesión de Pósters</td></tr>
+          <thead> <tr><th>Hora</th><th>Actividad</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>09:00</td><td>Registro</td></tr>
+            <tr><td>09:20</td><td>Apertura</td></tr>
+            <tr><td>09:30</td><td>Charla 1</td></tr>
+            <tr><td>10:10</td><td>Charla 2</td></tr>
+            <tr><td>10:50</td><td>Coffee Break</td></tr>
+            <tr><td>11:10</td><td>Charla 3</td></tr>
+            <tr><td>11:50</td><td>Charla 4</td></tr>
+            <tr><td>12:30</td><td>Almuerzo</td></tr>
+            <tr><td>14:00</td><td>Charla 5</td></tr>
+            <tr><td>14:40</td><td>Charla 6</td></tr>
+            <tr><td>15:20</td><td>Coffee Break</td></tr>
+            <tr><td>15:40</td><td>Charlas Cortas (x5)</td></tr>
+            <tr><td>17:30</td><td>Sesión de Pósters</td></tr>
+          </tbody>
         </table>
       </div>
-      <!-- Viernes -->
       <div class="dia">
         <h2>Viernes 19&nbsp;de&nbsp;septiembre</h2>
         <table>
-          <tr><th>Hora</th><th>Actividad</th></tr>
-          <tr><td>09:30</td><td>Charla 7</td></tr>
-          <tr><td>10:10</td><td>Charla 8</td></tr>
-          <tr><td>10:50</td><td>Coffee Break</td></tr>
-          <tr><td>11:10</td><td>Charla 9</td></tr>
-          <tr><td>11:50</td><td>Charla 10</td></tr>
-          <tr><td>12:30</td><td>Almuerzo</td></tr>
-          <tr><td>14:00</td><td>Charlas Cortas (x5)</td></tr>
-          <tr><td>15:30</td><td>Coffee Break</td></tr>
-          <tr><td>15:40</td><td>Mesa Redonda – Startups Argentinas de Soft Matter</td></tr>
-          <tr><td>17:00</td><td>Entrega de premios</td></tr>
+          <thead>
+            <tr><th>Hora</th><th>Actividad</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>09:30</td><td>Charla 7</td></tr>
+            <tr><td>10:10</td><td>Charla 8</td></tr>
+            <tr><td>10:50</td><td>Coffee Break</td></tr>
+            <tr><td>11:10</td><td>Charla 9</td></tr>
+            <tr><td>11:50</td><td>Charla 10</td></tr>
+            <tr><td>12:30</td><td>Almuerzo</td></tr>
+            <tr><td>14:00</td><td>Charlas Cortas (x5)</td></tr>
+            <tr><td>15:30</td><td>Coffee Break</td></tr>
+            <tr><td>15:40</td><td>Mesa Redonda – Startups Argentinas de Soft Matter</td></tr>
+            <tr><td>17:00</td><td>Entrega de premios</td></tr>
+          </tbody>
         </table>
       </div>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 MAB VIII · La Plata
+    &copy; 2025 MAB VIII · La Plata
   </footer>
 
 </body>
