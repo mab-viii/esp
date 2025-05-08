@@ -3,64 +3,171 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conferencistas – MAB VIII</title>
+  <title>Conferencistas – MAB VIII</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilos.css">
 
-  <!-- Ajustes locales para la disposición horizontal -->
   <style>
+    /* Estilos base para el cuerpo si estilos.css no se carga o está incompleto */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background-color: #f5f7fa; /* --gris-fondo */
+      color: #222; /* --texto */
+      display: flex; /* Para asegurar que el footer quede abajo si el contenido es corto */
+      flex-direction: column; /* Para asegurar que el footer quede abajo si el contenido es corto */
+      min-height: 100vh; /* Para asegurar que el footer quede abajo si el contenido es corto */
+    }
 
-        nav {
+    /* Estilos para la barra de navegación (nav) específica de esta página */
+    nav {
       display: flex;
       justify-content: space-around;
-      padding: 0.5rem 0;
+      padding: 0.5rem 0; /* Padding vertical, horizontal se maneja en los 'a' o en el contenedor de nav */
+      background-color: #fff; /* Fondo blanco para la nav, si no está en estilos.css */
+      border-bottom: 1px solid #ddd; /* Borde inferior, si no está en estilos.css */
     }
+
     nav a {
       flex: 1;
       text-align: center;
       text-decoration: none;
-      color: inherit;
-      padding: 0.5rem 0;
+      /* color: inherit; Es mejor ser explícito, usando el color de tu variable --azul-oscuro */
+      color: #004e7c; /* var(--azul-oscuro) */
+      padding: 0.5rem 0.25rem; /* Padding vertical y un poco horizontal para evitar que se peguen */
+      font-weight: 700; /* Consistente con estilos.css */
     }
-    nav a.active {
-      color: var(--azul-claro);
-      border-bottom: 3px solid var(--azul-claro);
-    }
-/* grid y tarjeta */
-.grid{
-  display:flex;
-  gap:1.5rem;
-  justify-content:center;
-  flex-wrap:wrap;
-  margin-top:2rem;
-}
-.card{
-  background:#fff;
-  padding:1.5rem;
-  border-radius:8px;
-  box-shadow:0 2px 6px rgba(0,0,0,.1);
-  text-align:center;
-  width:240px;           /* más ancho */
-}
-.card h3{
-  font-size:1rem;        /* texto levemente más chico */
-  margin-bottom:0.3rem;
-}
-.card p{
-  margin:0;
-  word-break:break-word; /* permite cortar palabras largas */
-}
 
+    nav a.active { /* Estilo para el enlace activo */
+      color: #0079b8; /* var(--azul-claro) */
+      border-bottom: 3px solid #0079b8; /* var(--azul-claro) */
+    }
+
+    /* === ESTILOS PARA LOS ENLACES DE IDIOMA (ajustados para header oscuro) === */
+    .language-switcher {
+      position: absolute;
+      top: 1.5rem;      /* Distancia desde el borde superior del header */
+      right: 3vw;       /* Distancia desde el borde derecho del header */
+      font-family: 'Montserrat', sans-serif;
+      color: white;     /* Asegura que el separador "|" sea blanco sobre fondo oscuro */
+    }
+
+    .language-switcher a {
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 0.4rem; /* Espacio entre "ESP", "|" y "ENG" */
+      font-size: 0.9em;
+      color: white;     /* Se usa color blanco para que contraste con el header oscuro */
+    }
+
+    .language-switcher a:first-child {
+      margin-left: 0; /* Sin margen a la izquierda para el primer enlace (ESP) */
+    }
+    /* === FIN DE ESTILOS DEL SELECTOR DE IDIOMA === */
+
+    /* Estilos para el header en esta página, asegurando que el selector de idioma funcione */
+    header {
+      /* Estas propiedades son ejemplos y deberían idealmente venir de estilos.css
+         pero se añaden aquí para asegurar la funcionalidad del language switcher en esta página.
+         La más importante es 'position: relative;' */
+      background: linear-gradient(90deg, #004e7c, #0079b8); /* Ejemplo de fondo de tu estilos.css */
+      color: #fff; /* Texto blanco */
+      padding: 2rem 3vw;
+      display: flex;
+      align-items: center; /* Alinea verticalmente logo y texto */
+      gap: 1rem; /* Espacio entre logo y el bloque de texto */
+      position: relative; /* ¡MUY IMPORTANTE para el posicionamiento del language switcher! */
+    }
+
+     header .logo {
+        /* Asumiendo que estilos.css define el tamaño del logo. Si no, por ejemplo: */
+           height: 64px; /* O el valor que uses en estilos.css */
+           width: auto;
+    }
+    header div.header-content { /* Contenedor para h1 y p para asegurar alineación izquierda si header es flex */
+        text-align: left;
+    }
+
+    header h1 {
+        /* Asumiendo que estilos.css define el tamaño y margen del h1. Si no, por ejemplo: */
+           font-size: 2rem; /* O el valor que uses en estilos.css */
+           margin:0;
+           color: #fff; /* Asegurar color blanco */
+    }
+
+     header p {
+        /* Asumiendo que estilos.css define el tamaño y margen del p. Si no, por ejemplo: */
+           font-size:1rem; /* O el valor que uses en estilos.css */
+           margin:0.25rem 0 0;
+           color: #fff; /* Asegurar color blanco */
+    }
+
+    section {
+        padding: 2rem 3vw; /* Consistente con tu diseño general */
+        text-align: left; /* Asegurar alineación izquierda para el contenido de la sección */
+        flex-grow: 1; /* Para que la sección ocupe el espacio disponible y empuje el footer */
+    }
+
+    section h2 {
+        color: #004e7c; /* var(--azul-oscuro) */
+        border-bottom: 2px solid #004e7c; /* var(--azul-oscuro) */
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+        margin-bottom: 1rem; /* Espacio debajo de H2 */
+    }
+
+    /* Estilos para .grid y .card específicos de esta página de Conferencistas */
+    .grid{
+      display:flex;
+      gap:1.5rem;
+      justify-content:center; /* Centra las tarjetas si hay espacio extra */
+      flex-wrap:wrap;
+      margin-top:2rem;
+    }
+    .card{
+      background:#fff;
+      padding:1.5rem;
+      border-radius:8px;
+      box-shadow:0 2px 6px rgba(0,0,0,.1);
+      text-align:center;
+      width:240px; /* Ancho de cada tarjeta de conferencista */
+      /* Considera añadir flex-basis o min-width si quieres más control responsivo */
+    }
+    .card h3{
+      font-size:1.1rem;  /* Un poco más grande para nombres de conferencistas */
+      margin-top: 0; /* Quitar margen superior del h3 dentro de la card */
+      margin-bottom:0.5rem; /* Ajustar espacio debajo del nombre */
+      color: #004e7c; /* var(--azul-oscuro) para consistencia */
+    }
+    .card p{
+      margin:0;
+      word-break:break-word; /* Permite romper palabras largas si es necesario */
+      font-size: 0.9rem; /* Tamaño para la afiliación */
+      color: #333; /* Un gris oscuro para la afiliación */
+      line-height: 1.4; /* Mejorar legibilidad de la afiliación */
+    }
+
+    footer {
+        /* Asumiendo que estilos.css define el footer. Si no, por ejemplo: */
+           background: #004e7c; /* var(--azul-oscuro) */
+           color: #fff;
+           text-align: left; /* O el que uses en estilos.css */
+           padding: 1rem 3vw;
+           /* margin-top: 3rem; /* No es estrictamente necesario si body es flex y section tiene flex-grow */
+           font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo">
-    <div>
-      <h1>MAB VIII – Conferencistas Invitados</h1>
+       <img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo">
+    <div class="header-content"> <h1>MAB VIII – Conferencistas Invitados</h1>
       <p>Charlas invitadas</p>
+    </div>
+    <div class="language-switcher">
+      <a href="https://mab-viii.github.io/esp/" lang="es">ESP</a> | <a href="https://mab-viii.github.io/eng/" lang="en">ENG</a>
     </div>
   </header>
 
@@ -68,8 +175,7 @@
     <a href="index.html">Inicio</a>
     <a href="inscripcion.html">Inscripción</a>
     <a href="lugar.html">Lugar</a>
-    <a href="conferencistas.html" class="active">Conferencistas</a>
-    <a href="abstracts.html">Envío de trabajos</a>
+    <a href="conferencistas.html" class="active">Conferencistas</a> <a href="abstracts.html">Envío de trabajos</a>
     <a href="cronograma.html">Cronograma</a>
     <a href="comite.html">Comité</a>
     <a href="certificados.html">Certificados</a>
@@ -80,29 +186,29 @@
 
     <div class="grid">
       <div class="card">
-        <h3>Mateus Cardoso</h3>
+        <h3>Mateus Cardoso</h3>
         <p>LNLS‑Sirius<br>Brasil</p>
       </div>
 
       <div class="card">
-        <h3>Ana Beloqui</h3>
+        <h3>Ana Beloqui</h3>
         <p>POLYMAT (UPV/EHU)<br>España</p>
       </div>
 
       <div class="card">
-        <h3>Verónica Marconi</h3>
-        <p>FaMAF ‑ UNC<br>Argentina</p>
+        <h3>Verónica Marconi</h3>
+        <p>FaMAF ‑ UNC<br>Argentina</p>
       </div>
 
       <div class="card">
-        <h3>Hernán Ritacco</h3>
+        <h3>Hernán Ritacco</h3>
         <p>UNS<br>Argentina</p>
       </div>
-    </div>
+      </div>
   </section>
 
   <footer>
-    &copy; 2025 MAB VIII · La Plata
+    &copy; 2025 MAB VIII · La Plata
   </footer>
 
 </body>
