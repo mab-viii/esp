@@ -48,38 +48,19 @@
       border-bottom: 3px solid var(--azul-claro);
     }
     /* 5. Sección principal centrada */
-/* 1. Haz que la sección .hero ocupe todo el ancho */
-.hero {
-  text-align: left;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 0;
-  padding-right: 0;
-  width: 100%; /* Asegura que el contenedor intente ser de ancho completo */
-  max-width: none; /* <<< AÑADE ESTO O USA 100% */
-  box-sizing: border-box; /* Buena práctica con width: 100% si alguna vez añades padding/border */
-}
-
-/* 2. Estila el título h2 DENTRO de .hero si NO quieres que sea de ancho completo */
-.hero h2 {
-  margin-bottom: 0.5rem; /* Tu estilo original */
-  /* Si quieres que el H2 tenga márgenes laterales (ej. para alinear con el header): */
-  padding-left: 5vw;     /* Ajusta este valor según el padding de tu header o diseño */
-  padding-right: 5vw;    /* Simétrico, o ajústalo como necesites */
-  /* Si NO quieres que el H2 tenga márgenes y también sea de ancho completo,
-     entonces elimina las líneas padding-left y padding-right de esta regla .hero h2 */
-}
-
-/* 3. Asegura que el párrafo p DENTRO de .hero ocupe todo el ancho de .hero */
-.hero p {
-  line-height: 1.5;     /* Tu estilo original */
-  margin: 0;            /* Tu estilo original, quita márgenes por defecto del párrafo */
-  width: 100%;          /* Tu estilo original, hace que el párrafo ocupe el ancho de .hero */
-  display: block;       /* Tu estilo original */
-  padding-left: 0;      /* Asegura que no haya padding interno en el párrafo */
-  padding-right: 0;     /* Asegura que no haya padding interno en el párrafo */
-  /* text-align: justify; */ /* Opcional: si quieres texto justificado */
-}
+    .hero {
+      text-align: left;
+      padding: 1rem 2%;
+    }
+    .hero h2 {
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      line-height: 1.5;
+      margin: 0;
+      width: 100%;
+      display: block;
+    }
     /* 6. Tarjetas centradas y con flex-wrap */
     .cards {
       display: flex;
