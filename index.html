@@ -48,11 +48,14 @@
       border-bottom: 3px solid var(--azul-claro);
     }
     /* 5. Sección principal centrada */
-    .hero {
-      text-align: left;
-      /* opcional: añadir un poco de padding lateral para que no pegue al borde */
-      padding: 1rem 0.5%;
-    }
+.hero {
+  text-align: left;
+  padding-top: 1rem;    /* Mantiene tu padding superior */
+  padding-bottom: 1rem; /* Mantiene tu padding inferior */
+  padding-left: 5vw;    /* Mantiene la alineación izquierda actual (ajusta si tu header usa otro valor) */
+  padding-right: 1vw;   /* Reduce el padding derecho para que el texto se extienda más.
+                           Prueba con 1vw, 0.5vw, o incluso 0 si quieres que llegue casi al borde. */
+}
 
     .hero h2 {
       margin-bottom: 0.5rem;
