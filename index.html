@@ -50,11 +50,14 @@
     /* 5. Sección principal centrada */
 /* 1. Haz que la sección .hero ocupe todo el ancho */
 .hero {
-  text-align: left;     /* Mantiene la alineación del texto a la izquierda para sus hijos */
-  padding-top: 1rem;    /* Mantiene el espacio vertical */
-  padding-bottom: 1rem; /* Mantiene el espacio vertical */
-  padding-left: 0;      /* Para que .hero comience en el borde izquierdo de la página */
-  padding-right: 0;     /* Para que .hero termine en el borde derecho de la página */
+  text-align: left;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%; /* Asegura que el contenedor intente ser de ancho completo */
+  max-width: none; /* <<< AÑADE ESTO O USA 100% */
+  box-sizing: border-box; /* Buena práctica con width: 100% si alguna vez añades padding/border */
 }
 
 /* 2. Estila el título h2 DENTRO de .hero si NO quieres que sea de ancho completo */
