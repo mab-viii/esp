@@ -11,14 +11,10 @@
     /* Estilos base para el cuerpo si estilos.css no se carga o está incompleto */
     body {
       font-family: 'Montserrat', sans-serif;
-      /* margin: 0; Ya está en tus estilos globales de abajo */
       background-color: #f5f7fa; /* --gris-fondo */
       color: #222; /* --texto */
     }
 
-    /* —————————————————————————————
-       Ajustes globales para centrar y ocupar todo el ancho/alto
-       ————————————————————————————— */
     html, body {
       height: 100%;
       margin: 0;
@@ -27,192 +23,190 @@
     body {
       display: flex;
       flex-direction: column;
-      /* justify-content: space-between; /* Puede causar que el footer no siempre esté al final si el contenido es corto.
-                                         Considera usar flex-grow: 1 en la sección principal si es necesario. */
     }
 
-    header, nav, footer { /* section se maneja por separado */
+    header, nav, footer {
       width: 100%;
-      /* margin: 0;  Ya está en html, body */
-      /* padding: 0; Puede ser demasiado restrictivo, es mejor definir paddings específicos donde se necesiten. */
     }
 
-    /* Header centrado (con ajustes para el language switcher) */
     header {
       text-align: left;
-      padding-top: 1rem; /* Padding superior */
-      padding-bottom: 1rem; /* Padding inferior para espaciar del nav */
-      /* Las siguientes propiedades son ejemplos y deberían idealmente venir de estilos.css
-         pero se añaden aquí para asegurar la funcionalidad del language switcher en esta página.
-         La más importante es 'position: relative;' */
-      background: linear-gradient(90deg, #004e7c, #0079b8); /* Ejemplo de fondo de tu estilos.css */
-      color: #fff; /* Texto blanco */
-      padding-left: 3vw; /* Consistente con otras páginas */
-      padding-right: 3vw; /* Consistente con otras páginas */
-      display: flex; /* Para alinear logo y texto si es necesario, o para centrar contenido */
-      flex-direction: column; /* Apila logo, h1, p, y switcher si están directos */
-      align-items: center; /* Centra los elementos del header */
-      gap: 0.5rem; /* Espacio entre elementos del header */
-      position: relative; /* ¡MUY IMPORTANTE para el posicionamiento del language switcher! */
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      background: linear-gradient(90deg, #004e7c, #0079b8);
+      color: #fff;
+      padding-left: 3vw;
+      padding-right: 3vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
     }
     header .logo {
-        /* Asumiendo que estilos.css define el tamaño del logo. Si no, por ejemplo: */
-           height: 64px; /* O el valor que uses en estilos.css */
+           height: 64px;
            width: auto;
-           margin-bottom: 0.5rem; /* Espacio debajo del logo */
+           margin-bottom: 0.5rem;
     }
     header h1 {
-        /* Asumiendo que estilos.css define el tamaño y margen del h1. Si no, por ejemplo: */
-           font-size: 2rem; /* O el valor que uses en estilos.css */
+           font-size: 2rem;
            margin:0;
-           color: #fff; /* Asegurar color blanco */
+           color: #fff;
     }
      header p {
-        /* Asumiendo que estilos.css define el tamaño y margen del p. Si no, por ejemplo: */
-           font-size:1rem; /* O el valor que uses en estilos.css */
+           font-size:1rem;
            margin:0.25rem 0 0;
-           color: #fff; /* Asegurar color blanco */
+           color: #fff;
     }
 
-
-    /* === ESTILOS PARA LOS ENLACES DE IDIOMA (ajustados para header oscuro) === */
     .language-switcher {
       position: absolute;
-      top: 1.5rem;      /* Distancia desde el borde superior del header */
-      right: 3vw;       /* Distancia desde el borde derecho del header */
+      top: 1.5rem;
+      right: 3vw;
       font-family: 'Montserrat', sans-serif;
-      color: white;     /* Asegura que el separador "|" sea blanco sobre fondo oscuro */
+      color: white;
     }
-
     .language-switcher a {
       text-decoration: none;
       font-weight: bold;
-      margin-left: 0.4rem; /* Espacio entre "ESP", "|" y "ENG" */
+      margin-left: 0.4rem;
       font-size: 0.9em;
-      color: white;     /* Se usa color blanco para que contraste con el header oscuro */
+      color: white;
     }
-
     .language-switcher a:first-child {
-      margin-left: 0; /* Sin margen a la izquierda para el primer enlace (ESP) */
+      margin-left: 0;
     }
-    /* === FIN DE ESTILOS DEL SELECTOR DE IDIOMA === */
 
-    /* Menú repartido a lo ancho */
     nav {
       display: flex;
       justify-content: space-around;
-      padding: 0.5rem 3vw; /* Añadido padding horizontal consistente con estilos.css */
-      background-color: #fff; /* Fondo blanco para la nav, si no está en estilos.css */
-      border-bottom: 1px solid #ddd; /* Borde inferior, si no está en estilos.css */
+      padding: 0.5rem 3vw;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
     }
-
     nav a {
-      /* flex: 1;  Puede ser redundante si justify-content: space-around; ya distribuye bien */
       text-align: center;
       text-decoration: none;
-      /* color: inherit; Es mejor ser explícito, usando el color de tu variable --azul-oscuro */
-      color: #004e7c; /* var(--azul-oscuro) */
-      padding: 0.4rem 0.6rem; /* Consistente con estilos.css */
-      font-weight: 700; /* Consistente con estilos.css */
-      border-radius: 4px; /* Consistente con estilos.css */
+      color: #004e7c;
+      padding: 0.4rem 0.6rem;
+      font-weight: 700;
+      border-radius: 4px;
     }
     nav a:hover {
-        background: #eaf4fb; /* var(--gris-callout) de estilos.css */
+        background: #eaf4fb;
     }
     nav a.active {
-      color: #0079b8; /* var(--azul-claro) */
-      border-bottom: 3px solid #0079b8; /* var(--azul-claro) */
-      /* El padding de 'nav a' puede necesitar ajuste si el borde se come el texto */
+      color: #0079b8;
+      border-bottom: 3px solid #0079b8;
     }
 
-    /* Sección left-aligned */
     section {
       text-align: left;
-      padding: 2rem 3vw; /* Padding consistente con otras páginas y estilos.css */
-      flex: 1; /* Permite que la sección crezca para empujar el footer hacia abajo */
+      padding: 2rem 3vw;
+      flex: 1;
     }
-    section h2 { /* Estilo para el H2 dentro de la sección */
-        color: #004e7c; /* var(--azul-oscuro) */
-        border-bottom: 2px solid #004e7c; /* var(--azul-oscuro) */
+    section h2 {
+        color: #004e7c;
+        border-bottom: 2px solid #004e7c;
         padding-bottom: 0.5rem;
         margin-top: 0;
-        margin-bottom: 1.5rem; /* Más espacio debajo de H2 antes de la tabla */
+        margin-bottom: 1.5rem;
     }
-    section h3 { /* Estilo para el H3 de descuentos */
-        color: #004e7c; /* var(--azul-oscuro) */
-        margin-top: 2rem; /* Espacio antes del título de descuentos */
-        margin-bottom: 0.5rem;
-        font-size: 1.2rem;
-    }
+    /* Eliminamos el section h3 general, ya que el contenido específico lo reemplaza */
 
-
-    /* Tabla fluida (original) */
     table {
       width: 100%;
       border-collapse: collapse;
       margin: 1rem 0;
-      background: #fff; /* Fondo blanco para la tabla */
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Sombra sutil */
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
-    th, td { /* Estilo común para celdas, si no está en estilos.css */
-        border: 1px solid #ddd; /* var(--gris-borde) */
+    th, td {
+        border: 1px solid #ddd;
         padding: 0.75rem;
         text-align: left;
-        vertical-align: top; /* Alineación vertical superior para celdas */
+        vertical-align: top;
     }
     thead th {
-      background-color: #eaf4fb; /* var(--gris-callout) */
+      background-color: #eaf4fb;
       font-weight: 700;
     }
-
-
-    /* Descuentos (original) */
-    .descuentos {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0;
-      max-width: 450px; /* Un poco más de ancho para el texto completo */
-      /* background-color: #eaf4fb; /* var(--gris-callout) - Opcional para destacar la lista */
-      /* padding: 1rem; */
-      /* border-radius: 4px; */
+    /* Estilos para la primera columna de la tabla (categorías) */
+    tbody tr td:first-child {
+        font-weight: bold;
+        color: #333;
     }
-    .descuentos li {
-      margin-bottom: 0.5rem; /* Un poco más de espacio */
-      font-size: 0.95rem;
-      line-height: 1.5; /* Mejorar legibilidad */
+    /* Estilos para las columnas de precios */
+    tbody tr td:nth-child(2),
+    tbody tr td:nth-child(3) {
+        text-align: center; /* Centrar los precios */
     }
-    .descuentos strong {
-      color: #0079b8; /* var(--azul-claro) */
-      font-weight: 700; /* Asegurar negrita */
-    }
-    .descuentos em { /* Para el tipo de estudiante */
-        font-style: normal; /* Quitar cursiva si se prefiere */
+    thead tr th:nth-child(2),
+    thead tr th:nth-child(3) {
+        text-align: center; /* Centrar cabeceras de precios */
     }
 
 
-    /* Botón de inscripción alineado a la izquierda */
+    /* Estilos para el bloque de información de descuentos para socios */
+    .info-descuentos-socios {
+      margin-top: 2rem; /* Espacio después de la tabla */
+      margin-bottom: 1.5rem; /* Espacio antes del botón */
+      padding: 1rem 1.5rem;
+      background-color: #eaf4fb; /* Un fondo sutil para destacar, como el thead */
+      border-radius: 4px;
+      border: 1px solid #cce3f2; /* Un borde un poco más visible */
+    }
+    .info-descuentos-socios > p { /* Selector para el párrafo principal */
+      margin-top: 0;
+      margin-bottom: 1rem; /* Espacio antes de la lista */
+      font-size: 1rem;
+      font-weight: 500; /* Un poco más de peso */
+    }
+    .info-descuentos-socios ul {
+      list-style: disc;
+      padding-left: 20px;
+      margin-top: 0;
+      margin-bottom: 0;
+      columns: 2; /* Distribuir en 2 columnas si hay espacio */
+      column-gap: 2rem;
+    }
+    .info-descuentos-socios li {
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .info-descuentos-socios li strong { /* Para las siglas */
+        color: #004e7c;
+        font-weight: 700;
+    }
+    /* Media query para una sola columna en pantallas pequeñas */
+    @media (max-width: 768px) {
+      .info-descuentos-socios ul {
+        columns: 1;
+      }
+    }
+
+
     .boton {
       display: inline-block;
-      margin: 1.5rem 0; /* Más margen superior */
+      margin: 1.5rem 0;
       padding: 0.75rem 1.5rem;
-      background: #004e7c; /* var(--azul-oscuro) de estilos.css */
-      color: #fff; /* Texto blanco del botón de estilos.css */
+      background: #004e7c;
+      color: #fff;
       text-decoration: none;
-      border-radius: 4px; /* Consistente con estilos.css */
-      font-weight: 700; /* o 600 como en estilos.css */
+      border-radius: 4px;
+      font-weight: 700;
     }
     .boton:hover {
-        background: #0079b8; /* var(--azul-claro) de estilos.css */
+        background: #0079b8;
     }
 
     footer {
-        /* Asumiendo que estilos.css define el footer. Si no, por ejemplo: */
-           background: #004e7c; /* var(--azul-oscuro) */
+           background: #004e7c;
            color: #fff;
-           text-align: left; /* O el que uses en estilos.css */
-           padding: 1rem 3vw; /* Consistente con estilos.css */
-           /* margin-top: 3rem; No es necesario si body es flex y section tiene flex:1 */
-           font-size: 0.9rem; /* Consistente con estilos.css */
+           text-align: left;
+           padding: 1rem 3vw;
+           font-size: 0.9rem;
     }
 
   </style>
@@ -239,37 +233,64 @@
   </nav>
 
   <section>
-    <h2>Modalidades de inscripción</h2>
+    <h2>Aranceles de Inscripción</h2>
     <table>
       <thead>
         <tr>
-          <th>Modalidad</th>
-          <th>Incluye</th>
-          <th>Tarifa (ARS)</th>
+          <th>Categoría</th>
+          <th>Inscripción Temprana<br>(Límite: 15/7)</th>
+          <th>Inscripción Tardía<br>(Límite: 30/8)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>RAFA + MAB</td>
-          <td>Charlas, materiales digitales, coffee breaks</td>
-          <td>A confirmar</td>
+          <td>Estudiantes de grado</td>
+          <td>$20000</td>
+          <td>$25000</td> <!-- VALOR MODIFICADO -->
         </tr>
         <tr>
-          <td>MAB</td>
-          <td>Charlas, materiales digitales, coffee breaks</td>
-          <td>A confirmar</td>
+          <td>Estudiantes de posgrado</td>
+          <td>$30000</td>
+          <td>$40000</td> <!-- VALOR MODIFICADO -->
+        </tr>
+        <tr>
+          <td>Docentes y/o Investigadores</td>
+          <td>$50000</td>
+          <td>$65000</td>
+        </tr>
+        <tr>
+          <td>Profesionales</td>
+          <td>$75000</td>
+          <td>$95000</td>
         </tr>
       </tbody>
     </table>
 
-    <h3>Descuentos para estudiantes e investigadores jóvenes</h3>
-
+    <div class="info-descuentos-socios">
+      <p><strong>Socios/as de las siguientes asociaciones recibirán 30% de descuento, tanto en la inscripción temprana como tardía:</strong></p>
+      <ul>
+        <li>Asociación Física Argentina (<strong>AFA</strong>)</li>
+        <li>Asociación Argentina de Investigaciones Fisicoquímicas (<strong>AAIFQ</strong>)</li>
+        <li>Asociación Química Argentina (<strong>AQA</strong>)</li>
+        <li>Sociedad Argentina de Biofísica (<strong>SAB</strong>)</li>
+        <li>Sociedad Argentina de Materiales (<strong>SAM</strong>)</li>
+        <li>Sociedad Uruguaya de Física (<strong>SUF</strong>)</li>
+        <li>Asociación Argentina de Astronomía (<strong>AAA</strong>)</li>
+        <li>Asociación Argentina de Profesores de Física (<strong>APFA</strong>)</li>
+        <li>Asociación Argentina de Matemática Aplicada, Computacional e Industrial (<strong>ASAMAC</strong>)</li>
+        <li>Sociedad Argentina de Física Médica (<strong>SAFIM</strong>)</li>
+        <li>Unión Matemática Argentina (<strong>UMA</strong>)</li>
+        <li>American Physical Society (<strong>APS</strong>)</li>
+        <li>Real Sociedad Española de Física (<strong>RSEF</strong>)</li>
+        <li>Sociedade Brasileira de Física (<strong>SBF</strong>)</li>
+      </ul>
+    </div>
 
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfptkPiLRj6tOJ3Ju7dqAdW1wZc21OtfdUDRfsTiLr0w3paww/viewform?usp=header" class="boton" target="_blank">Ir al formulario de inscripción</a>
   </section>
 
   <footer>
-    &copy; 2025 MAB VIII · La Plata
+    © 2025 MAB VIII · La Plata
   </footer>
 
 </body>
