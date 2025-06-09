@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instrucciones de Inscripción – MAB VIII</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+
+  <style>
+    /* Estilos base para el cuerpo si estilos.css no se carga o está incompleto */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f5f7fa; /* --gris-fondo */
+      color: #222; /* --texto */
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    header, nav, footer {
+      width: 100%;
+    }
+
+    header {
+      text-align: left;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      background: linear-gradient(90deg, #004e7c, #0079b8);
+      color: #fff;
+      padding-left: 3vw;
+      padding-right: 3vw;
+      display: flex;
+      flex-direction: column;
+      align-items:flex-start;
+      gap: 0.5rem;
+      position: relative;
+    }
+    header .logo {
+        height: 64px;
+        width: auto;
+        margin-bottom: 0.5rem;
+    }
+    header h1 {
+        font-size: 2rem;
+        margin:0;
+        color: #fff;
+    }
+      header p {
+        font-size:1rem;
+        margin:0.25rem 0 0;
+        color: #fff;
+    }
+
+    .language-switcher {
+      position: absolute;
+      top: 1.5rem;
+      right: 3vw;
+      font-family: 'Montserrat', sans-serif;
+      color: white;
+    }
+    .language-switcher a {
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 0.4rem;
+      font-size: 0.9em;
+      color: white;
+    }
+    .language-switcher a:first-child {
+      margin-left: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      padding: 0.5rem 3vw;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+    nav a {
+      text-align: center;
+      text-decoration: none;
+      color: #004e7c;
+      padding: 0.4rem 0.6rem;
+      font-weight: 700;
+      border-radius: 4px;
+    }
+    nav a:hover {
+        background: #eaf4fb;
+    }
+    nav a.active {
+      color: #0079b8;
+      border-bottom: 3px solid #0079b8;
+    }
+
+    section {
+      text-align: left;
+      padding: 2rem 3vw;
+      flex: 1;
+    }
+    section h2 {
+        color: #004e7c;
+        border-bottom: 2px solid #004e7c;
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* NUEVO ESTILO para subtitulos H3 */
+    section h3 {
+        color: #004e7c;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    /* NUEVO ESTILO para el bloque de información importante */
+    .info-importante {
+      margin-bottom: 2rem;
+      padding: 1rem 1.5rem;
+      background-color: #fffbe6; /* Amarillo pálido para advertencias */
+      border-radius: 4px;
+      border: 1px solid #ffe58f;
+    }
+    .info-importante p {
+        margin: 0.5rem 0;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    .info-importante strong {
+        color: #c47d00;
+    }
+    
+    /* NUEVOS ESTILOS para listas */
+    section ol {
+        list-style-type: none; /* Quitamos el número por defecto */
+        counter-reset: step-counter;
+        padding-left: 0;
+    }
+    section ol > li {
+        counter-increment: step-counter;
+        margin-bottom: 2rem;
+    }
+    section ol > li > h3::before {
+        content: counter(step-counter) ". ";
+        font-weight: 700;
+    }
+    section ul {
+        list-style: disc;
+        padding-left: 2rem;
+        margin-top: 1rem;
+    }
+    section ul li {
+        margin-bottom: 0.8rem;
+        line-height: 1.6;
+    }
+
+    footer {
+        background: #004e7c;
+        color: #fff;
+        text-align: left;
+        padding: 1rem 3vw;
+        font-size: 0.9rem;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo">
+    <h1>MAB VIII – Instrucciones de Inscripción</h1>
+    <p>Encuentro Argentino de Materia Blanda – La Plata, 18 y 19 de diciembre de 2025</p>
+    <div class="language-switcher">
+      <a href="https://mab-viii.github.io/esp/" lang="es">ESP</a> | <a href="https://mab-viii.github.io/eng/" lang="en">ENG</a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="inscripcion.html" class="active">Inscripción</a>
+    <a href="lugar.html">Lugar</a>
+    <a href="conferencistas.html">Conferencistas</a>
+    <a href="abstracts.html">Envío de trabajos</a>
+    <a href="cronograma.html">Cronograma</a>
+    <a href="comite.html">Comité</a>
+    <a href="certificados.html">Certificados</a>
+  </nav>
+
+  <section>
+    <h2>Instrucciones para la Inscripción</h2>
+
+    <div class="info-importante">
+        <p><strong>IMPORTANTE:</strong> El MAB VIII es un evento satélite de la 110º RAFA. Los participantes de la 110º RAFA están automáticamente habilitados para participar en el MAB VIII (sin realizar inscripción extra, ni pago adicional).</p>
+        <p><strong>IMPORTANTE:</strong> El envío de resúmenes al MAB VIII deberá realizarse en <a href="https://mab-viii.github.io/esp/abstracts.html">https://mab-viii.github.io/esp/abstracts.html</a> independientemente del tipo de inscripción realizada (exclusivo MAB VIII o 110º RAFA).</p>
+    </div>
+
+    <ol>
+        <li>
+            <h3>Inscripción en Intranet de la Asociación Física Argentina (AFA)</h3>
+            <ul>
+                <li>Acceda a su usuario en la página intranet de la AFA: <a href="https://intranet.fisica.org.ar/" target="_blank">https://intranet.fisica.org.ar/</a>.</li>
+                <li>Si no posee usuario, deberá registrarse en la misma página. Para esto, presionar el botón <strong>REGISTRO</strong>. El registro debe hacerse como <strong>NO SOCIO</strong>, no seleccionar ninguna Filial; se pueden tildar hasta tres Divisiones temáticas de interés pero sugerimos fuertemente tildar <strong>MATERIA BLANDA</strong>.</li>
+                <li>Realizar el proceso de inscripción dentro de la intranet de AFA presionando en el logo de MAB VIII y completando los campos correspondientes.</li>
+            </ul>
+            <p><strong>Se recomienda cumplir este primer paso durante junio.</strong></p>
+        </li>
+
+        <li>
+            <h3>Pago de Tasa de Inscripción</h3>
+            <p>Luego de realizar la inscripción a MAB VIII en la intranet de AFA, debe abonar, mediante transferencia bancaria, a la cuenta de AFA (alias <strong>AFA.FISICA.REUNIONES</strong>) la tasa que corresponda (consultar en <a href="https://mab-viii.github.io/esp/inscripcion.html">Aranceles</a>) a su categoría, descuento (si correspondiere) y fecha del pago (temprano o tardío).</p>
+            <p>Enviar el comprobante de pago y datos de facturación a través del siguiente formulario: <a href="#">[Enlace al formulario para enviar comprobante]</a>.</p>
+            <p>Miembros de asociaciones de AFA o asociaciones en convenio con AFA (ver en la <a href="https://mab-viii.github.io/esp/inscripcion.html">página de aranceles</a>) tienen un 30% de descuento. Para que el pago con este descuento sea considerado válido, el/la participante debe adjuntar la constancia de pago de la última cuota societaria a la asociación correspondiente en el mismo formulario utilizado para enviar el comprobante de pago al MAB VIII.</p>
+        </li>
+    </ol>
+
+  </section>
+
+  <footer>
+    © 2025 MAB VIII · La Plata
+  </footer>
+
+</body>
+</html>
