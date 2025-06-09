@@ -69,8 +69,8 @@
     /* Estilos para el header en esta página, asegurando que el selector de idioma funcione */
     header {
       /* Estas propiedades son ejemplos y deberían idealmente venir de estilos.css
-         pero se añaden aquí para asegurar la funcionalidad del language switcher en esta página.
-         La más importante es 'position: relative;' */
+          pero se añaden aquí para asegurar la funcionalidad del language switcher en esta página.
+          La más importante es 'position: relative;' */
       background: linear-gradient(90deg, #004e7c, #0079b8); /* Ejemplo de fondo de tu estilos.css */
       color: #fff; /* Texto blanco */
       padding: 2rem 3vw;
@@ -80,10 +80,10 @@
       position: relative; /* ¡MUY IMPORTANTE para el posicionamiento del language switcher! */
     }
 
-     header .logo {
+      header .logo {
         /* Asumiendo que estilos.css define el tamaño del logo. Si no, por ejemplo: */
-           height: 64px; /* O el valor que uses en estilos.css */
-           width: auto;
+          height: 64px; /* O el valor que uses en estilos.css */
+          width: auto;
     }
     header div.header-content { /* Contenedor para h1 y p para asegurar alineación izquierda si header es flex */
         text-align: left;
@@ -91,16 +91,16 @@
 
     header h1 {
         /* Asumiendo que estilos.css define el tamaño y margen del h1. Si no, por ejemplo: */
-           font-size: 2rem; /* O el valor que uses en estilos.css */
-           margin:0;
-           color: #fff; /* Asegurar color blanco */
+          font-size: 2rem; /* O el valor que uses en estilos.css */
+          margin:0;
+          color: #fff; /* Asegurar color blanco */
     }
 
-     header p {
+      header p {
         /* Asumiendo que estilos.css define el tamaño y margen del p. Si no, por ejemplo: */
-           font-size:1rem; /* O el valor que uses en estilos.css */
-           margin:0.25rem 0 0;
-           color: #fff; /* Asegurar color blanco */
+          font-size:1rem; /* O el valor que uses en estilos.css */
+          margin:0.25rem 0 0;
+          color: #fff; /* Asegurar color blanco */
     }
 
     section {
@@ -150,19 +150,19 @@
 
     footer {
         /* Asumiendo que estilos.css define el footer. Si no, por ejemplo: */
-           background: #004e7c; /* var(--azul-oscuro) */
-           color: #fff;
-           text-align: left; /* O el que uses en estilos.css */
-           padding: 1rem 3vw;
-           /* margin-top: 3rem; /* No es estrictamente necesario si body es flex y section tiene flex-grow */
-           font-size: 0.9rem;
+          background: #004e7c; /* var(--azul-oscuro) */
+          color: #fff;
+          text-align: left; /* O el que uses en estilos.css */
+          padding: 1rem 3vw;
+          /* margin-top: 3rem; /* No es estrictamente necesario si body es flex y section tiene flex-grow */
+          font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
   <header>
-       <img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo">
+      <img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo">
     <div class="header-content"> <h1>MAB VIII – Conferencistas Invitados</h1>
       <p>Charlas invitadas</p>
     </div>
@@ -186,23 +186,36 @@
 
     <div class="grid">
       <div class="card">
+        <h3>Marcus Muller</h3>
+        <p>GAU Göttingen<br>Alemania</p>
+      </div>
+
+      <div class="card">
+        <h3>Paula Angelomé</h3>
+        <p>CNEA<br>Argentina</p>
+      </div>
+
+      <div class="card">
+        <h3>Martin Conda-Sheridan</h3>
+        <p>UNMC<br>Estados Unidos</p>
+      </div>
+
+      <div class="card">
+        <h3>Maria Molina</h3>
+        <p>UNRC<br>Argentina</p>
+      </div>
+
+      <div class="card">
         <h3>Mateus Cardoso</h3>
-        <p>LNLS‑Sirius<br>Brasil</p>
+        <p>LNLS-Sirius<br>Brasil</p>
       </div>
 
       <div class="card">
-        <h3>Ana Beloqui</h3>
-        <p>POLYMAT (UPV/EHU)<br>España</p>
-      </div>
-
-
-
-      <div class="card">
-        <h3>Hernán Ritacco</h3>
+        <h3>Hernan Ritacco</h3>
         <p>UNS<br>Argentina</p>
       </div>
-      </div>
-  </section>
+    </div>
+    </section>
 
   <footer>
     &copy; 2025 MAB VIII · La Plata
