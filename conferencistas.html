@@ -45,24 +45,30 @@
     }
 
     /* === ESTILOS PARA LOS ENLACES DE IDIOMA (ajustados para header oscuro) === */
-    .language-switcher {
-      position: absolute;
-      top: 1.5rem;      /* Distancia desde el borde superior del header */
-      right: 3vw;       /* Distancia desde el borde derecho del header */
-      font-family: 'Montserrat', sans-serif;
-      color: white;     /* Asegura que el separador "|" sea blanco sobre fondo oscuro */
-    }
+    /* === NUEVOS ESTILOS para los enlaces de idioma === */
+    .language-switcher {
+      position: absolute;
+      top: 1.5rem;      /* Ajusta esta distancia desde el borde superior del header */
+      right: 3vw;       /* Ajusta esta distancia desde el borde derecho del header */
+      font-family: 'Montserrat', sans-serif;
+      /* Si el header tiene fondo oscuro y texto blanco, el separador "|" también debe ser blanco */
+      /* color: white; */ /* Descomenta si el separador "|" debe ser blanco */
+    }
 
-    .language-switcher a {
-      text-decoration: none;
-      font-weight: bold;
-      margin-left: 0.4rem; /* Espacio entre "ESP", "|" y "ENG" */
-      font-size: 0.9em;
-      color: white;     /* Se usa color blanco para que contraste con el header oscuro */
-    }
+    .language-switcher a {
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 0.4rem; /* Espacio entre "ESP", "|" y "ENG" */
+      font-size: 0.9em;
+      /* Color de los enlaces: si el header tiene fondo oscuro, ponlos blancos */
+      color: white; /* Color por defecto (negro). Cambia a 'white' si el fondo del header es oscuro. */
+      /* color: white; */ /* Descomenta esta línea si el fondo de tu header es oscuro */
+    }
 
-    .language-switcher a:first-child {
-      margin-left: 0; /* Sin margen a la izquierda para el primer enlace (ESP) */
+    .language-switcher a:first-child {
+      margin-left: 0;
+    }
+    /* === FIN DE NUEVOS ESTILOS === */
     }
     /* === FIN DE ESTILOS DEL SELECTOR DE IDIOMA === */
 
