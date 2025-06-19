@@ -1,199 +1,204 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MAB VIII – La Plata 2025</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAB VIII – La Plata 2025</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="estilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
 
-  <style>
-    header {
-      text-align: left;
-      padding-left: 5vw;
-      /* === AÑADIDO === */
-      position: relative; /* Necesario para posicionar elementos hijos de forma absoluta */
-      padding-top: 1rem; /* Espacio opcional para que los links no queden pegados al borde superior */
-      padding-bottom: 1rem; /* Espacio opcional */
-      /* Si tu título es muy largo, este padding-right evita que se solape con los links: */
-      /* padding-right: 120px; /* Ajusta este valor según el ancho de tus links */
-    }
+  <style>
+    header {
+      text-align: left;
+      padding-left: 5vw;
+      /* === AÑADIDO === */
+      position: relative; /* Necesario para posicionar elementos hijos de forma absoluta */
+      padding-top: 1rem; /* Espacio opcional para que los links no queden pegados al borde superior */
+      padding-bottom: 1rem; /* Espacio opcional */
+      /* Si tu título es muy largo, este padding-right evita que se solape con los links: */
+      /* padding-right: 120px; /* Ajusta este valor según el ancho de tus links */
+    }
 
-    /* Si quieres que el header tenga un fondo oscuro como en la imagen que mostraste (para que Logo_Blanco.png y texto blanco se vean): */
-    /*
-    header {
-      background-color: #004080; /* Azul oscuro de ejemplo */
-      color: white; /* Esto haría blanco el texto del h1 por defecto */
-    }
-    header div h1 { /* Si estableces color blanco en header, esto asegura que el h1 también lo sea */
-        color: white;
-    }
-    */
+    /* Si quieres que el header tenga un fondo oscuro como en la imagen que mostraste (para que Logo_Blanco.png y texto blanco se vean): */
+    /*
+    header {
+      background-color: #004080; /* Azul oscuro de ejemplo */
+      color: white; /* Esto haría blanco el texto del h1 por defecto */
+    }
+    header div h1 { /* Si estableces color blanco en header, esto asegura que el h1 también lo sea */
+        color: white;
+    }
+    */
 
-    nav {
-      display: flex;
-      justify-content: space-around;
-      padding: 0.5rem 0;
-    }
-    nav a {
-      flex: 1;
-      text-align: center;
-      text-decoration: none;
-      color: inherit;
-      padding: 0.5rem 0;
-    }
-    nav a.active {
-      color: var(--azul-claro);
-      border-bottom: 3px solid var(--azul-claro);
-    }
-    /* 5. Sección principal centrada */
-    .hero {
-      text-align: left;
-      padding: 1rem 2%;
-    }
-    .hero h2 {
-      margin-bottom: 0.5rem;
-    }
-    .hero p {
-      line-height: 1.5;
-      margin: 0;
-      width: 100%;
-      display: block;
-    }
-    /* 6. Tarjetas centradas y con flex-wrap */
-    .cards {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      padding-top: 1rem;
-    }
-    .card {
-      flex: 1 1 280px;
-      max-width: 400px;
-      background: #f9f9f9;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .card h3 {
-      margin-bottom: 0.5rem;
-    }
-    /* .fechas li { // Comentado porque estaba duplicado más abajo y este no tenía .fechas ul li
-      margin-bottom: 0.4rem;
-    }
-    .fechas strong { // Comentado porque estaba duplicado más abajo
-      font-weight: 700;
-    } */
+    nav {
+      display: flex;
+      justify-content: space-around;
+      padding: 0.5rem 0;
+    }
+    nav a {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      padding: 0.5rem 0;
+    }
+    nav a.active {
+      color: var(--azul-claro);
+      border-bottom: 3px solid var(--azul-claro);
+    }
+    /* 5. Sección principal centrada */
+    .hero {
+      text-align: left;
+      padding: 1rem 2%;
+    }
+    .hero h2 {
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      line-height: 1.5;
+      margin: 0;
+      width: 100%;
+      display: block;
+    }
+    /* 6. Tarjetas centradas y con flex-wrap */
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding-top: 1rem;
+    }
+    .card {
+      flex: 1 1 280px;
+      max-width: 400px;
+      background: #f9f9f9;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card h3 {
+      margin-bottom: 0.5rem;
+    }
+    /* .fechas li { // Comentado porque estaba duplicado más abajo y este no tenía .fechas ul li
+      margin-bottom: 0.4rem;
+    }
+    .fechas strong { // Comentado porque estaba duplicado más abajo
+      font-weight: 700;
+    } */
 
-    .fechas li{ margin-bottom:.4rem; } /* Asumo que esto es para ul.fechas li */
-    .fechas strong{ font-weight:700; }
+    .fechas li{ margin-bottom:.4rem; list-style-type: none; padding-left: 0;} /* Asumo que esto es para ul.fechas li */
+    .fechas strong{ font-weight:700; }
 
 
-    /* Asegura que el párrafo ocupe todo el ancho disponible -- MOVIDO DENTRO DE .hero p arriba */
-    /* .hero p {
-      margin: 0;
-      width: 100%;
-      display: block;
-    } */
+    /* Asegura que el párrafo ocupe todo el ancho disponible -- MOVIDO DENTRO DE .hero p arriba */
+    /* .hero p {
+      margin: 0;
+      width: 100%;
+      display: block;
+    } */
 
-    /* en tu <style> local, al final */
-    header .logo {
-      /* height: 300px;  // El estilo en línea en el HTML (200px) tomará precedencia */
-      width: auto;    /* conserva la proporción */
-      /* Nota: El HTML tiene style="height:200px;" para el logo */
-    }
+    /* en tu <style> local, al final */
+    header .logo {
+      /* height: 300px;  // El estilo en línea en el HTML (200px) tomará precedencia */
+      width: auto;    /* conserva la proporción */
+      /* Nota: El HTML tiene style="height:200px;" para el logo */
+    }
 
-    /* === NUEVOS ESTILOS para los enlaces de idioma === */
-    .language-switcher {
-      position: absolute;
-      top: 1.5rem;      /* Ajusta esta distancia desde el borde superior del header */
-      right: 3vw;       /* Ajusta esta distancia desde el borde derecho del header */
-      font-family: 'Montserrat', sans-serif;
-      /* Si el header tiene fondo oscuro y texto blanco, el separador "|" también debe ser blanco */
-      /* color: white; */ /* Descomenta si el separador "|" debe ser blanco */
-    }
+    /* === NUEVOS ESTILOS para los enlaces de idioma === */
+    .language-switcher {
+      position: absolute;
+      top: 1.5rem;      /* Ajusta esta distancia desde el borde superior del header */
+      right: 3vw;       /* Ajusta esta distancia desde el borde derecho del header */
+      font-family: 'Montserrat', sans-serif;
+      /* Si el header tiene fondo oscuro y texto blanco, el separador "|" también debe ser blanco */
+      /* color: white; */ /* Descomenta si el separador "|" debe ser blanco */
+    }
 
-    .language-switcher a {
-      text-decoration: none;
-      font-weight: bold;
-      margin-left: 0.4rem; /* Espacio entre "ESP", "|" y "ENG" */
-      font-size: 0.9em;
-      /* Color de los enlaces: si el header tiene fondo oscuro, ponlos blancos */
-      color: #000; /* Color por defecto (negro). Cambia a 'white' si el fondo del header es oscuro. */
-      /* color: white; */ /* Descomenta esta línea si el fondo de tu header es oscuro */
-    }
+    .language-switcher a {
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 0.4rem; /* Espacio entre "ESP", "|" y "ENG" */
+      font-size: 0.9em;
+      /* Color de los enlaces: si el header tiene fondo oscuro, ponlos blancos */
+      color: #000; /* Color por defecto (negro). Cambia a 'white' si el fondo del header es oscuro. */
+      /* color: white; */ /* Descomenta esta línea si el fondo de tu header es oscuro */
+    }
 
-    .language-switcher a:first-child {
-      margin-left: 0;
-    }
-    /* === FIN DE NUEVOS ESTILOS === */
+    .language-switcher a:first-child {
+      margin-left: 0;
+    }
+    /* === FIN DE NUEVOS ESTILOS === */
 
-  </style>
+  </style>
 </head>
 <body>
 
-  <header>
-    <img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo"
-         style="height:200px; width:auto;"> <div>
-      <h1>Encuentro Argentino de Materia Blanda<br>La Plata, 18 y 19 de septiembre de 2025</h1>
-    </div>
-    <div class="language-switcher">
-      <a href="https://mab-viii.github.io/esp/" lang="es">ESP</a> | <a href="https://mab-viii.github.io/eng/" lang="en">ENG</a>
-    </div>
-  </header>
+  <header>
+    <img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo"
+         style="height:200px; width:auto;"> <div>
+      <h1>Encuentro Argentino de Materia Blanda<br>La Plata, 18 y 19 de septiembre de 2025</h1>
+    </div>
+    <div class="language-switcher">
+      <a href="https://mab-viii.github.io/esp/" lang="es">ESP</a> | <a href="https://mab-viii.github.io/eng/" lang="en">ENG</a>
+    </div>
+  </header>
 
-  <nav>
-    <a href="index.html" class="active">Inicio</a>
-    <a href="inscripcion.html">Inscripción</a>
-    <a href="lugar.html">Lugar</a>
-    <a href="conferencistas.html">Conferencistas</a>
-    <a href="abstracts.html">Envío de trabajos</a>
-    <a href="cronograma.html">Cronograma</a>
-    <a href="comite.html">Comité</a>
-    <a href="certificados.html">Certificados</a>
-  </nav>
+  <nav>
+    <a href="index.html" class="active">Inicio</a>
+    <a href="inscripcion.html">Inscripción</a>
+    <a href="lugar.html">Lugar</a>
+    <a href="conferencistas.html">Conferencistas</a>
+    <a href="abstracts.html">Envío de trabajos</a>
+    <a href="cronograma.html">Cronograma</a>
+    <a href="comite.html">Comité</a>
+    <a href="certificados.html">Certificados</a>
+  </nav>
 
 <section class="hero" id="inicio">
-  <h2>Bienvenidos al MAB VIII</h2>
-  <p>
-    El Encuentro Argentino de Materia Blanda (MAB VIII) es un espacio de intercambio académico y científico dedicado a materiales blandos, física y química de sistemas complejos y nanotecnología aplicada. Esta edición se realizará en la ciudad de La Plata los días <strong>18 y 19 de septiembre de 2025</strong> <a href="https://rafa2025.fisica.org.ar/" target="_blank" rel="noopener noreferrer">como evento satélite de la 110° Reunión de la Asociación Física Argentina</a>.
-  </p>
+  <h2>Bienvenidos al MAB VIII</h2>
+  <p>
+    El Encuentro Argentino de Materia Blanda (MAB VIII) es un espacio de intercambio académico y científico dedicado a materiales blandos, física y química de sistemas complejos y nanotecnología aplicada. Esta edición se realizará en la ciudad de La Plata los días <strong>18 y 19 de septiembre de 2025</strong> <a href="https://rafa2025.fisica.org.ar/" target="_blank" rel="noopener noreferrer">como evento satélite de la 110° Reunión de la Asociación Física Argentina</a>.
+  </p>
 </section>
 
-  <section class="cards">
-    <div class="card">
-      <h3>Fechas importantes</h3>
-      <ul class="fechas"> <li><strong>Envío de abstracts:</strong> hasta 15 de julio</li>
-        <li><strong>Notificación:</strong> 15 de agosto</li>
-        <li><strong>Límite pago de inscripción:</strong> 31 de agosto</li>
+  <section class="cards">
+    <div class="card">
+      <h3>Fechas importantes</h3>
+      <ul class="fechas">
+        <li><strong>Envío de resúmenes:</strong> hasta el 15 de julio</li>
+        <li><strong>Pago de Inscripción temprana:</strong> hasta el 15 de julio</li>
+        <li><strong>Notificación de aceptación:</strong> del 1 al 8 de agosto</li>
+        <li><strong>Pago de inscripción tardía:</strong> hasta el 14 de agosto</li>
       </ul>
-    </div>
+    </div>
 
-    <div class="card">
-      <h3>Modalidades</h3>
-      <p>
-        Participá con presentaciones orales, pósters.
-      </p>
-    </div>
+    <div class="card">
+      <h3>Modalidades</h3>
+      <p>
+        Participá con presentaciones orales, pósters.
+      </p>
+    </div>
 
-    <div class="card">
-      <h3>Contacto</h3>
-      <p>mab8@inifta.unlp.edu.ar<br>
-      </p>
-    </div>
-  </section>
+    <div class="card">
+      <h3>Contacto</h3>
+      <p>mab8@inifta.unlp.edu.ar<br>
+      </p>
+    </div>
+  </section>
 
-  <footer>
-    &copy; 2025 MAB VIII · La Plata
- <a href="https://www.instagram.com/mabviii/" target="_blank">
-  <img src="Instagram_icon.png" alt="Instagram" style="height: 30px; vertical-align: middle; margin-right: 5px;">
+  <footer>
+    &copy; 2025 MAB VIII · La Plata
+ <a href="https://www.instagram.com/mabviii/" target="_blank">
+  <img src="Instagram_icon.png" alt="Instagram" style="height: 30px; vertical-align: middle; margin-right: 5px;">
+ </a>
+ <a href="https://x.com/MABVIII" target="_blank" rel="noopener noreferrer">
+  <img src="X_icon.png" alt="X" style="height: 30px; vertical-align: middle; margin-right: 5px;">
  </a>
 
- <br>
-  </footer>
+ <br>
+  </footer>
 
 </body>
 </html>
