@@ -8,206 +8,188 @@
   <link rel="stylesheet" href="estilos.css">
 
   <style>
-    /* Estilos base para el cuerpo si estilos.css no se carga o está incompleto */
-    body {
-      font-family: 'Montserrat', sans-serif;
-      /* margin: 0; Ya está en tus estilos globales de abajo */
-      background-color: #f5f7fa; /* --gris-fondo */
-      color: #222; /* --texto */
-    }
-
     html, body {
       height: 100%;
       margin: 0;
     }
 
     body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f5f7fa;
+      color: #222;
       display: flex;
       flex-direction: column;
-      /* justify-content: space-between; /* Puede causar problemas si el contenido es corto */
     }
 
-    header, nav, footer { /* section se maneja por separado */
-      width: 100%;
-      /* margin: 0; Ya está en html, body */
-      /* padding: 0; Removido, ya que header, nav, section, footer necesitan sus propios paddings */
-    }
-
-    /* Header ajustado con position: relative para el language switcher */
     header {
-      /* background:linear-gradient(90deg,var(--azul-oscuro),var(--azul-claro)); /* Asumiendo de estilos.css */
-      /* color:#fff; /* Asumiendo de estilos.css */
-      padding: 1rem 3vw; /* Padding consistente con otras páginas */
-      display:flex;
-      align-items:center;
-      gap: 1rem; /* Espacio entre logo y contenido del header */
-      position: relative; /* ¡MUY IMPORTANTE para el language switcher! */
-      /* Usando los colores de tu estilos.css como fallback si no se carga el archivo */
       background: linear-gradient(90deg, #004e7c, #0079b8);
       color: #fff;
+      padding: 2rem 3vw;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
     }
 
     header .logo {
-      height: 60px; /* Altura explícita del logo, puedes ajustarla a 64px si es el estándar */
+      height: 64px;
       width: auto;
-      /* margin-right: 1rem; /* Reemplazado por gap en el contenedor header */
     }
 
-    header div.header-text-content { /* Contenedor para h1 y p en el header */
+    header div.header-text-content {
       text-align: left;
     }
+
     header h1 {
-        font-size: 2rem; /* O el valor que uses en estilos.css */
-        margin:0;
-        color: #fff; /* Asegurar color blanco si no viene de estilos.css */
+      font-size: 2rem;
+      margin: 0;
+      color: #fff;
     }
+
     header p {
-        font-size:1rem; /* O el valor que uses en estilos.css */
-        margin:0.25rem 0 0;
-        color: #fff; /* Asegurar color blanco si no viene de estilos.css */
+      font-size: 1rem;
+      margin: 0.25rem 0 0;
+      color: #fff;
     }
 
-
-    /* === ESTILOS PARA LOS ENLACES DE IDIOMA (ajustados para header oscuro) === */
     .language-switcher {
       position: absolute;
-      top: 1.5rem;      /* Distancia desde el borde superior del header */
-      right: 3vw;       /* Distancia desde el borde derecho del header */
+      top: 1.5rem;
+      right: 3vw;
       font-family: 'Montserrat', sans-serif;
-      color: white;     /* Asegura que el separador "|" sea blanco sobre fondo oscuro */
+      color: white;
     }
 
     .language-switcher a {
       text-decoration: none;
       font-weight: bold;
-      margin-left: 0.4rem; /* Espacio entre "ESP", "|" y "ENG" */
+      margin-left: 0.4rem;
       font-size: 0.9em;
-      color: white;     /* Se usa color blanco para que contraste con el header oscuro */
+      color: white;
     }
 
     .language-switcher a:first-child {
-      margin-left: 0; /* Sin margen a la izquierda para el primer enlace (ESP) */
+      margin-left: 0;
     }
-    /* === FIN DE ESTILOS DEL SELECTOR DE IDIOMA === */
 
-    /* Estilos de Nav consistentes con otras páginas */
     nav {
       display: flex;
       justify-content: space-around;
-      padding: 0.5rem 3vw; /* Padding consistente */
-      background:#fff;
-      border-bottom:1px solid #ddd; /* var(--gris-borde) */
+      padding: 0.5rem 3vw;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
     }
 
     nav a {
-      /* flex: 1; */ /* Puede ser opcional con space-around */
       text-align: center;
       text-decoration: none;
-      /* color: inherit; Es mejor ser explícito */
-      color: #004e7c; /* var(--azul-oscuro) */
-      padding: 0.4rem 0.6rem; /* Padding consistente */
+      color: #004e7c;
+      padding: 0.4rem 0.6rem;
       font-weight: 700;
-      border-radius: 4px; /* Para el hover */
+      border-radius: 4px;
     }
 
-    nav a:hover{
-        background: #eaf4fb; /* var(--gris-callout) */
+    nav a:hover {
+      background: #eaf4fb;
     }
 
     nav a.active {
-      color: #0079b8; /* var(--azul-claro) */
-      border-bottom: 3px solid #0079b8; /* var(--azul-claro) */
+      color: #0079b8;
+      border-bottom: 3px solid #0079b8;
+    }
+
+    main {
+      flex: 1;
     }
 
     section {
-      padding: 2rem 3vw; /* Padding consistente */
+      padding: 2rem 3vw;
       text-align: left;
-      flex: 1; /* Permite que la sección principal crezca y empuje el footer */
-    }
-    section h2 { /* Estilo para el H2 dentro de la sección */
-        color: #004e7c; /* var(--azul-oscuro) */
-        border-bottom: 2px solid #004e7c; /* var(--azul-oscuro) */
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-        margin-bottom: 1rem;
     }
 
-    .mapa-container { /* Contenedor para el mapa para centrarlo si es necesario */
-        text-align: center; /* Centra el iframe si es inline-block o tiene margin auto */
-        margin: 1.5rem 0; /* Margen vertical para el mapa */
+    section h2 {
+      color: #004e7c;
+      border-bottom: 2px solid #004e7c;
+      padding-bottom: 0.5rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
     }
-    .mapa { /* iframe del mapa */
+
+    .mapa-container {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+
+    .mapa {
       width: 100%;
-      max-width: 800px; /* Ancho máximo para el mapa */
-      height: 400px; /* Altura del mapa */
-      border: 1px solid #ddd; /* Borde sutil para el mapa */
+      max-width: 800px;
+      height: 400px;
+      border: 1px solid #ddd;
       border-radius: 8px;
-      display: block; /* Para que margin: auto funcione si se usa */
-      margin: 0 auto; /* Centra el mapa si el contenedor es más ancho */
+      display: block;
+      margin: 0 auto;
     }
 
-    .listado { /* Contenedor para las columnas de hoteles/restaurantes */
+    .listado {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem; /* Espacio entre columnas */
-      margin-top: 1.5rem; /* Espacio antes de las columnas */
-      justify-content: flex-start; /* Alinea las columnas a la izquierda por defecto */
+      gap: 2rem;
+      margin-top: 1.5rem;
+      justify-content: flex-start;
     }
 
-    .columna { /* Cada columna de información */
-      flex: 1 1 300px; /* Permite que crezcan pero con base de 300px */
-      max-width: 45%; /* Evita que una sola columna ocupe todo en pantallas grandes */
-      min-width: 280px; /* Ancho mínimo para contenido */
+    .columna {
+      flex: 1 1 300px;
+      max-width: 45%;
+      min-width: 280px;
       background-color: #fff;
-      padding: 1.5rem; /* Más padding interno */
+      padding: 1.5rem;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* Sombra un poco más suave */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
     }
 
     .columna h3 {
       margin-top: 0;
-      margin-bottom: 1rem; /* Más espacio debajo del h3 */
-      color: #004e7c; /* var(--azul-oscuro) */
-      border-bottom: 1px solid #ddd; /* var(--gris-borde) */
-      padding-bottom: 0.5rem; /* Espacio para la línea */
-      font-size: 1.2rem; /* Tamaño del título de la columna */
+      margin-bottom: 1rem;
+      color: #004e7c;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.5rem;
+      font-size: 1.2rem;
     }
 
     .columna ul {
       list-style: disc;
-      padding-left: 1.5rem; /* Indentación de la lista */
+      padding-left: 1.5rem;
       margin-bottom: 0;
     }
+
     .columna ul li {
-        margin-bottom: 0.5rem; /* Espacio entre ítems de la lista */
-    }
-    .columna ul li a {
-        color: #0079b8; /* var(--azul-claro) para enlaces */
-        text-decoration: none;
-    }
-    .columna ul li a:hover {
-        text-decoration: underline;
+      margin-bottom: 0.5rem;
     }
 
-    /* Footer consistente */
+    .columna ul li a {
+      color: #0079b8;
+      text-decoration: none;
+    }
+
+    .columna ul li a:hover {
+      text-decoration: underline;
+    }
+
     footer {
-      /* background:var(--azul-oscuro); /* Asumiendo de estilos.css */
-      /* color:#fff; /* Asumiendo de estilos.css */
-      text-align:left;
-      padding:1rem 3vw; /* Padding consistente */
-      margin-top:2rem; /* Espacio antes del footer */
-      font-size:0.9rem;
-      /* Usando los colores de tu estilos.css como fallback si no se carga el archivo */
       background: #004e7c;
       color: #fff;
+      text-align: left;
+      padding: 1rem 3vw;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-
   <header>
     <img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo">
-    <div class="header-text-content"> <h1>Lugar del Encuentro</h1>
+    <div class="header-text-content">
+      <h1>Lugar del Encuentro</h1>
       <p>Edificio Sergio Karakachoff · Universidad Nacional de La Plata</p>
     </div>
     <div class="language-switcher">
@@ -218,20 +200,22 @@
   <nav>
     <a href="index.html">Inicio</a>
     <a href="inscripcion.html">Inscripción</a>
-    <a href="lugar.html" class="active">Lugar</a> <a href="conferencistas.html">Conferencistas</a>
+    <a href="lugar.html" class="active">Lugar</a>
+    <a href="conferencistas.html">Conferencistas</a>
     <a href="abstracts.html">Envío de trabajos</a>
     <a href="cronograma.html">Cronograma</a>
     <a href="comite.html">Comité</a>
     <a href="certificados.html">Certificados</a>
   </nav>
 
-  <section>
-    <h2>Ubicación</h2>
-    <p>
-      El MAB VIII se llevará a cabo en el <strong>Edificio Sergio Karakachoff</strong>,
-      Calle 48 N.º 551 (entre 6 y 7), ciudad de La Plata, Argentina.
-    </p>
-    <div class="mapa-container">
+  <main>
+    <section>
+      <h2>Ubicación</h2>
+      <p>
+        El MAB VIII se llevará a cabo en el <strong>Edificio Sergio Karakachoff</strong>,
+        Calle 48 N.º 551 (entre 6 y 7), ciudad de La Plata, Argentina.
+      </p>
+      <div class="mapa-container">
         <iframe
           class="mapa"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.687726188688!2d-57.94920008418146!3d-34.91425598038009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e610715d9967%3A0x7f87f1a1f1b73847!2sEdificio%20Sergio%20Karakachoff%20-%20UNLP!5e0!3m2!1ses-419!2sar!4v1683562001234!5m2!1ses-419!2sar"
@@ -239,36 +223,42 @@
           referrerpolicy="no-referrer-when-downgrade"
           title="Mapa de Ubicación Edificio Sergio Karakachoff">
         </iframe>
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <section>
-    <h2>Alojamiento y Gastronomía</h2>
-    <div class="listado">
-      <div class="columna">
-        <h3>Hoteles recomendados</h3>
-        <ul>
-          <li><a href="https://www.hotelgrandbrizolaplata.com/en/" target="_blank">Grand Brizo La Plata</a></li>
-          <li><a href="https://sanmarcohotel.com.ar/" target="_blank">San Marco Hotel La Plata</a></li>
-          <li><a href="https://www.hjlaplata.com.ar/en/" target="_blank">Howard Johnson La Plata</a></li>
-          <li><a href="https://www.hoteldelsol-laplata.com.ar/" target="_blank">Hotel del Sol</a></li>
-        </ul>
+    <section>
+      <h2>Alojamiento y Gastronomía</h2>
+      <div class="listado">
+        <div class="columna">
+          <h3>Hoteles recomendados</h3>
+          <ul>
+            <li><a href="https://www.hotelgrandbrizolaplata.com/en/" target="_blank">Grand Brizo La Plata</a></li>
+            <li><a href="https://sanmarcohotel.com.ar/" target="_blank">San Marco Hotel La Plata</a></li>
+            <li><a href="https://www.hjlaplata.com.ar/en/" target="_blank">Howard Johnson La Plata</a></li>
+            <li><a href="https://www.hoteldelsol-laplata.com.ar/" target="_blank">Hotel del Sol</a></li>
+          </ul>
+        </div>
+        <div class="columna">
+          <h3>Restaurantes sugeridos</h3>
+          <ul>
+            <li><a href="https://www.facebook.com/simonarestobar/" target="_blank">Simona – cerveza artesanal y tapeo</a></li>
+            <li><a href="https://www.instagram.com/losfuegosdecitybell/?hl=en" target="_blank">Los Fuegos – parrilla (City Bell)</a></li>
+            <li><a href="https://www.instagram.com/barcortezlp/?hl=en" target="_blank">Cortez – fusión argentina</a></li>
+            <li><a href="https://www.instagram.com/ninapuente/?hl=en" target="_blank">Nina – cocina contemporánea</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="columna">
-        <h3>Restaurantes sugeridos</h3>
-        <ul>
-          <li><a href="https://www.facebook.com/simonarestobar/" target="_blank">Simona – cerveza artesanal y tapeo</a></li>
-          <li><a href="https://www.instagram.com/losfuegosdecitybell/?hl=en" target="_blank">Los Fuegos – parrilla (City Bell)</a></li>
-          <li><a href="https://www.instagram.com/barcortezlp/?hl=en" target="_blank">Cortez – fusión argentina</a></li>
-          <li><a href="https://www.instagram.com/ninapuente/?hl=en" target="_blank">Nina – cocina contemporánea</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
     © 2025 MAB VIII · La Plata
+    <a href="https://www.instagram.com/mabviii/" target="_blank">
+      <img src="Instagram.png" alt="Instagram">
+    </a>
+    <a href="https://x.com/MABVIII" target="_blank" rel="noopener noreferrer">
+      <img src="Twitter.png" alt="X">
+    </a>
   </footer>
-
 </body>
 </html>
