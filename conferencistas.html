@@ -1,18 +1,73 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Conferencistas – MAB VIII</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilos.css">
+
   <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
+    html, body {
+      height: 100%;
       margin: 0;
+      font-family: 'Montserrat', sans-serif;
       background-color: #f5f7fa;
       color: #222;
     }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      padding: 0.5rem 0;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav a {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      color: #004e7c;
+      padding: 0.5rem 0;
+      font-weight: 700;
+    }
+
+    nav a.active {
+      color: #0079b8;
+      border-bottom: 3px solid #0079b8;
+    }
+
+    .language-switcher {
+      position: absolute;
+      top: 1.5rem;
+      right: 3vw;
+      font-family: 'Montserrat', sans-serif;
+      color: white;
+    }
+
+    .language-switcher a {
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 0.4rem;
+      font-size: 0.9em;
+      color: white;
+    }
+
+    .language-switcher a:first-child {
+      margin-left: 0;
+    }
+
     header {
       background: linear-gradient(90deg, #004e7c, #0079b8);
       color: #fff;
@@ -22,82 +77,65 @@
       gap: 1rem;
       position: relative;
     }
-    .logo {
+
+    header .logo {
       height: 64px;
       width: auto;
     }
-    .header-content h1 {
+
+    header h1 {
       font-size: 2rem;
       margin: 0;
     }
-    .header-content p {
-      margin: 0.25rem 0 0;
+
+    header p {
       font-size: 1rem;
+      margin: 0.25rem 0 0;
     }
-    .language-switcher {
-      position: absolute;
-      top: 1.5rem;
-      right: 3vw;
-      font-weight: bold;
-      font-size: 0.9em;
-    }
-    .language-switcher a {
-      text-decoration: none;
-      color: white;
-      margin-left: 0.4rem;
-    }
-    nav {
-      display: flex;
-      justify-content: space-around;
-      padding: 0.5rem 3vw;
-      background-color: #fff;
-      border-bottom: 1px solid #ddd;
-    }
-    nav a {
-      color: #004e7c;
-      font-weight: 700;
-      text-decoration: none;
-      padding: 0.5rem 0.25rem;
-    }
-    nav a.active {
-      color: #0079b8;
-      border-bottom: 3px solid #0079b8;
-    }
+
     section {
       padding: 2rem 3vw;
     }
+
     section h2 {
       color: #004e7c;
       border-bottom: 2px solid #004e7c;
       padding-bottom: 0.5rem;
       margin-top: 0;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
+
     .grid {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
       gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
     }
+
     .card {
       background: #fff;
       padding: 1.5rem;
       border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,.1);
       text-align: center;
       width: 240px;
     }
+
     .card h3 {
       font-size: 1.1rem;
-      margin: 0 0 0.5rem;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
       color: #004e7c;
     }
+
     .card p {
       margin: 0;
+      word-break: break-word;
       font-size: 0.9rem;
       color: #333;
-      word-break: break-word;
     }
+
     footer {
       background: #004e7c;
       color: #fff;
@@ -105,6 +143,7 @@
       padding: 1rem 3vw;
       font-size: 0.9rem;
     }
+
     footer img {
       height: 30px;
       vertical-align: middle;
@@ -113,6 +152,7 @@
   </style>
 </head>
 <body>
+
   <header>
     <img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo">
     <div class="header-content">
@@ -135,23 +175,25 @@
     <a href="certificados.html">Certificados</a>
   </nav>
 
-  <section>
-    <h2>Listado de conferencistas</h2>
-    <div class="grid">
-      <div class="card"><h3>Paula Angelome</h3><p>CNEA<br>Argentina</p></div>
-      <div class="card"><h3>Hernan Ritacco</h3><p>IFISUR-CONICET-UNS<br>Argentina</p></div>
-      <div class="card"><h3>Maria Molina</h3><p>UNRC<br>Argentina</p></div>
-      <div class="card"><h3>Juan Giussi</h3><p>YTEC<br>Argentina</p></div>
-      <div class="card"><h3>Mario Tagliazzuchi</h3><p>INQUIMAE<br>Argentina</p></div>
-      <div class="card"><h3>Veronica Marconi</h3><p>FAMAF-UNC<br>Argentina</p></div>
-      <div class="card"><h3>Mariano Correa</h3><p>IDAS-CONICET-UNRC<br>Argentina</p></div>
-      <div class="card"><h3>Galo Soler Ilia</h3><p>INS-UNSAM<br>Argentina</p></div>
-      <div class="card"><h3>Cristina Hoppe</h3><p>INTEMA<br>Argentina</p></div>
-      <div class="card"><h3>Mateus Cardoso</h3><p>LNLS-SIRIUS<br>Brasil</p></div>
-      <div class="card"><h3>Marcus Müller</h3><p>GAU Göttingen<br>Alemania</p></div>
-      <div class="card"><h3>Martin Conda-Sheridan</h3><p>UNMC<br>Estados Unidos</p></div>
-    </div>
-  </section>
+  <main>
+    <section>
+      <h2>Listado de conferencistas</h2>
+      <div class="grid">
+        <div class="card"><h3>Paula Angelome</h3><p>CNEA<br>Argentina</p></div>
+        <div class="card"><h3>Hernan Ritacco</h3><p>IFISUR-CONICET-UNS<br>Argentina</p></div>
+        <div class="card"><h3>Maria Molina</h3><p>UNRC<br>Argentina</p></div>
+        <div class="card"><h3>Juan Giussi</h3><p>YTEC<br>Argentina</p></div>
+        <div class="card"><h3>Mario Tagliazzuchi</h3><p>INQUIMAE<br>Argentina</p></div>
+        <div class="card"><h3>Veronica Marconi</h3><p>FAMAF-UNC<br>Argentina</p></div>
+        <div class="card"><h3>Mariano Correa</h3><p>IDAS-CONICET-UNRC<br>Argentina</p></div>
+        <div class="card"><h3>Galo Soler Ilia</h3><p>INS-UNSAM<br>Argentina</p></div>
+        <div class="card"><h3>Cristina Hoppe</h3><p>INTEMA<br>Argentina</p></div>
+        <div class="card"><h3>Mateus Cardoso</h3><p>LNLS-SIRIUS<br>Brasil</p></div>
+        <div class="card"><h3>Marcus Müller</h3><p>GAU Göttingen<br>Alemania</p></div>
+        <div class="card"><h3>Martin Conda-Sheridan</h3><p>UNMC<br>Estados Unidos</p></div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     &copy; 2025 MAB VIII · La Plata
@@ -162,5 +204,6 @@
       <img src="Twitter.png" alt="X">
     </a>
   </footer>
+
 </body>
 </html>
