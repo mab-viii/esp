@@ -1,208 +1,31 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Envío de Abstracts - EAMAB VIII</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="estilos.css">
-
-  <style>
-    /* Estilos base para el cuerpo si estilos.css no se carga o está incompleto */
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      background-color: #f5f7fa; /* --gris-fondo */
-      color: #222; /* --texto */
-    }
-
-    /* Estilos para la barra de navegación (nav) específica de esta página */
-    nav {
-      display: flex;
-      justify-content: space-around;
-      padding: 0.5rem 0; /* Padding vertical, horizontal se maneja en los 'a' o en el contenedor de nav */
-      background-color: #fff; /* Fondo blanco para la nav, si no está en estilos.css */
-      border-bottom: 1px solid #ddd; /* Borde inferior, si no está en estilos.css */
-    }
-
-    nav a {
-      flex: 1;
-      text-align: center;
-      text-decoration: none;
-      /* color: inherit; Es mejor ser explícito, usando el color de tu variable --azul-oscuro */
-      color: #004e7c; /* var(--azul-oscuro) */
-      padding: 0.5rem 0.25rem; /* Padding vertical y un poco horizontal para evitar que se peguen */
-      font-weight: 700; /* Consistente con estilos.css */
-    }
-
-    nav a.active {
-      color: #0079b8; /* var(--azul-claro) */
-      border-bottom: 3px solid #0079b8; /* var(--azul-claro) */
-    }
-
-    /* === ESTILOS PARA LOS ENLACES DE IDIOMA (ajustados para header oscuro) === */
-    .language-switcher {
-      position: absolute;
-      top: 1.5rem;      /* Distancia desde el borde superior del header */
-      right: 3vw;       /* Distancia desde el borde derecho del header */
-      font-family: 'Montserrat', sans-serif;
-      color: white;     /* Asegura que el separador "|" sea blanco sobre fondo oscuro */
-    }
-
-    .language-switcher a {
-      text-decoration: none;
-      font-weight: bold;
-      margin-left: 0.4rem; /* Espacio entre "ESP", "|" y "ENG" */
-      font-size: 0.9em;
-      color: white;     /* Se usa color blanco para que contraste con el header oscuro */
-    }
-
-    .language-switcher a:first-child {
-      margin-left: 0; /* Sin margen a la izquierda para el primer enlace (ESP) */
-    }
-    /* === FIN DE ESTILOS DEL SELECTOR DE IDIOMA === */
-
-    /* Estilos para el header en esta página, asegurando que el selector de idioma funcione */
-    header {
-      /* Estas propiedades son ejemplos y deberían idealmente venir de estilos.css
-         pero se añaden aquí para asegurar la funcionalidad del language switcher en esta página.
-         La más importante es 'position: relative;' */
-      background: linear-gradient(90deg, #004e7c, #0079b8); /* Ejemplo de fondo de tu estilos.css */
-      color: #fff; /* Texto blanco */
-      padding: 2rem 3vw;
-      display: flex;
-      align-items: center; /* Alinea verticalmente logo y texto */
-      gap: 1rem; /* Espacio entre logo y el bloque de texto */
-      position: relative; /* ¡MUY IMPORTANTE para el posicionamiento del language switcher! */
-    }
-
-     header .logo {
-        /* Asumiendo que estilos.css define el tamaño del logo. Si no, por ejemplo: */
-           height: 64px; /* O el valor que uses en estilos.css */
-           width: auto;
-    }
-    header div.header-content { /* Contenedor opcional para h1 y p si es necesario */
-        text-align: left;
-    }
-
-    header h1 {
-        /* Asumiendo que estilos.css define el tamaño y margen del h1. Si no, por ejemplo: */
-           font-size: 2rem; /* O el valor que uses en estilos.css */
-           margin:0;
-           color: #fff; /* Asegurar color blanco */
-    }
-
-     header p {
-        /* Asumiendo que estilos.css define el tamaño y margen del p. Si no, por ejemplo: */
-           font-size:1rem; /* O el valor que uses en estilos.css */
-           margin:0.25rem 0 0;
-           color: #fff; /* Asegurar color blanco */
-    }
-
-    section {
-        padding: 2rem 3vw; /* Consistente con tu diseño general */
-        text-align: left; /* Asegurar alineación izquierda para el contenido de la sección */
-    }
-
-    section h2 {
-        color: #004e7c; /* var(--azul-oscuro) */
-        border-bottom: 2px solid #004e7c; /* var(--azul-oscuro) */
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-        margin-bottom: 1rem; /* Espacio debajo de H2 */
-    }
-    section ul {
-        list-style: disc; /* Viñetas estándar */
-        margin-left: 20px; /* Indentación para la lista */
-        padding-left: 0; /* Evitar doble indentación */
-    }
-    section ul li {
-        margin-bottom: 0.5rem; /* Espacio entre ítems de la lista */
-    }
-    .boton { /* Estilo para el botón de envío */
-        display: inline-block;
-        margin-top: 1.5rem; /* Más espacio antes del botón */
-        margin-right: 1rem; /* Si hubiera otros botones */
-        padding: 0.75rem 1.5rem;
-        background: #004e7c; /* var(--azul-oscuro) */
-        color: #fff;
-        text-decoration: none;
-        border-radius: 4px;
-        font-weight: 600;
-    }
-    .boton:hover {
-        background: #0079b8; /* var(--azul-claro) */
-    }
-    .callout { /* Estilo para la caja de modalidades */
-        background: #eaf4fb; /* var(--gris-callout) */
-        padding:1rem;
-        border-left:4px solid #0079b8; /* var(--azul-claro) */
-        border-radius:4px;
-        margin:1rem 0; /* Margen vertical */
-    }
-    .callout p {
-        margin: 0.5rem 0; /* Espacio entre párrafos dentro del callout */
-    }
-
-    footer {
-        /* Asumiendo que estilos.css define el footer. Si no, por ejemplo: */
-           background: #004e7c; /* var(--azul-oscuro) */
-           color: #fff;
-           text-align: left; /* O el que uses en estilos.css */
-           padding: 1rem 3vw;
-           margin-top: 3rem;
-           font-size: 0.9rem;
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo">
-    <div class="header-content"> <h1>MAB VIII- Envío de Abstracts</h1>
-        <p>Fecha límite: 15 de julio de 2025</p>
-    </div>
-    <div class="language-switcher">
-      <a href="https://mab-viii.github.io/esp/" lang="es">ESP</a> | <a href="https://mab-viii.github.io/eng/" lang="en">ENG</a>
-    </div>
-  </header>
-
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="inscripcion.html">Inscripción</a>
-    <a href="lugar.html">Lugar</a>
-    <a href="conferencistas.html">Conferencistas</a>
-    <a href="abstracts.html" class="active">Envío de trabajos</a> <a href="cronograma.html">Cronograma</a>
-    <a href="comite.html">Comité</a>
-    <a href="certificados.html">Certificados</a>
-  </nav>
-
   <section>
     <h2>Instrucciones para el envío</h2>
     <ul>
-      <li>Los resumenes de trabajo se envian completando el formulario al que redirige el boton "Enviar abstract".</li>
+      <li>Los resúmenes de trabajo se envían completando el formulario al que redirige el botón "Enviar abstract".</li>
       <li>Complete el abstract respetando formato (título, autores, texto, referencias).</li>
-      <li>Suba el archivo a través del formulario de carga.</li>
       <li>Recibirá un correo de confirmación automática.</li>
-      <li> Ante cualquier duda, escribir a mab8@inifta.unlp.edu.ar.</li>
+      <li>Ante cualquier duda, escribir a mab8@inifta.unlp.edu.ar.</li>
     </ul>
+    <p style="margin-top: 1.5rem;"><strong>Recordá realizar la inscripción y enviar tu trabajo desde:</strong><br>
+      <a href="https://mab-viii.github.io/esp/instrucciones.html" target="_blank">https://mab-viii.github.io/esp/instrucciones.html</a>
+    </p>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_SilarYb7J3TZNdggXcw6COiYjxINO3rt9nk7OxBW24szkA/viewform?usp=header" class="boton" target="_blank">Enviar abstract</a>
   </section>
 
   <section>
     <h2>Modalidades de presentación</h2>
     <div class="callout">
-      <p><strong>Comunicaciones orales:</strong> 15 min exposición + 5 min preguntas.</p>
+      <p><strong>Comunicaciones orales:</strong> 10 min exposición + 5 min preguntas.</p>
       <p><strong>Pósters:</strong> Formato horizontal 70 cm x 100 cm</p>
     </div>
   </section>
 
   <footer>
     &copy; 2025 EAMAB VIII · La Plata
+    <a href="https://www.instagram.com/mabviii/" target="_blank">
+      <img src="Instagram.png" alt="Instagram" style="height: 30px; vertical-align: middle; margin-left: 10px;">
+    </a>
+    <a href="https://x.com/MABVIII" target="_blank" rel="noopener noreferrer">
+      <img src="Twitter.png" alt="X" style="height: 30px; vertical-align: middle; margin-left: 10px;">
+    </a>
   </footer>
-
-</body>
-</html>
