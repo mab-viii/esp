@@ -60,7 +60,7 @@
 
     .hero {
       text-align: left;
-      padding: 1rem 5vw;
+      padding: 2rem 5vw; /* Aumentamos el padding para más espacio */
     }
 
     .hero h2 {
@@ -72,64 +72,53 @@
       margin: 0;
       text-align: justify;
     }
-
-    .cards {
+    
+    .logos-section {
+      text-align: center;
+      padding: 2rem 5vw;
+      background-color: #f0f0f0;
+    }
+    .logos-section h3 {
+      color: #004080;
+      margin-bottom: 1.5rem;
+    }
+    .instituciones, .auspiciantes {
       display: flex;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 1.5rem;
-      padding: 2rem 5vw;
+      gap: 2.5rem; /* Espacio entre logos */
+      margin-bottom: 2rem;
     }
-
-    .card {
-      flex: 1 1 280px;
-      max-width: 400px;
-      background: #f9f9f9;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
+    .logos-section img {
+      max-height: 70px; /* Altura máxima para los logos */
+      max-width: 160px; /* Ancho máximo */
+      height: auto;
+      width: auto;
     }
-
-    .card h3 {
-      margin-bottom: 0.5rem;
-      color: #004080;
-      text-align: center;
-    }
-
-    .card p,
-    .card ul {
-      text-align: justify;
-    }
-
-    .fechas {
-      list-style: none;
-      padding: 0;
-      margin-left: 1rem;
-    }
-
-    .fechas li {
-      margin-bottom: 0.4rem;
-    }
-
-    .fechas strong {
-      font-weight: 700;
-    }
-
+    
     footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
       text-align: center;
-      padding: 1rem;
+      padding: 1.5rem 5vw;
       font-size: 0.9em;
       color: #555;
+      border-top: 1px solid #e0e0e0;
     }
 
-    footer img {
+    .footer-contact, .footer-info, .footer-social {
+      flex: 1 1 200px; /* Alineación flexible en tres columnas */
+      padding: 0 1rem;
+    }
+
+    .footer-social img {
       height: 30px;
       vertical-align: middle;
-      margin-right: 5px;
+      margin: 0 5px;
     }
   </style>
 </head>
@@ -163,39 +152,39 @@
     </p>
   </section>
 
-  <section class="cards">
-    <div class="card">
-      <h3>Fechas importantes</h3>
-      <ul class="fechas">
-        <li><strong>Envío de resúmenes:</strong> hasta el 30 de julio</li>
-        <li><strong>Pago de inscripción temprana:</strong> hasta el 15 de julio</li>
-        <li><strong>Notificación de aceptación:</strong> del 1 al 8 de agosto</li>
-        <li><strong>Pago de inscripción tardía:</strong> hasta el 14 de agosto</li>
-      </ul>
+  <section class="logos-section">
+    <div class="instituciones">
+      <h3>Instituciones</h3>
+      <img src="AFA.png" alt="Logo AFA">
+      <img src="UNLP_BN.png" alt="Logo UNLP">
+      <img src="RAFA_horizontal.png" alt="Logo RAFA 2025">
     </div>
-    <div class="card">
-      <h3>Modalidades</h3>
-      <p>
-        Participá con presentaciones orales y pósters.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Contacto</h3>
-      <p>
-        mab8@inifta.unlp.edu.ar<br>
-        La Plata, Argentina
-      </p>
+    <div class="auspiciantes">
+      <h3>Auspiciantes</h3>
+      <img src="isologo 1_adox.png" alt="Logo Adox">
+      <img src="gihon con bajada con slogan.png" alt="Logo Gihon">
+      <img src="LOGO Y-TEC_JPG.png" alt="Logo Y-TEC">
+      <img src="logo2_no_bg.png" alt="Logo AL-CHEM-IA">
     </div>
   </section>
 
   <footer>
-    &copy; 2025 MAB VIII · La Plata
-    <a href="https://www.instagram.com/mabviii/" target="_blank">
-      <img src="Instagram.png" alt="Instagram">
-    </a>
-    <a href="https://x.com/MABVIII" target="_blank" rel="noopener noreferrer">
-      <img src="Twitter.png" alt="X">
-    </a>
+    <div class="footer-contact">
+      <strong>Contacto</strong><br>
+      mab8@inifta.unlp.edu.ar<br>
+      La Plata, Argentina
+    </div>
+    <div class="footer-info">
+      &copy; 2025 MAB VIII · La Plata
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/mabviii/" target="_blank">
+        <img src="Instagram.png" alt="Instagram">
+      </a>
+      <a href="https://x.com/MABVIII" target="_blank" rel="noopener noreferrer">
+        <img src="Twitter.png" alt="X">
+      </a>
+    </div>
   </footer>
 
 </body>
