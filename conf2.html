@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conferencistas – MAB VIII</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css"><!-- tu hoja base -->
+  <style>
+    :root{
+      --brand-1:#004e7c; --brand-2:#0079b8; --text:#222; --muted:#666; --card:#fff; --bg:#f5f7fa;
+      --shadow:0 2px 6px rgba(0,0,0,.1);
+      --radius:12px;
+    }
+    html,body{height:100%;margin:0;font-family:Montserrat,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    body{display:flex;flex-direction:column}
+    main{flex:1}
+    header{background:linear-gradient(90deg,var(--brand-1),var(--brand-2));color:#fff;padding:2rem 3vw;display:flex;align-items:center;gap:1rem;position:relative}
+    header .logo{height:64px;width:auto}
+    header h1{font-size:2rem;margin:0}
+    header p{margin:.25rem 0 0}
+    .language-switcher{position:absolute;top:1.5rem;right:3vw;color:#fff}
+    .language-switcher a{color:#fff;text-decoration:none;font-weight:700;margin-left:.4rem}
+    nav{display:flex;justify-content:space-around;padding:.5rem 0;background:#fff;border-bottom:1px solid #ddd}
+    nav a{flex:1;text-align:center;text-decoration:none;color:var(--brand-1);padding:.5rem 0;font-weight:700}
+    nav a.active{color:var(--brand-2);border-bottom:3px solid var(--brand-2)}
+    section{padding:2rem 3vw}
+    section h2{color:var(--brand-1);border-bottom:2px solid var(--brand-1);padding-bottom:.5rem;margin:0 0 1rem}
+    /* Grid de tarjetas */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1.25rem}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:1rem;text-align:center}
+    .card button{all:unset;display:flex;flex-direction:column;align-items:center;gap:.5rem;cursor:pointer;width:100%}
+    .card button:focus-visible{outline:3px solid var(--brand-2);outline-offset:4px;border-radius:10px}
+    .avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;background:#eee}
+    .card h3{font-size:1.05rem;margin:.25rem 0 0;color:var(--brand-1);text-wrap:balance}
+    .card p{margin:0;color:var(--muted);font-size:.9rem}
+    /* Modal accesible */
+    .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;padding:1rem}
+    .backdrop.show{display:flex}
+    .dialog{background:#fff;width:min(900px,95vw);max-height:90vh;overflow:auto;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.25);transform:translateY(10px) scale(.98);opacity:0;transition:.18s ease}
+    .backdrop.show .dialog{transform:none;opacity:1}
+    .dialog header{background:linear-gradient(90deg,var(--brand-1),var(--brand-2));color:#fff;padding:1rem 1.25rem;border-top-left-radius:16px;border-top-right-radius:16px;display:flex;align-items:center;gap:.75rem}
+    .dialog header img{width:56px;height:56px;border-radius:50%;object-fit:cover;background:#eee}
+    .dialog header h3{margin:0;font-size:1.25rem}
+    .dialog header .subtitle{margin:0;font-size:.9rem;opacity:.9}
+    .dialog .body{display:grid;grid-template-columns:160px 1fr;gap:1rem;padding:1rem}
+    .dialog .body .portrait{width:160px;height:160px;border-radius:12px;object-fit:cover;background:#eee}
+    .dialog .body h4{margin:0 0 .25rem;color:var(--brand-1)}
+    .dialog .body p{margin:.25rem 0 1rem;line-height:1.5}
+    .dialog .actions{display:flex;justify-content:flex-end;gap:.5rem;padding:0 1rem 1rem}
+    .btn{border:none;border-radius:10px;padding:.6rem 1rem;cursor:pointer;font-weight:700}
+    .btn-primary{background:var(--brand-2);color:#fff}
+    .btn-ghost{background:#f1f5f9}
+    @media (max-width:700px){
+      .dialog .body{grid-template-columns:1fr}
+      .dialog header img{display:none}
+    }
+    footer{background:var(--brand-1);color:#fff;text-align:left;padding:1rem 3vw;font-size:.9rem}
+    footer img{height:30px;vertical-align:middle;margin-left:10px}
+  </style>
+</head>
+<body>
+  <header>
+    <img src="Logo_Blanco.png" alt="MAB VIII" class="logo" />
+    <div class="header-content">
+      <h1>MAB VIII – Conferencistas Invitados</h1>
+      <p>Charlas invitadas</p>
+    </div>
+    <div class="language-switcher">
+      <a href="https://mab-viii.github.io/esp/" lang="es">ESP</a> | <a href="https://mab-viii.github.io/eng/" lang="en">ENG</a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="inscripcion.html">Inscripción</a>
+    <a href="lugar.html">Lugar</a>
+    <a href="conferencistas.html" class="active">Conferencistas</a>
+    <a href="abstracts.html">Envío de trabajos</a>
+    <a href="cronograma.html">Cronograma</a>
+    <a href="comite.html">Comité</a>
+    <a href="certificados.html">Certificados</a>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Listado de conferencistas</h2>
+      <div id="grid" class="grid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <!-- Modal accesible -->
+  <div id="backdrop" class="backdrop" role="presentation" hidden>
+    <div id="dialog" class="dialog" role="dialog" aria-modal="true" aria-labelledby="dlg-title" aria-describedby="dlg-desc" tabindex="-1">
+      <header>
+        <img id="dlg-headshot" src="" alt="" />
+        <div>
+          <h3 id="dlg-title"></h3>
+          <p class="subtitle" id="dlg-affil"></p>
+        </div>
+      </header>
+      <div class="body">
+        <img id="dlg-photo" class="portrait" src="" alt="">
+        <div>
+          <h4>Título de la charla</h4>
+          <p id="dlg-talk"></p>
+          <h4>Resumen</h4>
+          <p id="dlg-abs" ></p>
+          <h4>Bio</h4>
+          <p id="dlg-bio" ></p>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-ghost" id="closeBtn">Cerrar (Esc)</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 MAB VIII · La Plata
+    <a href="https://www.instagram.com/mabviii/" target="_blank" rel="noopener"><img src="Instagram.png" alt="Instagram"></a>
+    <a href="https://x.com/MABVIII" target="_blank" rel="noopener"><img src="Twitter.png" alt="X"></a>
+  </footer>
+
+  <script>
+  // === Datos centralizados ===
+  // Nota: los 'photo' usan exactamente los nombres de tu carpeta Drive (ajusta la ruta si es necesario).
+  const speakers = [
+    {
+      id:"Paula Angelome",
+      name:"Paula Angelomé",
+      affil:"CNEA – INN (CONICET), Argentina",
+      photo:"Paula Angelome.jpg",
+      talk:"Alternativas novedosas para la síntesis química de nanopartículas metálicas soportadas y en suspensión",
+      abs:`Oro y plata con control fino de tamaño/morfología para sensado, catálisis y biomédica; casos del grupo: Au en geles inorgánicos, Ag en geles PVP/PVA (gamma) y reciclado de descartes para Au anisotrópico con propiedades ópticas controladas.`, // filecite
+      bio:`Doctora en Química Inorgánica (UBA), Investigadora Principal CONICET en CNEA/INN; >70 publicaciones, premios Estímulo ANCEFN (2019) y L’Oréal-UNESCO (2024).` // filecite
+    },
+    {
+      id:"Hernan Ritacco",
+      name:"Hernán A. Ritacco",
+      affil:"IFISUR-CONICET & Univ. Nac. del Sur, Argentina",
+      photo:"Hernan Ritacco.jpg",
+      talk:"Física en un vaso de cerveza revisitada: espumas como paradigma de la Materia Blanda",
+      abs:`Panorama de física de espumas: interfaces, autoensamblado, polímeros, no-equilibrio y caos; agentes químicos nano-diseñados para estabilización; principios y estrategias experimentales.`, // filecite
+      bio:`Dr. en Física (Paris-Saclay) y Dr. en Ingeniería (UBA). Postdoc ESA (experimentos para ISS). Creador y director del Lab. de Materia Blanda en UNS; Investigador Principal CONICET y Profesor Titular.` // filecite
+    },
+    {
+      id:"Veronica Marconi",
+      name:"Verónica I. Marconi",
+      affil:"FaMAF-UNC & IFEG-CONICET, Argentina",
+      photo:"Veronica Marconi.jpg",
+      talk:"Suelos en un chip: biotecnología en miniatura para investigar bioinsumos de un campo sustentable",
+      abs:`Microfluídica que imita suelos limosos/arenosos para estudiar motilidad de Bradyrhizobium diazoefficiens; medición y modelado de confinamiento y cambios de dirección; aplicaciones a bioinsumos.`, // filecite
+      bio:`Doctora en Física, Investigadora Independiente CONICET, más de 25 años de docencia e investigación en materia blanda/activa y microfluídica, premios JJ Giambiagi (2003) y Young Researcher (2014).` // filecite
+    },
+    {
+      id:"Juan Giussi",
+      name:"Juan M. Giussi",
+      affil:"Grupo de Polímeros, Y-TEC, Argentina",
+      photo:"Juan Giussi.jpg",
+      talk:"Diseño y síntesis de materiales poliméricos para transición energética y sustentabilidad",
+      abs:`Binders y electrolitos poliméricos para baterías; materiales híbridos polímero-MOF (PolyMOF) para captura selectiva en corrientes líquidas y gaseosas.`, // filecite
+      bio:"" // filecite
+    },
+    {
+      id:"Mario Tagliazucchi",
+      name:"Mario Tagliazucchi",
+      affil:"INQUIMAE-UBA & CONICET, Argentina",
+      photo:"Mario Tagliazucchi.jpg",
+      talk:"Los supercristales de nanopartículas como materiales blandos",
+      abs:`Fase y estabilidad de supercristales (incl. binarios tipo MgZn2, NaCl, Cu3Au) mediante teoría molecular/dinámica; rol de ligandos y solvente residual en la “blandura” del sistema.`, // filecite
+      bio:`Lic. y Dr. en Química (UBA); postdoc Northwestern; Investigador CONICET; >90 publicaciones; premios Estímulo ANCEFN, Ranwel Caputto y beca AvHumboldt.` // filecite
+    },
+    {
+      id:"Galo Soler Ilia",
+      name:"Galo Soler Illia",
+      affil:"INS-UNSAM, Argentina",
+      photo:"Galo Soler Ilia.jpg",
+      talk:"Creando materia animada a partir de sólidos inanimados",
+      abs:`Arquitecturas híbridas orgánico-inorgánicas con jerarquía/funcionalidad posicional que exhiben respuestas autónomas: catalizadores, cascadas enzimáticas, membranas permeoselectivas, etc.`, // filecite
+      bio:`Investigador Superior CONICET, fundador/director del INS-UNSAM; >200 artículos, 5 patentes; premios Bunge y Born 2022, Konex de Platino 2013, entre otros.` // filecite
+    },
+    {
+      id:"Cristina Hoppe",
+      name:"Cristina E. Hoppe",
+      affil:"INTEMA (CONICET/UNMdP), Argentina",
+      photo:"Cristina Hoppe.jpg",
+      talk:"Hidrogeles de PVP por técnicas no convencionales: diseño, fabricación y aplicaciones",
+      abs:`Toros hidrogel a partir de vórtices anulares (y técnicas electrohidrodinámicas); crio-estructuración y fototermia para anisotropía; aplicaciones como microreactores, actuadores y constructos 3D.`, // filecite
+      bio:`Doctora en Ciencia de Materiales (UNMdP), Investigadora Principal CONICET; trabaja en materiales poliméricos/nanoestructurados y vitrímeros; proyectos nacionales e internacionales.` // filecite
+    },
+    {
+      id:"Marcus Mueller",
+      name:"Marcus Müller",
+      affil:"University of Göttingen, Germany",
+      photo:"Marcus Mueller.jpg",
+      talk:"From Hemifusion to Fission: Computational Insights into Membrane Remodeling",
+      abs:`Poro en diafragmas de hemifusión (dinámica y estabilidad) y rutas de fisión; SCFT + simulaciones; proteínas tipo PH reducen barreras energéticas vía splay y deformaciones w-shape.`, // filecite
+      bio:"" // filecite
+    },
+    {
+      id:"Martin Conda Sheridan",
+      name:"Martin Conda-Sheridan",
+      affil:"University of Nebraska Medical Center, USA",
+      photo:"Martin Conda Sheridan.jpg",
+      talk:"Aplicaciones biomédicas de péptidos anfifílicos",
+      abs:`Autoensamblado, formación de hidrogeles como matrices celulares y agentes antimicrobianos; encapsulación de fármacos; evaluación de toxicidad y desempeño in vivo.`, // filecite
+      bio:`Químico argentino; PhD en Purdue; posdoc en Northwestern (grupo Stupp); >50 publicaciones; PI en Nebraska; premios NSF CAREER (2020) y AvHumboldt (2025).` // filecite
+    },
+    {
+      id:"N Mariano Correa",
+      name:"N. Mariano Correa",
+      affil:"UNRC & IDAS-CONICET, Argentina",
+      photo:"N Mariano Correa.jpg",
+      talk:"Sistemas supramoleculares basados en surfactantes: nanomedicina y catálisis",
+      abs:`Vesículas y micelas inversas (incl. tensioactivos derivados de ILs) como nanotransportadores y nanoreactores bajo condiciones suaves/sostenibles; terapias (5-FU, insulina) y química verde.`, // filecite
+      bio:"" // filecite
+    },
+    {
+      id:"Mateus Cardoso",
+      name:"Mateus Borba Cardoso",
+      affil:"LNLS-SIRIUS, CNPEM, Brasil",
+      photo:"Mateus Cardoso.jpg",
+      talk:"Nano–Bio Interface Unveiled by Synchrotron-Based Techniques",
+      abs:`Nano-CT, SAXS, XPCS y técnicas multimodales para transformaciones fisicoquímicas y dinámica de nanopartículas en entornos biológicos reales.`, // filecite
+      bio:`Jefe de División Soft & Biological Matter (LNLS-SIRIUS); desarrolla metodologías sincrotrón para estudiar la interfaz nano-bio (FTIR nano, CDI, XPCS, CD, cryo-soft-XRT).` // filecite
+    }
+  ];
+
+  // === Render de tarjetas ===
+  const grid = document.getElementById('grid');
+  speakers.forEach(sp => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <button type="button" aria-haspopup="dialog" aria-controls="dialog" data-id="${sp.id}">
+        <img class="avatar" src="${sp.photo}" alt="Foto de ${sp.name}" loading="lazy">
+        <h3>${sp.name}</h3>
+        <p>${sp.affil}</p>
+      </button>`;
+    grid.appendChild(card);
+  });
+
+  // === Lógica de modal accesible ===
+  const backdrop = document.getElementById('backdrop');
+  const dialog = document.getElementById('dialog');
+  const closeBtn = document.getElementById('closeBtn');
+  let lastTrigger = null;
+
+  function openModal(sp){
+    document.getElementById('dlg-title').textContent = sp.name;
+    document.getElementById('dlg-affil').textContent = sp.affil;
+    document.getElementById('dlg-talk').textContent = sp.talk || "—";
+    document.getElementById('dlg-abs').textContent = sp.abs || "—";
+    document.getElementById('dlg-bio').textContent = sp.bio || "—";
+    const head = document.getElementById('dlg-headshot');
+    const big = document.getElementById('dlg-photo');
+    head.src = sp.photo; head.alt = `Foto de ${sp.name}`;
+    big.src = sp.photo; big.alt = `Retrato de ${sp.name}`;
+    backdrop.hidden = false;
+    backdrop.classList.add('show');
+    // Focus trap básico
+    dialog.focus();
+    closeBtn.focus();
+  }
+  function closeModal(){
+    backdrop.classList.remove('show');
+    backdrop.hidden = true;
+    if(lastTrigger) lastTrigger.focus();
+  }
+
+  grid.addEventListener('click', e=>{
+    const btn = e.target.closest('button[data-id]');
+    if(!btn) return;
+    const id = btn.getAttribute('data-id');
+    const sp = speakers.find(s=>s.id===id);
+    lastTrigger = btn;
+    if(sp) openModal(sp);
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', e=>{ if(e.target===backdrop) closeModal(); });
+  document.addEventListener('keydown', e=>{
+    if(e.key==='Escape' && !backdrop.hidden) closeModal();
+  });
+  </script>
+</body>
+</html>
