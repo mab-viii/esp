@@ -1,209 +1,304 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Conferencistas – MAB VIII</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="estilos.css">
-
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #f5f7fa;
-      color: #222;
+    :root{
+      --brand-1:#004e7c; --brand-2:#0079b8; --text:#222; --muted:#666; --card:#fff; --bg:#f5f7fa;
+      --shadow:0 2px 6px rgba(0,0,0,.1); --radius:12px;
     }
-
-    body {
-      display: flex;
-      flex-direction: column;
-    }
-
-    main {
-      flex: 1;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-around;
-      padding: 0.5rem 0;
-      background-color: #fff;
-      border-bottom: 1px solid #ddd;
-    }
-
-    nav a {
-      flex: 1;
-      text-align: center;
-      text-decoration: none;
-      color: #004e7c;
-      padding: 0.5rem 0;
-      font-weight: 700;
-    }
-
-    nav a.active {
-      color: #0079b8;
-      border-bottom: 3px solid #0079b8;
-    }
-
-    .language-switcher {
-      position: absolute;
-      top: 1.5rem;
-      right: 3vw;
-      font-family: 'Montserrat', sans-serif;
-      color: white;
-    }
-
-    .language-switcher a {
-      text-decoration: none;
-      font-weight: bold;
-      margin-left: 0.4rem;
-      font-size: 0.9em;
-      color: white;
-    }
-
-    .language-switcher a:first-child {
-      margin-left: 0;
-    }
-
-    header {
-      background: linear-gradient(90deg, #004e7c, #0079b8);
-      color: #fff;
-      padding: 2rem 3vw;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      position: relative;
-    }
-
-    header .logo {
-      height: 64px;
-      width: auto;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      margin: 0;
-    }
-
-    header p {
-      font-size: 1rem;
-      margin: 0.25rem 0 0;
-    }
-
-    section {
-      padding: 2rem 3vw;
-    }
-
-    section h2 {
-      color: #004e7c;
-      border-bottom: 2px solid #004e7c;
-      padding-bottom: 0.5rem;
-      margin-top: 0;
-      margin-bottom: 1rem;
-    }
-
-    .grid {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-
-    .card {
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,.1);
-      text-align: center;
-      width: 240px;
-    }
-
-    .card h3 {
-      font-size: 1.1rem;
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      color: #004e7c;
-    }
-
-    .card p {
-      margin: 0;
-      word-break: break-word;
-      font-size: 0.9rem;
-      color: #333;
-    }
-
-    footer {
-      background: #004e7c;
-      color: #fff;
-      text-align: left;
-      padding: 1rem 3vw;
-      font-size: 0.9rem;
-    }
-
-    footer img {
-      height: 30px;
-      vertical-align: middle;
-      margin-left: 10px;
-    }
+    html,body{height:100%;margin:0;font-family:Montserrat,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    body{display:flex;flex-direction:column} main{flex:1}
+    header{background:linear-gradient(90deg,var(--brand-1),var(--brand-2));color:#fff;padding:2rem 3vw;display:flex;align-items:center;gap:1rem;position:relative}
+    header .logo{height:64px;width:auto} header h1{margin:0;font-size:2rem} header p{margin:.25rem 0 0}
+    .language-switcher{position:absolute;top:1.5rem;right:3vw}
+    .language-switcher a{color:#fff;text-decoration:none;font-weight:700;margin-left:.4rem}
+    nav{display:flex;justify-content:space-around;padding:.5rem 0;background:#fff;border-bottom:1px solid #ddd}
+    nav a{flex:1;text-align:center;text-decoration:none;color:var(--brand-1);padding:.5rem 0;font-weight:700}
+    nav a.active{color:var(--brand-2);border-bottom:3px solid var(--brand-2)}
+    section{padding:2rem 3vw}
+    section h2{color:var(--brand-1);border-bottom:2px solid var(--brand-1);padding-bottom:.5rem;margin:0 0 1rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1.25rem}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:1rem;text-align:center}
+    .card button{all:unset;display:flex;flex-direction:column;align-items:center;gap:.5rem;cursor:pointer;width:100%}
+    .card button:focus-visible{outline:3px solid var(--brand-2);outline-offset:4px;border-radius:10px}
+    .avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;background:#eee}
+    .card h3{font-size:1.05rem;margin:.25rem 0 0;color:var(--brand-1);text-wrap:balance}
+    .card p{margin:0;color:var(--muted);font-size:.9rem}
+    .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:1rem}
+    .backdrop.show{display:flex}
+    .dialog{background:#fff;width:min(1000px,95vw);max-height:90vh;overflow:auto;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.25);transform:translateY(10px) scale(.98);opacity:0;transition:.18s ease}
+    .backdrop.show .dialog{transform:none;opacity:1}
+    .dialog header{background:linear-gradient(90deg,var(--brand-1),var(--brand-2));color:#fff;padding:1rem 1.25rem;border-top-left-radius:16px;border-top-right-radius:16px;display:flex;align-items:center;gap:.75rem}
+    .dialog header img{width:56px;height:56px;border-radius:50%;object-fit:cover;background:#eee}
+    .dialog header h3{margin:0;font-size:1.25rem}
+    .dialog header .subtitle{margin:0;font-size:.9rem;opacity:.9}
+    .dialog .body{display:grid;grid-template-columns:220px 1fr;gap:1rem;padding:1rem}
+    .dialog .body .portrait{width:220px;height:220px;border-radius:12px;object-fit:cover;background:#eee}
+    .dialog .body h4{margin:0 0 .25rem;color:var(--brand-1)}
+    .dialog .body p{margin:.25rem 0 1rem;line-height:1.55;white-space:pre-line}
+    .dialog .actions{display:flex;justify-content:flex-end;gap:.5rem;padding:0 1rem 1rem}
+    .btn{border:none;border-radius:10px;padding:.6rem 1rem;cursor:pointer;font-weight:700}
+    .btn-primary{background:var(--brand-2);color:#fff} .btn-ghost{background:#f1f5f9}
+    @media (max-width:800px){.dialog .body{grid-template-columns:1fr}.dialog header img{display:none}}
+    footer{background:var(--brand-1);color:#fff;text-align:left;padding:1rem 3vw;font-size:.9rem}
+    footer img{height:30px;vertical-align:middle;margin-left:10px}
   </style>
 </head>
 <body>
-
   <header>
-    <img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo">
-    <div class="header-content">
-      <h1>MAB VIII – Conferencistas Invitados</h1>
-      <p>Charlas invitadas</p>
-    </div>
-    <div class="language-switcher">
-      <a href="https://mab-viii.github.io/esp/" lang="es">ESP</a> | <a href="https://mab-viii.github.io/eng/" lang="en">ENG</a>
-    </div>
+    <img src="Logo_Blanco.png" alt="MAB VIII" class="logo" />
+    <div><h1>MAB VIII – Conferencistas Invitados</h1><p>Charlas invitadas</p></div>
+    <div class="language-switcher"><a href="https://mab-viii.github.io/esp/" lang="es">ESP</a> | <a href="https://mab-viii.github.io/eng/" lang="en">ENG</a></div>
   </header>
 
   <nav>
-    <a href="index.html">Inicio</a>
-    <a href="inscripcion.html">Inscripción</a>
-    <a href="lugar.html">Lugar</a>
-    <a href="conferencistas.html" class="active">Conferencistas</a>
-    <a href="abstracts.html">Envío de trabajos</a>
-    <a href="cronograma.html">Cronograma</a>
-    <a href="comite.html">Comité</a>
-    <a href="certificados.html">Certificados</a>
+    <a href="index.html">Inicio</a><a href="inscripcion.html">Inscripción</a><a href="lugar.html">Lugar</a>
+    <a href="conferencistas.html" class="active">Conferencistas</a><a href="abstracts.html">Envío de trabajos</a>
+    <a href="cronograma.html">Cronograma</a><a href="comite.html">Comité</a><a href="certificados.html">Certificados</a>
   </nav>
 
   <main>
     <section>
       <h2>Listado de conferencistas</h2>
-      <div class="grid">
-        <div class="card"><h3>Paula Angelome</h3><p>CNEA<br>Argentina</p></div>
-        <div class="card"><h3>Hernan Ritacco</h3><p>IFISUR-CONICET-UNS<br>Argentina</p></div>
-        <div class="card"><h3>Maria Molina</h3><p>UNRC<br>Argentina</p></div>
-        <div class="card"><h3>Juan Giussi</h3><p>YTEC<br>Argentina</p></div>
-        <div class="card"><h3>Mario Tagliazzuchi</h3><p>INQUIMAE<br>Argentina</p></div>
-        <div class="card"><h3>Veronica Marconi</h3><p>FAMAF-UNC<br>Argentina</p></div>
-        <div class="card"><h3>Mariano Correa</h3><p>IDAS-CONICET-UNRC<br>Argentina</p></div>
-        <div class="card"><h3>Galo Soler Ilia</h3><p>INS-UNSAM<br>Argentina</p></div>
-        <div class="card"><h3>Cristina Hoppe</h3><p>INTEMA<br>Argentina</p></div>
-        <div class="card"><h3>Mateus Cardoso</h3><p>LNLS-SIRIUS<br>Brasil</p></div>
-        <div class="card"><h3>Marcus Müller</h3><p>GAU Göttingen<br>Alemania</p></div>
-        <div class="card"><h3>Martin Conda-Sheridan</h3><p>UNMC<br>Estados Unidos</p></div>
-      </div>
+      <div id="grid" class="grid" aria-live="polite"></div>
     </section>
   </main>
 
+  <div id="backdrop" class="backdrop" role="presentation" hidden>
+    <div id="dialog" class="dialog" role="dialog" aria-modal="true" aria-labelledby="dlg-title" aria-describedby="dlg-desc" tabindex="-1">
+      <header>
+        <img id="dlg-headshot" src="" alt="" />
+        <div>
+          <h3 id="dlg-title"></h3>
+          <p class="subtitle" id="dlg-affil"></p>
+        </div>
+      </header>
+      <div class="body">
+        <img id="dlg-photo" class="portrait" src="" alt="">
+        <div>
+          <h4>Título de la charla</h4>
+          <p id="dlg-talk"></p>
+          <h4>Resumen</h4>
+          <p id="dlg-abs"></p>
+          <h4>Bio</h4>
+          <p id="dlg-bio"></p>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-ghost" id="closeBtn">Cerrar (Esc)</button>
+      </div>
+    </div>
+  </div>
+
   <footer>
     &copy; 2025 MAB VIII · La Plata
-    <a href="https://www.instagram.com/mabviii/" target="_blank">
-      <img src="Instagram.png" alt="Instagram">
-    </a>
-    <a href="https://x.com/MABVIII" target="_blank" rel="noopener noreferrer">
-      <img src="Twitter.png" alt="X">
-    </a>
+    <a href="https://www.instagram.com/mabviii/" target="_blank" rel="noopener"><img src="Instagram.png" alt="Instagram"></a>
+    <a href="https://x.com/MABVIII" target="_blank" rel="noopener"><img src="Twitter.png" alt="X"></a>
   </footer>
 
+  <script>
+  // ======= DATOS (completos) =======
+  const speakers = [
+    {
+      id:"Paula Angelome",
+      name:"Paula C. Angelomé",
+      affil:"INN CNEA-CONICET, San Martín, Argentina",
+      photo:"img/Paula Angelome.jpg",
+      talk:"Alternativas novedosas para la síntesis química de nanopartículas metálicas soportadas y en suspensión",
+      abs:`Las nanopartículas (NPs) de oro y plata combinan las propiedades derivadas de su alta superficie expuesta con propiedades ópticas diferenciales, debidas a la aparición de resonancias plasmónicas localizadas en la región visible del espectro electromagnético. Como consecuencia de estas características, se las estudia extensivamente para comprender sus características y su potencialidad en áreas tan diversas como sensado, catálisis o aplicaciones biomédicas. 
+Actualmente existen una gran cantidad de métodos de síntesis reportados para obtener este tipo de NPs. Los métodos de síntesis química se destacan porque ofrecen la posibilidad de controlar muy cuidadosamente las propiedades finales del material y, por ende, sus aplicaciones. Estos métodos permiten, a la vez, obtener cantidades apreciables de material en una amplia variedad de medios.
+En esta charla, se presentarán algunas alternativas desarrolladas recientemente en nuestro grupo para obtener nanopartículas de oro y plata en diferentes soportes y con diferentes características finales.
+En primer lugar, se presentará la síntesis de NPs de oro encapsuladas en geles inorgánicos basados en óxidos de aluminio. Luego, se mostrará la combinación de NPs de plata con geles poliméricos (basados en PVP y PVA) entrecruzados mediante radiación gamma, para aplicación en apósitos. Finalmente, se presentará el desarrollo de un método de reciclado de residuos que permite obtener partículas esféricas y anisotrópicas de oro, con propiedades ópticas altamente controladas, a partir de descartes de laboratorio.
+En todos los casos se hará especial énfasis en el efecto de las condiciones de síntesis seleccionadas sobre las propiedades finales de las NPs obtenidas.
+
+Referencias:
+- G. Segovia, C. Huck-Iriart, V. Oestreicher, P. C. Angelomé. ChemNanoMat 2024, 10, e202400195
+- V. Oestreicher, C. S. García, G. Soler-Illia, P. C. Angelomé. ChemSusChem, 2019, 12, 4882 – 4888`,
+      bio:`Paula Angelomé se recibió en 2003 de Licenciada en Ciencias Químicas y en 2008 de Doctora en el área Química Inorgánica, en ambos casos en la FCEN - UBA. Entre 2008 y 2012 realizó una estadía posdoctoral en la Universidad de Vigo, España. Desde 2012 se desempeña como Investigadora de CONICET en la Gerencia Química y el INN CNEA-CONICET; desde 2024 es Investigadora Principal. 
+Su área de trabajo es química de nanomateriales, específicamente se dedica al diseño, síntesis y caracterización de películas delgadas de óxidos, nanopartículas metálicas y materiales compuestos que contengan a ambos.
+Ha dirigido numerosos proyectos de investigación nacionales e internacionales, cinco tesis de doctorado, dos tesis de maestría y varios trabajos de fin de carrera. Ha publicado más de 70 trabajos científicos en revistas de su especialidad. En 2019 recibió el Premio Estímulo en el área Química, otorgado por la Academia Nacional de Ciencias Exactas, Físicas y Naturales y en 2024 el Premio Nacional L’Oreal UNESCO Por las Mujeres en la Ciencia.`
+    },
+    {
+      id:"Hernan Ritacco",
+      name:"Hernán A. Ritacco",
+      affil:"IFISUR-CONICET & UNS, Bahía Blanca, Argentina",
+      photo:"img/Hernan Ritacco.jpg",
+      talk:"Física en un vaso de cerveza revisitada: Espumas como paradigma de la Materia Blanda. (De la nanotecnología y los materiales inteligentes al caos)",
+      abs:`Las espumas líquidas, como la que se forma en un vaso de cerveza, son materiales prototípicos de un área de la física: la Física de la Materia Blanda. Las espumas son sistemas organizados jerárquicamente que involucran todas las escalas espaciales y temporales, desde el nanómetro de una película líquida hasta los metros de altura que puede alcanzar una espuma en la industria, y desde los microsegundos que dura el proceso de ruptura de una burbuja, hasta los meses e incluso años que pueden permanecer estables ciertas espumas. Debido a esto, la física de espumas abarca casi todos los tópicos de la física de la materia blanda: la física de coloides y las interfaces fluidas, la física de fluidos complejos y la termodinámica fuera del equilibrio. Siendo las espumas sistemas metaestables, es necesario estabilizarlas usando agentes químicos que otorgan a las interfaces líquido-aire (burbujas) ciertas propiedades que estabilizan el sistema. Estos agentes químicos pueden ser sistemas nano-diseñados mediante autoensamblado de, por ejemplo, polímeros, surfactantes, nanopartículas de diversos orígenes y química, e incluso células vivas o esporas. Aquí, las espumas tocan otros tres tópicos típicos de la física de la materia blanda: el autoensamblado, la física de polímeros y la nanotecnología, así como los materiales "inteligentes". Por último, al ser sistemas fuera del equilibrio que evolucionan continuamente (en este sentido, ni siquiera son sistemas realmente metaestables), presentan muchas veces dinámicas no lineales, lo cual conduce a veces al "caos" y a la criticalidad autoorganizada, otros dos temas de la Física de la Materia Blanda.
+En esta charla, exploraremos a “vuelo de pájaro” todos los aspectos de la física de espumas, daremos los principios básicos sobre los que se fundamenta la física de espumas (y de sistemas dispersos en general), así como ejemplos de las estrategias experimentales que utilizamos para estudiarlas. Mi objetivo es estimular el interés de estudiantes e investigadores en estos sistemas prototípicos de la Materia Blanda.`,
+      bio:`El profesor Ritacco estudió Química e Ingeniería Química en la Universidad de Buenos Aires (UBA). Es doctor en Física por la Universidad de Paris-Saclay (2003) y doctor en Ingeniería por la UBA (2004). De 2004 a 2006 realizó estudios postdoctorales con un contrato de la Agencia Espacial Europea (ESA), con sede en París y bajo la dirección de Dominique Langevin (Premio L'Oréal-UNESCO Women in Science 2005, Legión de Honor, Medalla Overbeek, Medalla de Plata del CNRS). En ese periodo trabajó en física de espumas, contribuyendo al diseño de experimentos para la Estación Espacial Internacional (ISS). Al finalizar sus estudios postdoctorales obtuvo un contrato Ramón y Cajal para trabajar en la Universidad Complutense de Madrid en física de coloides e interfaces fluidas. Entre los años 2006 y 2011 fue profesor del Departamento de Química Física I de la Facultad de Ciencias Químicas de la UCM. En 2011 regresó a la Argentina, ingresando a CONICET con lugar de trabajo en la Universidad Nacional del Sur, donde creó el Laboratorio de Física de la Materia Blanda, del cual es director. Hoy es Investigador Principal de CONICET y Profesor Titular en el Departamento de Física de dicha universidad. Imparte las asignaturas Termodinámica y Física de la Materia Blanda, ambas de la carrera de grado en Física de la UNS, así como varios cursos de posgrado en su área de trabajo. En la formación de recursos humanos, ha dirigido unas 20 tesis de grado en Francia, España y Argentina, ha dirigido 7 tesis doctorales en España y Argentina y a varios estudiantes postdoctorales. Actualmente es director de 3 tesis doctorales, un estudiante postdoctoral y un investigador asistente de CONICET.`
+    },
+    {
+      id:"Veronica Marconi",
+      name:"Verónica I. Marconi",
+      affil:"FaMAF-UNC & IFEG-CONICET, Córdoba, Argentina",
+      photo:"img/Veronica Marconi.jpg",
+      talk:"Suelos en un chip: biotecnología en miniatura para investigar bioinsumos de un campo sustentable",
+      abs:`Bradyrhizobium diazoefficiens es una bacteria de suelo, fijadora de nitrógeno en simbiosis con la soja, maní y legumbres en general. Es usada en todo el mundo como biofertilizante hace décadas, pero aún dista de reemplazar a los fertilizantes químicos. Para mejorar su eficiencia o modo de inoculación, hay mucho por investigar actualmente. Esta bacteria posee dos sistemas flagelares, a diferencia de la gran mayoría de bacterias, que le permiten nadar en los poros saturados de agua de los suelos. La comunidad se pregunta por qué estas bacterias desarrollaron ambos sistemas. Su motilidad en poros del suelo, lo cual puede ser crucial para llegar eficientemente a las raíces y nodular, es muy difícil de observar y de predecir. Para contribuir a estos temas abiertos, fabricamos con el grupo de la Dra. M.L. Cordero de la Univ. de Chile, dispositivos microfluídicos en miniatura, con redes de microcanales que rodean granos, e imitan suelos de nuestra región, limosos y arenosos. En ellos, visualizamos el comportamiento directo de estas diminutas bacterias, en geometrías transparentes, que se asemejan a suelos minimalistas (suelos en un chip, SOCs). Medimos las velocidades poblacionales con muy buena estadística y sus cambios de dirección, en dos cepas: la salvaje con ambos sistemas flagelares y la mutante que carece de los flagelos laterales y posee sólo un flagelo subpolar. Un análisis muy detallado revela que ambas cepas reducen su velocidad y aumentan los cambios de dirección de 180º en canales que van disminuyendo su sección transversal a unas pocas micras de ancho. Es muy destacable que la cepa salvaje, que es más veloz en espacios amplios, deja de serlo en canales ultrafinos de los SOCs. Usando los parámetros medidos, propusimos un modelo realista para simular la dinámica confinada de la B. diazoefficiens, el cual además de reproducir los experimentos, permite predicciones a tiempos largos y macro escalas de aplicaciones agronómicas. Este trabajo multidisciplinario entre grupos de la UNLP, UCH y UNC combinó diseño, microfabricación, microbiología y modelado. Estos "Suelos en un chip" desarrollados, son un paso inicial y se visualizan como una herramienta muy útil para estudiar y mejorar bioinsumos de todo tipo, además de buenas bacterias usadas como biofertilizantes para un campo sustentable.
+
+Referencias:
+1) Monteiro, M.P., Carrillo-Mora, J.P., Gutiérrez, N. et al. Soil-mimicking microfluidic devices reveal restricted flagellar motility of Bradyrhizobium diazoefficiens under microconfinement. Commun Biol 8, 662 (2025). https://doi.org/10.1038/s42003-025-07811-8
+2) Preventing clustering of active particles in microchannels Juan Pablo Carrillo-Mora, Moniellen Pires Monteiro, V.I. Marconi, Maria Luisa Cordero, Ricardo Brito, Rodrigo Soto https://doi.org/10.48550/arXiv.2505.12067`,
+      bio:`Verónica I. Marconi es Doctora en Física, Investigadora Independiente del CONICET y Profesora Asociada en la Facultad de Matemática, Astronomía, Física y Computación (FaMAF) de la Universidad Nacional de Córdoba, donde trabaja desde 2007. Obtuvo tu PhD en el Instituto Balseiro en 2002. Trabajó en Europa de 2002 a 2007 (ICTP-Trieste, Italia; Universidad de Neuchâtel, Suiza; y Univ. Complutense de Madrid). Posee más de 25 años de experiencia docente, con gran experiencia en Física Computacional. Se especializa en teoría y simulaciones de materia activa, materia blanda, materia condensada y aplicaciones biotecnológicas.
+Sus líneas de investigación iniciaron en superconductividad y Redes de Junturas Josephson, incluyen la dinámica de sistemas complejos y se centran hoy en temas multidisciplinarios y aplicaciones de la materia blanda y activa. Estudia geles y sistemas biológicos, como micronadadores (espermatozoides, bacterias), microfluídica y el diseño de nadadores artificiales, o micro- y nano-rectificadores, entre otros laboratorios en un chip para las ciencias de la vida como por ejemplo la medicina reproductiva.
+Ha sido reconocida con prestigiosos galardones, como el Premio "J.J. Giambiagi" a la mejor tesis doctoral en física teórica en 2003 y el "Young Researcher Award in Micro and Nanomachines" en 2014. También es inventora de una patente internacional en España: memorias magnéticas nanoestructuradas. Sus publicaciones han recibido más de 600 citas. Ha sido invitada a dar charlas, como "Microswimmers and microfluidics: applications from health and environment to agriculture" , y "Suelos en un chip: biotecnología en miniatura para investigar bioinsumos de un campo sustentable”.`
+    },
+    {
+      id:"Martin Conda Sheridan",
+      name:"Martin Conda-Sheridan",
+      affil:"University of Nebraska Medical Center, USA",
+      photo:"img/Martin Conda Sheridan.jpg",
+      talk:"Aplicaciones Biomédicas de Péptidos Anfifílicos",
+      abs:`Lograr un control preciso de nanoestructuras a nivel atómico, molecular y supramolecular es especial para el Desarrollo biomédico de tales moléculas. Una clase de compuestos con interesantes propiedades biológicas son los péptidos anfifilicos (PAs): péptidos de secuencia discreta que poseen una cadena alifática. Estas moléculas pueden autoensamblarse en nanoestructuras de diversas morfologías, tamaño, y propiedades biológicas. En esta charla voy a discutir dos aplicaciones de las nanoestructuras formadas por péptidos anfifilicos. La primera parte discutirá el efecto que la estabilidad y estructura molecular tienen en el autoensamblado. también discutiré su habilidad de formar hidrogeles y el use de los mismos como matrices para crecimiento de células humanas. La segunda parte de la charla demostrara el potencial que los PAs como agentes antimicrobianos incluyendo su habilidad de encapsular drogas que poseen un espectro de actividad discreto. Mostrare estudios que evalúan la toxicidad de los sistemas compuestos por PAs y dogas y su potencial en un modelo in vivo.`,
+      bio:`Martin Conda-Sheridan nació en Buenos Aires, Argentina (cerca de la cancha del más grande). Por 2 años estudio ingeniería química en la UTN antes de irse a estudiar a USA. Recibió su Bachiller de Ciencia en Química en la Universidad de Brigham Young (Utah, USA). Después se graduó con un Masters en Química de Organometálicos en la Universidad de Utah (USA). Se doctoro en Química Medicinal y Farmacología Molecular en la Universidad Purdue en Indiana, en el laboratorio de Mark Cushman. Realizo estudios de postdoctorado en el área de Ciencias de Materiales en la Universidad Northwestern en el grupo de Sam Stupp. En el 2015, empezó su Carrera Independiente en el Centro Médico de la Universidad de Nebraska. Su grupo de investigación trabaja en las áreas de química medicinal y ciencia de los materiales con el objetivo de desarrollar tratamientos contra enfermedades infecciosas y cáncer. En el 2025, realizo un sabático en el Instituto Max Planck de Coloides e Interfases en el grupo de Peter Seeberger.
+Martin y su grupo han publicado más de 50 papers en revistas internacionales con referato, 2 capítulos, y ha coeditado con el Dr. Azzaroni el libro: Supramolecular Nanotechnology: Advanced Design of Self-Assembled Functional Materials. Martin ha recibido algunos premios incluyendo: el premio al Nuevo Investigador del Centro Médico de la Universidad de Nebraska (2016); una beca Milstein del CONICET (2018); el CAREER award de la Fundación Nacional de Ciencia de USA (2020). También fue elegido como disertante en los simposios de nuevos investigadores por las divisiones de Química Orgánica (2020) y Química Medicinal (2024) de la Asociación Química Americana. Además, ha recibido un Research Scholar Grant de la Asociación Americana del Cáncer (2025); Y una beca para Investigadores Experimentados de la Fundación Alexander von Humboldt (2025).`
+    },
+    {
+      id:"Cristina Hoppe",
+      name:"Cristina E. Hoppe",
+      affil:"INTEMA (CONICET/UNMdP), Mar del Plata, Argentina",
+      photo:"img/Cristina Hoppe.jpg",
+      talk:"Diseño, Fabricación y Aplicaciones de Hidrogeles de Poli(Vinilpirrolidona) Obtenidos a Partir de Técnicas de Procesamiento No Convencionales",
+      abs:`La posibilidad de fabricar hidrogeles con arquitecturas, tamaños y geometrías variables resulta fundamental para alcanzar aplicaciones sofisticadas tales como las requeridas en sistemas adaptativos, robótica blanda, microfluídica y envases inteligentes. Como estrategias emergentes para alcanzar esta meta hemos propuesto la obtención controlada de macro, micro y nanogeles mediante procedimientos de goteo bajo formación de vórtices toroidales (combinados o no con técnicas electrohidrodinámicas)1 y la generación de anisotropía estructural en películas o andamiajes 3D mediante técnicas de crio estructuración y polimerización fototérmica.2 En esta presentación se describirán brevemente estas técnicas, aplicadas a la generación de hidrogeles funcionales de poli(vinilpirrolidona), PVP, y se detallarán algunos de los resultados obtenidos en la fabricación de estructuras toroidales y objetos de geometría no convencional. Se comentará, de forma general, el fundamento de formación de estructuras toroidales a partir de la aparición de vórtices y la posibilidad de gelación de las estructuras líquidas resultantes por entrecruzamiento rápido de la PVP, a partir de reacciones de formación de radicales libres aplicadas in-situ. Se describirán las principales variables que controlan la forma y tamaño de los objetos obtenidos, así como su grado de entrecruzamiento y capacidad de hinchamiento. Por último, se mencionarán y presentarán algunas pruebas de concepto de las potenciales aplicaciones de estos sistemas como reactores para reacciones químicas localizadas, cavidades, actuadores blandos y constructos 3D.
+
+Referencias:
+1- S. López, I. Cuellar-Berrio, A. C. Scanone, M. G. Bellino, C. L. A. Berli, M. E. Furno, S. Radicci, G. Rivero, C. E. Hoppe, Poly(vinylpyrrolidone) (PVP) hydrogel toroidal particles derived from vortex rings and their use as customized wells and ring-shaped reactors, manuscrito en preparación.
+2- A.C. Scanone, M.E. Pérez, P.A. Vallina, E.N. Durantini, G.F. Arenas, C.E. Hoppe, Soft Hydrogels Obtained by Photothermal Curing of Poly(Vinylpyrrolidone)/Gold Nanoparticles Dispersions Showing Anisotropic Swelling and Photo-Activated Antimicrobial Properties, Eur. Polym. J. 2024, 220, 113491.`,
+      bio:`Cristina Hoppe es Lic. en Química y doctora en Ciencia de Materiales por la Universidad Nacional de Mar del Plata (UNMdP). Entre 2004 y 2007 realizó su postdoctorado en el grupo de Magnetismo y Nanotecnología de la Universidad de Santiago de Compostela (USC), España y desde 2008 trabaja en la división Polímeros Nanoestructurados del Instituto de Investigaciones en Ciencia y Tecnología de Materiales (INTEMA), actualmente como Investigadora Principal del CONICET y Profesora adjunta en el departamento de Química de la Facultad de Ingeniería de la UNMdP. 
+Sus líneas de trabajo están relacionadas con el diseño, síntesis y propiedades de materiales funcionales basados en sistemas nanoestructurados y redes poliméricas entrecruzadas y autorreparables. Actualmente está involucrada en varios proyectos en el campo de materiales poliméricos y nanomateriales, incluyendo un proyecto internacional de movilidad en vitrímeros y un proyecto FITBA para el desarrollo de refrigerantes para el transporte seguro de vacunas.`
+    },
+    {
+      id:"Juan Giussi",
+      name:"Juan M. Giussi",
+      affil:"Grupo de Polímeros, Y-TEC, Argentina",
+      photo:"img/Juan Giussi.jpg",
+      talk:"Diseño y Síntesis de Materiales Poliméricos con aplicación en Transición Energética y Sustentabilidad",
+      abs:`La innovación, el capital y las regulaciones ambientales están impulsando una rápida evolución en los modelos de negocio asociados a la transición energética. La descarbonización se ha convertido en una prioridad estratégica para muchas empresas, especialmente aquellas que buscan mantenerse competitivas en un mercado global en transformación. Algunas estimaciones proyectan que, para 2040, las energías renovables representarán aproximadamente el 47 % de la generación de electricidad a nivel mundial, y se espera que para 2050 dominen el panorama energético.
+Estos desafíos exigen el desarrollo de soluciones que optimicen el uso de recursos y minimicen el impacto ambiental. En este contexto, los polímeros juegan un rol clave en diversos procesos vinculados a la transición energética y a las Nuevas Energías. El diseño de materiales poliméricos a medida, con altas prestaciones y costos competitivos, no solo acompaña esta transición, sino que puede fortalecerla y acelerarla.
+En esta presentación se abordarán desarrollos recientes en polímeros funcionales con aplicaciones en baterías y en sistemas de captura selectiva en corrientes líquidas y gaseosas, que estamos llevando adelante en el grupo. En particular, se discutirán avances en binders y en electrolitos poliméricos para baterías, así como el diseño de materiales híbridos basados en Polímeros y MOF (PolyMOF) orientados a la captura selectiva de compuestos específicos de interés en la industria Energética.`,
+      bio:""
+    },
+    {
+      id:"Mario Tagliazucchi",
+      name:"Mario Tagliazucchi",
+      affil:"INQUIMAE-UBA & CONICET, Argentina",
+      photo:"img/Mario Tagliazucchi.jpg",
+      talk:"Los supercristales de nanopartículas como materiales blandos",
+      abs:`Los supercristales de nanopartículas (NPSL, pos sus siglas en inglés) son arreglos tridimensionales ordenados (es decir, cristales) de nanopartículas. Podemos pensar estos materiales como los equivalentes nanoscópicos de los sólidos cristalinos atómicos, en los que cada posición de la red cristalina está ocupada por una nanopartícula en lugar de por un ion o un átomo. Sin embargo, el comportamiento de fase de los NPSLs es muy diferente al observado en escalas más pequeñas (cristales atómicos) o más grandes (cristales coloidales de partículas micrométricas). Los NPSL binarios, es decir, supercristales formados por partículas de dos tamaños diferentes, son especialmente interesantes debido a su intrincado comportamiento de fase, que incluye estructuras supercristalinas equivalentes a sólidos iónicos (como MgZn2 y NaCl) y aleaciones intermetálicas (Cu3Au, Na13Zn, Li3Bi, etc.). El comportamiento de los NPSLs se debe a su naturaleza “blanda”: los ligandos orgánicos de la superficie de las nanopartículas estabilizan ciertas fases cristalinas sobre otras. En esta charla, presentaré nuestros esfuerzos para comprender el comportamiento de fase de los NPSLs utilizando una herramienta de termodinámica estadística para el modelado de materiales blandos conocida como teoría molecular, la cual describe explícitamente los ligandos orgánicos en las superficies de las nanopartículas, así como las moléculas de solvente residuales en los huecos del supercristal. Se discutirán las comparaciones entre nuestras predicciones teóricas, simulaciones de dinámica molecular y observaciones experimentales.`,
+      bio:`Mario Tagliazucchi es Licenciado (2004) y Doctor (2009) en Química de la Facultad de Ciencias Exactas y Naturales de la Universidad de Buenos Aires (FCEN-UBA) y ha realizado trabajo postdoctoral en la Universidad de Northwestern (Chicago, EE. UU.). Actualmente es Profesor Adjunto de la FCEN-UBA e Investigador independiente del CONICET. Su grupo de investigación estudia materiales blandos con un enfoque químico-físico. Entre sus líneas de trabajo actuales se encuentran el estudio de estructuras autoensambladas de surfactantes y sus aplicaciones, la formación de supercristales de nanopartículas y el empleo de polímeros en aplicaciones de almacenamiento de energía. Estudia estos sistemas combinando métodos teóricos basados en mecánica estadística y técnicas experimentales de caracterización físico-química. Ha publicado más de 90 trabajos en revistas de referato internacional y editado un libro. Se ha desempeñado como par consultor para organismos nacionales e internacionales, como evaluador para numerosas revistas internacionales y como co-coordinador de evaluación de proyectos de la Agencia. Recibió el premio Estímulo de la Academia Nacional de Ciencias Exactas, Físicas y Naturales en el área Química, el premio Ranwel Caputto de la Academia Nacional de Ciencias y la beca Alexander von Humboldt para investigadores establecidos.`
+    },
+    {
+      id:"Galo Soler Ilia",
+      name:"Galo Soler Illia",
+      affil:"INS-UNSAM, San Martín, Argentina",
+      photo:"img/Galo Soler Ilia.jpg",
+      talk:"Creando materia animada a partir de sólidos inanimados",
+      abs:`Muchos procesos biológicos como la transducción de bioenergía, la translocación de moléculas o la señalización son eficientes gracias a estructuras jerárquicas, en las que la posición de bloques de construcción biomoleculares es esencial para su funcionalidad. En los últimos años se han desarrollado arquitecturas híbridas orgánico-inorgánicas que permiten la creación de nanosistemas jerárquicos con propiedades adaptables y comportamiento autónomo, aprovechando procesos superficiales, confinamiento y reacciones ortogonales. Esto permite diseñar materia con un comportamiento "vivo" emergente, derivado de la dinámica de las interacciones entre las funciones en su entorno en presencia de solicitudes externas.
+Presentaremos ejemplos de nanosistemas híbridos que demuestran cómo el control de la funcionalidad posicional y las interacciones en la nanoescala llevan a obtener sistemas que responden a estímulos externos con aplicaciones en catalizadores, cascadas enzimáticas, nanopartículas activables a distancia, membranas permeoselectivas o materia inanimada que tome decisiones.`,
+      bio:`Galo Soler Illia es licenciado y doctor en química por la Facultad de Ciencias Exactas y Naturales de la Universidad de Buenos Aires (UBA). Es Investigador Superior del CONICET en el INS-UNSAM, instituto que fundó y dirige desde 2015. Es Profesor Titular en UNSAM y en UBA. Se dedica al diseño de nanosistemas con arquitecturas inteligentes y propiedades a medida, utilizando métodos químicos inspirados en la Naturaleza. Su especialidad es la síntesis de materiales nanoporosos con aplicaciones en salud, ambiente y energías renovables. 
+Su producción científica comprende más de 200 artículos en revistas científicas internacionales y libros, y cinco patentes. Dirige o dirigió 23 tesis doctorales, más de 25 postdocs y 10 investigadores de CONICET. Coordinó numerosos proyectos nacionales e internacionales, en conjunto con instituciones y empresas. Además, contribuyó a divulgar la ciencia con tres libros y participaciones en programas de radio y en la Televisión Pública. Cofundó la empresa de base tecnológica Hybridon, dedicada a la producción de nanomateriales para aplicaciones industriales.
+Fue distinguido con los premios Houssay (2006 y 2009), Deulofeu (2006), Ranwell Caputo (2011), Jares (2012), Giordano (2013), Konex de Platino (2013), Gran Premio INNOVAR (2016) y Bunge y Born 2022, en el área Nanotecnología. Ha sido galardonado con un doctorado Honoris Causa de la Universidad Nacional de San Luis.
+Es Dr. Honoris Causa de la UNSL, Socio Honorario del Centro Argentino de Ingenieros y Fellow de la International Sol-Gel Society, de la cual es vicepresidente. Es Miembro Titular y Vicepresidente de la ANCEFN, y miembro de la ANC y ACAL.`
+    },
+    {
+      id:"Marcus Mueller",
+      name:"Marcus Müller",
+      affil:"University of Göttingen, Germany",
+      photo:"img/Marcus Mueller.jpg",
+      talk:"From Hemifusion to Fission: Computational Insights into Membrane Remodeling",
+      abs:`Membrane remodeling processes -- including pore formation, fusion, and fission -- are fundamental to cellular compartmentalization and biological functions such as synaptic transmission. At the presynaptic active zone, small synaptic vesicles undergo SNARE-mediated fusion (exocytosis) to release neurotransmitters, followed by membrane retrieval via endocytosis (fission).
+First, we investigate the dynamics and stability of pores in hemifusion diaphragms (HDs) [1], which act as key intermediates during membrane fusion. By combining particle-based simulations, self-consistent field theory (SCFT), and phenomenological modeling, we identify key factors governing pore formation and stability. Pores preferentially nucleate at the HD rim, and their stability is controlled by a combination of line tensions, membrane tension, HD size, and lipid flip-flop dynamics.
+Second, we examine membrane fission -- the scission of a highly constricted membrane neck driven by curvature stress. Using SCFT calculations, we systematically explore different fission pathways [2,3] and study how different protein–membrane interactions modulate the fission barrier. While the overall fission mechanism remains unaltered, protein-membrane interactions -- such as steric constriction, head-group adhesion, and leaflet splay -- significantly lower the free-energy cost of fission. Notably, proteins mimicking pleckstrin homology (PH) domains of dynamin induce local membrane splay and w-shaped deformations that promote hemifusion and facilitate fission.
+Together, these findings offer mechanistic insight into how cells regulate membrane remodeling through both physical parameters and protein-membrane interaction.
+ 
+[1] Transient pores in hemifusion diaphragms, R.K.W. Spencer, Y.G. Smirnova, A. Soleimani, and M. Müller, Biophys. J. 123, 2455 (2024)
+[2] Membrane fission via transmembrane contact, R.K.W. Spencer, I. Santos-Perez, I. Rodriguez-Renovales, J.M. Martinez Galvez, A.V. Shnyrova, and M. Müller, Nat. Commun. 15, 2793 (2024)
+[3] Fission of double-membrane tubes under tension, R.K.W. Spencer, I. Santos-Perez, A.V. Shnyrova, and M. Müller, Biophys. J. 123, 3977 (2024)`,
+      bio:""
+    },
+    {
+      id:"N Mariano Correa",
+      name:"N. Mariano Correa",
+      affil:"UNRC & IDAS-CONICET, Río Cuarto, Argentina",
+      photo:"img/N Mariano Correa.jpg",
+      talk:"Sistemas Supramoleculares Basados en Surfactantes: Nuevos Horizontes en Nanomedicina y Catálisis",
+      abs:`Los sistemas supramoleculares autoorganizados constituyen una herramienta clave en el diseño de plataformas funcionales para aplicaciones en ciencia y tecnología. Dentro de ellos, los surfactantes, tanto tradicionales como aquellos derivados de líquidos iónicos (ILs), han posibilitado el desarrollo de arquitecturas complejas como micelas inversas (MIs) y vesículas, capaces de emular ambientes biomiméticos o confinados a escala nanométrica. [1]
+Las vesículas, estructuras esféricas formadas por la autoorganización de moléculas anfifílicas, permiten encapsular compuestos hidrofílicos y lipofílicos simultáneamente, gracias a su estructura de bicapa. Esta propiedad las convierte en plataformas ideales para aplicaciones terapéuticas, como la administración oral de insulina o la vehiculización de agentes quimioterapéuticos como el 5-Fluorouracilo (5-FU), incrementando su estabilidad y biodisponibilidad. [2], [3]
+En esta conferencia, presentaré nuestros avances más recientes sobre el uso de surfactantes convencionales y los dervidados de liquidos iónicos en la formación de vesículas y MIs, destacando sus propiedades fisicoquímicas y su implementación en dos áreas estratégicas: la nanomedicina y la catálisis. Se mostrarán ejemplos donde estas nanoestructuras actúan como nanotransportadores de fármacos o como nanoreactores, promoviendo reacciones químicas de interés en condiciones suaves y sostenibles. Estas investigaciones abren nuevas perspectivas para el desarrollo de soluciones innovadoras en salud, química verde y nanotecnología.
+
+Referencias:
+[1] N. M. Correa, J. J. Silber, et al Chem. Rev. 112, 4569 (2012).
+[2] A. Stagnoli, L. Sosa Alderete, et al Colloid Surf. B 188, 110759 (2020).
+[3] J. David Chamorro Cañon, M. A. Luna, et al. J. Phys. Chem. B 128, 5427 (2024).`,
+      bio:""
+    },
+    {
+      id:"Mateus Cardoso",
+      name:"Mateus Borba Cardoso",
+      affil:"LNLS-SIRIUS (CNPEM), Brasil",
+      photo:"img/Mateus Cardoso.jpg",
+      talk:"Nano–Bio Interface Unveiled by Synchrotron-Based Techniques",
+      abs:`This seminar will explore the complex and dynamic interactions at the nano–bio interface, where engineered nanomaterials engage with biological systems. Understanding these interactions is crucial for applications in nanomedicine, toxicology, and environmental nanoscience. The presentation will focus on how synchrotron-based techniques provide unparalleled insight into nanoparticles' physicochemical transformations and structural evolution in biological environments. During the talk, key synchrotron-based methods will be discussed, including nano-computed tomography (nano-CT) for 3D imaging of nanostructures inside cells, small-angle X-ray scattering (SAXS) for probing nanoparticle size, shape, and dispersion and X-ray Photon Correlation Spectroscopy (XPCS) to investigate the dynamics and mobility of nanoparticles in biological fluids, providing time-resolved information at the nanometer scale that is inaccessible by conventional methods. This seminar will illustrate how multi-modal synchrotron analysis enables a comprehensive understanding of how nanomaterials behave in realistic biological and environmental settings. This presentation will demonstrate the power of combining static and dynamic synchrotron-based techniques to uncover the hidden complexities of nano–bio interactions — essential knowledge for the safe and effective development of advanced nanomaterials.`,
+      bio:`Mateus Borba Cardoso is the Head of the Soft and Biological Matter Division at the Brazilian Synchrotron Laboratory (LNLS-SIRIUS), part of the Brazilian Center for Research in Energy and Materials (CNPEM), Brazil. His research focuses on developing innovative synchrotron-based techniques and methodologies to investigate the nano–bio interface. He employs a variety of advanced techniques, including Fourier transform infrared (FTIR) nano-spectroscopy, small-angle X-ray scattering (SAXS), coherent diffraction imaging (CDI), X-ray photon correlation spectroscopy (XPCS), circular dichroism, and cryo-soft X-ray nano-tomography. His work aims to unravel the interactions between nanoparticles and biological systems, bridging the fields of chemistry, physics, and biology.`
+    }
+  ];
+
+  // ======= RENDER =======
+  const grid = document.getElementById('grid');
+  speakers.forEach(sp => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <button type="button" aria-haspopup="dialog" aria-controls="dialog" data-id="${sp.id}">
+        <img class="avatar" src="${sp.photo}" alt="Foto de ${sp.name}" loading="lazy">
+        <h3>${sp.name}</h3>
+        <p>${sp.affil}</p>
+      </button>`;
+    grid.appendChild(card);
+  });
+
+  // ======= MODAL =======
+  const backdrop = document.getElementById('backdrop');
+  const dialog = document.getElementById('dialog');
+  const closeBtn = document.getElementById('closeBtn');
+  let lastTrigger = null;
+
+  function openModal(sp){
+    document.getElementById('dlg-title').textContent = sp.name;
+    document.getElementById('dlg-affil').textContent = sp.affil || "";
+    document.getElementById('dlg-talk').textContent = sp.talk || "—";
+    document.getElementById('dlg-abs').textContent = sp.abs || "—";
+    document.getElementById('dlg-bio').textContent = sp.bio || "—";
+    const head = document.getElementById('dlg-headshot');
+    const big = document.getElementById('dlg-photo');
+    head.src = sp.photo; head.alt = `Foto de ${sp.name}`;
+    big.src = sp.photo; big.alt = `Retrato de ${sp.name}`;
+    backdrop.hidden = false;
+    backdrop.classList.add('show');
+    dialog.focus();
+    closeBtn.focus();
+  }
+  function closeModal(){
+    backdrop.classList.remove('show');
+    setTimeout(() => {
+        backdrop.hidden = true;
+    }, 180); // Match transition duration
+    if(lastTrigger) lastTrigger.focus();
+  }
+  grid.addEventListener('click', e=>{
+    const btn = e.target.closest('button[data-id]');
+    if(!btn) return;
+    const sp = speakers.find(s=>s.id===btn.getAttribute('data-id'));
+    lastTrigger = btn;
+    if(sp) openModal(sp);
+  });
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', e=>{ if(e.target===backdrop) closeModal(); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && !backdrop.hidden) closeModal(); });
+  </script>
 </body>
 </html>
