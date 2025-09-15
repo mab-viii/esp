@@ -42,21 +42,26 @@
       border-bottom: 3px solid #0079b8;
     }
 
-    .language-switcher {
-      position: absolute;
-      top: 1.5rem;
-      right: 3vw;
-      font-family: 'Montserrat', sans-serif;
-      color: white;
-    }
+/* --- ESTILOS CORREGIDOS PARA EL SELECTOR DE IDIOMA --- */
+.language-switcher {
+  position: absolute;
+  top: 1.5rem;
+  right: 3vw;
+  color: white; /* Aplica color al separador '|' */
+  
+  /* Usamos Flexbox para un espaciado perfecto y simétrico */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Espacio uniforme entre ESP, | y ENG */
+}
 
-    .language-switcher a {
-      text-decoration: none;
-      font-weight: bold;
-      margin-left: 0.4rem;
-      font-size: 0.9em;
-      color: white;
-    }
+.language-switcher a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+/* --- FIN DE LA CORRECCIÓN --- */
 
     header {
       background: linear-gradient(90deg, #004e7c, #0079b8);
