@@ -23,139 +23,194 @@
     nav {
       display: flex;
       justify-content: space-around;
-      padding: 0.5rem 0; /* Padding vertical, horizontal se maneja en los 'a' o en el contenedor de nav */
-      background-color: #fff; /* Fondo blanco para la nav, si no está en estilos.css */
-      border-bottom: 1px solid #ddd; /* Borde inferior, si no está en estilos.css */
+      padding: 0.5rem 0;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
     }
 
     nav a {
       flex: 1;
       text-align: center;
       text-decoration: none;
-      /* color: inherit; Es mejor ser explícito, usando el color de tu variable --azul-oscuro */
       color: #004e7c; /* var(--azul-oscuro) */
-      padding: 0.5rem 0.25rem; /* Padding vertical y un poco horizontal para evitar que se peguen */
-      font-weight: 700; /* Consistente con estilos.css */
+      padding: 0.5rem 0.25rem;
+      font-weight: 700;
     }
 
-    nav a.active { /* Estilo para el enlace activo */
+    nav a.active {
       color: #0079b8; /* var(--azul-claro) */
-      border-bottom: 3px solid #0079b8; /* var(--azul-claro) */
+      border-bottom: 3px solid #0079b8;
     }
 
-    /* === ESTILOS PARA LOS ENLACES DE IDIOMA (ajustados para header oscuro) === */
     .language-switcher {
       position: absolute;
-      top: 1.5rem;      /* Distancia desde el borde superior del header */
-      right: 3vw;       /* Distancia desde el borde derecho del header */
+      top: 1.5rem;
+      right: 3vw;
       font-family: 'Montserrat', sans-serif;
-      color: white;     /* Asegura que el separador "|" sea blanco sobre fondo oscuro */
+      color: white;
     }
 
     .language-switcher a {
       text-decoration: none;
       font-weight: bold;
-      margin-left: 0.4rem; /* Espacio entre "ESP", "|" y "ENG" */
+      margin-left: 0.4rem;
       font-size: 0.9em;
-      color: white;     /* Se usa color blanco para que contraste con el header oscuro */
+      color: white;
     }
 
-    .language-switcher a:first-child {
-      margin-left: 0; /* Sin margen a la izquierda para el primer enlace (ESP) */
-    }
-    /* === FIN DE ESTILOS DEL SELECTOR DE IDIOMA === */
-
-    /* Estilos para el header en esta página, asegurando que el selector de idioma funcione */
     header {
-      /* Estas propiedades son ejemplos y deberían idealmente venir de estilos.css
-         pero se añaden aquí para asegurar la funcionalidad del language switcher en esta página.
-         La más importante es 'position: relative;' */
-      background: linear-gradient(90deg, #004e7c, #0079b8); /* Ejemplo de fondo de tu estilos.css */
-      color: #fff; /* Texto blanco */
+      background: linear-gradient(90deg, #004e7c, #0079b8);
+      color: #fff;
       padding: 2rem 3vw;
       display: flex;
-      align-items: center; /* Alinea verticalmente logo y texto */
-      gap: 1rem; /* Espacio entre logo y el bloque de texto */
-      position: relative; /* ¡MUY IMPORTANTE para el posicionamiento del language switcher! */
+      align-items: center;
+      gap: 1rem;
+      position: relative;
     }
 
-     header .logo {
-        /* Asumiendo que estilos.css define el tamaño del logo. Si no, por ejemplo: */
-           height: 64px; /* O el valor que uses en estilos.css */
-           width: auto;
-    }
-    header div.header-content { /* Contenedor para h1 y p para asegurar alineación izquierda si header es flex */
-        text-align: left;
+    header .logo {
+      height: 64px;
+      width: auto;
     }
 
     header h1 {
-        /* Asumiendo que estilos.css define el tamaño y margen del h1. Si no, por ejemplo: */
-           font-size: 2rem; /* O el valor que uses en estilos.css */
-           margin:0;
-           color: #fff; /* Asegurar color blanco */
+      font-size: 2rem;
+      margin:0;
     }
 
-     header p {
-        /* Asumiendo que estilos.css define el tamaño y margen del p. Si no, por ejemplo: */
-           font-size:1rem; /* O el valor que uses en estilos.css */
-           margin:0.25rem 0 0;
-           color: #fff; /* Asegurar color blanco */
+    header p {
+      margin:0.25rem 0 0;
     }
 
     section {
-        padding: 2rem 3vw; /* Consistente con tu diseño general */
-        text-align: left; /* Asegurar alineación izquierda para el contenido de la sección */
-        flex-grow: 1; /* Para que la sección ocupe el espacio disponible y empuje el footer */
+      padding: 2rem 3vw;
+      flex-grow: 1;
     }
 
-    /* Estilos para las tablas del cronograma */
     .dias {
       display: flex;
-      gap: 2rem; /* Espacio entre las tablas de los días */
-      flex-wrap: wrap; /* Permite que las tablas se apilen en pantallas pequeñas */
-      justify-content: center; /* Centra las tablas si hay espacio */
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .dia {
-      flex: 1 1 320px; /* Cada tabla de día tendrá un mínimo de 320px y crecerá si hay espacio */
-      min-width: 300px; /* Asegura un ancho mínimo incluso si flex-basis es pequeño */
+      flex: 1 1 400px; /* Aumentado el flex-basis para más espacio */
+      min-width: 320px;
     }
 
     .dia h2 {
-        color: #004e7c; /* var(--azul-oscuro) */
-        border-bottom: 2px solid #004e7c; /* var(--azul-oscuro) */
-        padding-bottom: 0.5rem;
-        margin-top: 0; /* Quitar margen superior si es el primer elemento de .dia */
-        margin-bottom: 1rem; /* Espacio debajo del título del día */
-        font-size: 1.5rem; /* Tamaño para los títulos de los días */
+      color: #004e7c;
+      border-bottom: 2px solid #004e7c;
+      padding-bottom: 0.5rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
     }
 
     .dia table {
-      width: 100%; /* La tabla ocupa todo el ancho de su contenedor .dia */
-      border-collapse: collapse; /* Une los bordes de las celdas */
-      margin-bottom: 2rem; /* Espacio debajo de cada tabla */
-      background: #fff; /* Fondo blanco para las tablas */
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Sombra sutil para las tablas */
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
 
     .dia th, .dia td {
-      border: 1px solid #ddd; /* var(--gris-borde) para las celdas */
-      padding: 0.75rem; /* Padding dentro de las celdas */
-      text-align: left; /* Alineación del texto a la izquierda */
-      vertical-align: top; /* Alinea el contenido de las celdas arriba */
+      border: 1px solid #ddd;
+      padding: 0.75rem;
+      text-align: left;
+      vertical-align: top;
     }
 
     .dia th {
-      background-color: #eaf4fb; /* var(--gris-callout) para los encabezados de la tabla */
-      font-weight: 700; /* Texto en negrita para los encabezados */
-    }
-    .dia td:first-child { /* Estilo para la columna de la hora */
-        width: 80px; /* Ancho fijo para la columna de la hora */
-        font-weight: bold;
-        color: #004e7c; /* var(--azul-oscuro) */
-        white-space: nowrap; /* Evita que la hora se parta en dos líneas */
+      background-color: #eaf4fb;
+      font-weight: 700;
     }
 
+    .dia td:first-child {
+      width: 80px;
+      font-weight: bold;
+      color: #004e7c;
+      white-space: nowrap;
+    }
+    
+    /* --- NUEVOS ESTILOS PARA COMPONENTES --- */
+    .salas-container {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+    .sala {
+        flex: 1;
+        min-width: 220px;
+    }
+    .sala h5 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        color: #004e7c;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 5px;
+    }
+    .sala ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0;
+        font-size: 0.9em;
+    }
+    .sala li {
+        margin-bottom: 0.5rem;
+    }
+
+    .mesa-redonda-container {
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+    .flyer-img {
+        flex: 1 1 250px;
+    }
+    .flyer-img img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .flyer-info {
+        flex: 2 1 300px;
+    }
+    .flyer-info h3 {
+        margin-top: 0;
+        color: #004e7c;
+    }
+    .flyer-info h4 {
+        margin-bottom: 0.5rem;
+    }
+    .flyer-info ul {
+        margin-top: 0;
+        padding-left: 20px;
+    }
+    .flyer-info .detalles {
+        font-weight: bold;
+        margin-top: 1rem;
+    }
+    .btn-inscribite {
+        display: inline-block;
+        background-color: #0079b8;
+        color: white;
+        padding: 10px 18px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-top: 10px;
+        transition: background-color 0.2s;
+    }
+    .btn-inscribite:hover {
+        background-color: #005a8c;
+    }
+    /* --- FIN DE NUEVOS ESTILOS --- */
 
     footer {
       background: #004e7c;
@@ -176,8 +231,9 @@
 
   <header>
     <img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo">
-    <div class="header-content"> <h1>MAB VIII – Cronograma Tentativo</h1>
-      <p>Actividades del 18 y 19 de septiembre de 2025</p>
+    <div>
+        <h1>MAB VIII – Cronograma</h1>
+        <p>Actividades del 18 y 19 de septiembre de 2025</p>
     </div>
     <div class="language-switcher">
       <a href="https://mab-viii.github.io/esp/" lang="es">ESP</a> | <a href="https://mab-viii.github.io/eng/" lang="en">ENG</a>
@@ -190,63 +246,116 @@
     <a href="lugar.html">Lugar</a>
     <a href="conferencistas.html">Conferencistas</a>
     <a href="abstracts.html">Envío de trabajos</a>
-    <a href="cronograma.html" class="active">Cronograma</a> <a href="comite.html">Comité</a>
+    <a href="cronograma.html" class="active">Cronograma</a>
+    <a href="comite.html">Comité</a>
     <a href="certificados.html">Certificados</a>
   </nav>
 
- <section>
-    <div class="dias">
-      <div class="dia">
-        <h2>Jueves 18&nbsp;de&nbsp;septiembre</h2>
-        <table>
-          <thead> <tr><th>Hora</th><th>Actividad</th></tr>
-          </thead>
-          <tbody>
-            <tr style="background-color: #eaf4fb;"><td>10:00</td><td>Acreditación</td></tr>
-            <tr><td>13:00</td><td>Presentación del MAB VIII</td></tr>
-            <tr><td>13:15</td><td>Omar Azzaroni</td></tr>
-            <tr><td>13:50</td><td>Veronica Marconi</td></tr>
-            <tr><td>14:25</td><td>Galo Soler Illia</td></tr>
-            <tr style="background-color: #eaf4fb;"><td>15:00</td><td>mini pausa (10 min)</td></tr>
-            <tr><td>15:15</td><td>Marcus Muller</td></tr>
-            <tr><td>15:50</td><td>Hernan Ritacco</td></tr>
-            <tr style="background-color: #eaf4fb;"><td>16:30</td><td>Coffee Break</td></tr>
-            <tr><td>17:00</td><td>Cristina Hoppe</td></tr>
-            <tr><td>17:35</td><td>Mariano Correa</td></tr>
-            <tr><td>18:10</td><td>Sesión de posters</td></tr>
-            <tr style="background-color: #004e7c; color: white;"><td>20:10</td><td>Finaliza primer día</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="dia">
-        <h2>Viernes 19&nbsp;de&nbsp;septiembre</h2>
-        <table>
-          <thead>
-            <tr><th>Hora</th><th>Actividad</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>09:00</td><td>Charla cortas (2 salas)</td></tr>
-            <tr style="background-color: #eaf4fb;"><td>10:15</td><td>Coffee Break</td></tr>
-            <tr><td>10:45</td><td>Martin Conda Sheridan</td></tr>
-            <tr><td>11:20</td><td>Juan Giussi</td></tr>
-            <tr><td>11:55</td><td>Mateus Cardoso</td></tr>
-            <tr style="background-color: #eaf4fb;"><td>12:30</td><td>Almuerzo</td></tr>
-            <tr><td>14:15</td><td>Paula Angelome</td></tr>
-            <tr><td>14:50</td><td>Mario Tagliazzuchi</td></tr>
-            <tr style="background-color: #eaf4fb;"><td>15:30</td><td>Coffee Break</td></tr>
-            <tr><td>16:00</td><td>Mesa redonda</td></tr>
-            <tr style="background-color: #eaf4fb;"><td>18:00</td><td>mini pausa (10 min)</td></tr>
-            <tr><td>18:10</td><td>Entrega Premios y Cierre del congreso</td></tr>
-            <tr style="background-color: #004e7c; color: white;"><td>18:40</td><td>Finaliza segundo día</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+<section>
+    <div class="dias">
+      <div class="dia">
+        <h2>Jueves 18&nbsp;de&nbsp;septiembre</h2>
+        <table>
+          <thead> <tr><th>Hora</th><th>Actividad</th></tr>
+          </thead>
+          <tbody>
+            <tr style="background-color: #eaf4fb;"><td>10:00</td><td>Acreditación</td></tr>
+            <tr><td>13:00</td><td>Presentación del MAB VIII</td></tr>
+            <tr><td>13:15</td><td>Omar Azzaroni</td></tr>
+            <tr><td>13:50</td><td>Veronica Marconi</td></tr>
+            <tr><td>14:25</td><td>Galo Soler Illia</td></tr>
+            <tr style="background-color: #eaf4fb;"><td>15:00</td><td>Pausa (15 min)</td></tr>
+            <tr><td>15:15</td><td>Marcus Muller</td></tr>
+            <tr><td>15:50</td><td>Hernan Ritacco</td></tr>
+            <tr style="background-color: #eaf4fb;"><td>16:30</td><td>Coffee Break</td></tr>
+            <tr><td>17:00</td><td>Cristina Hoppe</td></tr>
+            <tr><td>17:35</td><td>Mariano Correa</td></tr>
+            <tr><td>18:10</td><td>Sesión de posters</td></tr>
+            <tr style="background-color: #004e7c; color: white;"><td>20:10</td><td>Finaliza primer día</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="dia">
+        <h2>Viernes 19&nbsp;de&nbsp;septiembre</h2>
+        <table>
+          <thead>
+            <tr><th>Hora</th><th>Actividad</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td>09:00 - 10:15</td>
+                <td>
+                    <div class="salas-container">
+                        <div class="sala">
+                            <h5>SALA 1</h5>
+                            <ul>
+                                <li><b>9:00</b> Eugenia Apuzzo (INIFTA-UNLP)</li>
+                                <li><b>9:15</b> Alejo Melfi (FCEIA-UNR)</li>
+                                <li><b>9:30</b> André Nicolai Petelski (QUITEX-UTN)</li>
+                                <li><b>9:45</b> Estefania Gonzalez Solveyra (INS-UNSAM)</li>
+                                <li><b>10:00</b> Sofia Patané (CIDeN-UNQ)</li>
+                            </ul>
+                        </div>
+                        <div class="sala">
+                            <h5>SALA 2</h5>
+                            <ul>
+                                <li><b>9:00</b> Andres De Virgiliis (IFLYSIB-UNLP)</li>
+                                <li><b>9:15</b> Lucia Belen Pizarro (INIFTA-UNLP)</li>
+                                <li><b>9:30</b> Ingrid Rincon Valdivieso (IDAS-UNRC)</li>
+                                <li><b>9:45</b> Claudio Pastorino (CAC-CNEA)</li>
+                                <li><b>10:00</b> Cintia Belen Contreras (INS-UNSAM)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr style="background-color: #eaf4fb;"><td>10:15</td><td>Coffee Break</td></tr>
+            <tr><td>10:45</td><td>Mateus Cardoso</td></tr>
+            <tr><td>11:20</td><td>Juan Giussi</td></tr>
+            <tr><td>11:55</td><td>Martin Conda Sheridan</td></tr>
+            <tr style="background-color: #eaf4fb;"><td>12:30</td><td>Almuerzo</td></tr>
+            <tr><td>14:15</td><td>Paula Angelome</td></tr>
+            <tr><td>14:50</td><td>Mario Tagliazucchi</td></tr>
+            <tr style="background-color: #eaf4fb;"><td>15:30</td><td>Coffee Break</td></tr>
+            <tr>
+                <td>16:00 - 18:00</td>
+                <td>
+                    <div class="mesa-redonda-container">
+                        <div class="flyer-img">
+                            <img src="https://i.ibb.co/6w63YFj/flyer-mesa-redonda.jpg" alt="Flyer del evento Economía del Conocimiento en Acción">
+                        </div>
+                        <div class="flyer-info">
+                            <h3>Economía del Conocimiento en Acción</h3>
+                            <p>Vinculación Tecnológica, Startups e Inversión</p>
+                            <h4>Oradores</h4>
+                            <ul>
+                                <li><b>Federico Marque</b> (General Partner y COO de GRIDX VC)</li>
+                                <li><b>Fernanda Salgado</b> (Gerente Comercial y Transferencia Tecnológica en Y-TEC)</li>
+                                <li><b>Luis Pierpauli</b> (Cofundador y CEO de Gisens Biotech)</li>
+                                <li><b>Guillermo Lentini</b> (Cofundador y COO de Tomorrow Foods)</li>
+                                <li><b>Gonzalo Marquez</b> (Presidente de Incubadora Minerva UNLP)</li>
+                                <li><b>Lisandro Bril</b> (Fundador y General Partner de Oikos VC)</li>
+                            </ul>
+                            <h4>Moderador</h4>
+                            <p><b>Esteban Piccinini</b> (Cofundador y CSO de Gisens Biotech)</p>
+                            <p class="detalles">Lugar: Edificio Karakachoff, 2do Subsuelo</p>
+                            <a href="#" class="btn-inscribite">Inscribite acá</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr style="background-color: #eaf4fb;"><td>18:00</td><td>Pausa (10 min)</td></tr>
+            <tr><td>18:10</td><td>Entrega Premios y Cierre del congreso</td></tr>
+            <tr style="background-color: #004e7c; color: white;"><td>18:40</td><td>Finaliza segundo día</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</section>
 
   <footer>
     © 2025 MAB VIII · La Plata
-    <a href="https://www.instagram.com/mabviii/" target="_blank">
+    <a href="https://www.instagram.com/mabviii/" target="_blank" rel="noopener noreferrer">
       <img src="Instagram.png" alt="Instagram">
     </a>
     <a href="https://x.com/MABVIII" target="_blank" rel="noopener noreferrer">
