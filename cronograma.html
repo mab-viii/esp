@@ -44,22 +44,22 @@
 
 /* --- ESTILOS CORREGIDOS PARA EL SELECTOR DE IDIOMA --- */
 .language-switcher {
-  position: absolute;
-  top: 1.5rem;
-  right: 3vw;
-  color: white; /* Aplica color al separador '|' */
-  
-  /* Usamos Flexbox para un espaciado perfecto y simétrico */
-  display: flex;
-  align-items: center;
-  gap: 0.5rem; /* Espacio uniforme entre ESP, | y ENG */
+  position: absolute;
+  top: 1.5rem;
+  right: 3vw;
+  color: white; /* Aplica color al separador '|' */
+  
+  /* Usamos Flexbox para un espaciado perfecto y simétrico */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Espacio uniforme entre ESP, | y ENG */
 }
 
 .language-switcher a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9em;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9em;
 }
 /* --- FIN DE LA CORRECCIÓN --- */
 
@@ -139,83 +139,89 @@
       color: #004e7c;
       white-space: nowrap;
     }
-    
-    /* --- NUEVOS ESTILOS PARA COMPONENTES --- */
-    .salas-container {
-        display: flex;
-        gap: 1.5rem;
-        flex-wrap: wrap;
-    }
-    .sala {
-        flex: 1;
-        min-width: 220px;
-    }
-    .sala h5 {
-        margin-top: 0;
-        margin-bottom: 0.5rem;
-        color: #004e7c;
-        border-bottom: 1px solid #ccc;
-        padding-bottom: 5px;
-    }
-    .sala ul {
-        list-style-type: none;
-        padding-left: 0;
-        margin: 0;
-        font-size: 0.9em;
-    }
-    .sala li {
-        margin-bottom: 0.5rem;
-    }
-
-    .mesa-redonda-container {
-        display: flex;
-        gap: 1.5rem;
-        align-items: flex-start;
-        flex-wrap: wrap;
-    }
-    .flyer-img {
-        flex: 1 1 250px;
-    }
-    .flyer-img img {
+    
+    /* --- NUEVOS ESTILOS PARA COMPONENTES --- */
+    .salas-container {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+    .sala {
+        flex: 1;
+        min-width: 220px;
+    }
+    .salas-container h4 { /* Estilo para el nuevo título */
         width: 100%;
-        max-width: 300px;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
-    .flyer-info {
-        flex: 2 1 300px;
-    }
-    .flyer-info h3 {
-        margin-top: 0;
+        margin-bottom: 1rem;
         color: #004e7c;
     }
-    .flyer-info h4 {
-        margin-bottom: 0.5rem;
-    }
-    .flyer-info ul {
-        margin-top: 0;
-        padding-left: 20px;
-    }
-    .flyer-info .detalles {
-        font-weight: bold;
-        margin-top: 1rem;
-    }
-    .btn-inscribite {
-        display: inline-block;
-        background-color: #0079b8;
-        color: white;
-        padding: 10px 18px;
-        text-decoration: none;
-        border-radius: 5px;
-        font-weight: bold;
-        margin-top: 10px;
-        transition: background-color 0.2s;
-    }
-    .btn-inscribite:hover {
-        background-color: #005a8c;
-    }
-    /* --- FIN DE NUEVOS ESTILOS --- */
+    .sala h5 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        color: #004e7c;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 5px;
+    }
+    .sala ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0;
+        font-size: 0.9em;
+    }
+    .sala li {
+        margin-bottom: 0.5rem;
+    }
+
+    .mesa-redonda-container {
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+    .flyer-img {
+        flex: 1 1 250px;
+    }
+    .flyer-img img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .flyer-info {
+        flex: 2 1 300px;
+    }
+    .flyer-info h3 {
+        margin-top: 0;
+        color: #004e7c;
+    }
+    .flyer-info h4 {
+        margin-bottom: 0.5rem;
+      margin-top: 0;
+    }
+    .flyer-info ul {
+        margin-top: 0;
+        padding-left: 20px;
+    }
+    .flyer-info .detalles {
+        font-weight: bold;
+        margin-top: 1rem;
+    }
+    .btn-inscribite {
+        display: inline-block;
+        background-color: #0079b8;
+        color: white;
+        padding: 10px 18px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-top: 10px;
+        transition: background-color 0.2s;
+    }
+    .btn-inscribite:hover {
+        background-color: #005a8c;
+    }
+    /* --- FIN DE NUEVOS ESTILOS --- */
 
     footer {
       background: #004e7c;
@@ -237,8 +243,8 @@
   <header>
     <img src="Logo_Blanco.png" alt="MAB VIII logo" class="logo">
     <div>
-        <h1>MAB VIII – Cronograma</h1>
-        <p>Actividades del 18 y 19 de septiembre de 2025</p>
+        <h1>MAB VIII – Cronograma</h1>
+        <p>Actividades del 18 y 19 de septiembre de 2025</p>
     </div>
     <div class="language-switcher">
       <a href="https://mab-viii.github.io/esp/" lang="es">ESP</a> | <a href="https://mab-viii.github.io/eng/" lang="en">ENG</a>
@@ -252,7 +258,7 @@
     <a href="conferencistas.html">Conferencistas</a>
     <a href="abstracts.html">Envío de trabajos</a>
     <a href="cronograma.html" class="active">Cronograma</a>
-    <a href="comite.html">Comité</a>
+    <a href="comite.html">Comité</a>
     <a href="certificados.html">Certificados</a>
   </nav>
 
@@ -266,16 +272,16 @@
           <tbody>
             <tr style="background-color: #eaf4fb;"><td>10:00</td><td>Acreditación</td></tr>
             <tr><td>13:00</td><td>Presentación del MAB VIII</td></tr>
-            <tr><td>13:15</td><td>Omar Azzaroni</td></tr>
-            <tr><td>13:50</td><td>Veronica Marconi</td></tr>
-            <tr><td>14:25</td><td>Galo Soler Illia</td></tr>
+            <tr><td>13:15</td><td>Charla Invitada: Omar Azzaroni</td></tr>
+            <tr><td>13:50</td><td>Charla Invitada: Veronica Marconi</td></tr>
+            <tr><td>14:25</td><td>Charla Invitada: Galo Soler Illia</td></tr>
             <tr style="background-color: #eaf4fb;"><td>15:00</td><td>Pausa (15 min)</td></tr>
-            <tr><td>15:15</td><td>Marcus Muller</td></tr>
-            <tr><td>15:50</td><td>Hernan Ritacco</td></tr>
+            <tr><td>15:15</td><td>Charla Invitada: Marcus Muller</td></tr>
+            <tr><td>15:50</td><td>Charla Invitada: Hernan Ritacco</td></tr>
             <tr style="background-color: #eaf4fb;"><td>16:30</td><td>Coffee Break</td></tr>
-            <tr><td>17:00</td><td>Cristina Hoppe</td></tr>
-            <tr><td>17:35</td><td>Mariano Correa</td></tr>
-            <tr><td>18:10</td><td>Sesión de posters</td></tr>
+            <tr><td>17:00</td><td>Charla Invitada: Cristina Hoppe</td></tr>
+            <tr><td>17:35</td><td>Charla Invitada: Mariano Correa</td></tr>
+            <tr style="background-color: #fffbe6;"><td>18:10</td><td>Sesión de posters</td></tr>
             <tr style="background-color: #004e7c; color: white;"><td>20:10</td><td>Finaliza primer día</td></tr>
           </tbody>
         </table>
@@ -288,69 +294,70 @@
           </thead>
           <tbody>
             <tr>
-                <td>09:00 - 10:15</td>
-                <td>
-                    <div class="salas-container">
-                        <div class="sala">
-                            <h5>SALA 1</h5>
-                            <ul>
-                                <li><b>9:00</b> Eugenia Apuzzo (INIFTA-UNLP)</li>
-                                <li><b>9:15</b> Alejo Melfi (FCEIA-UNR)</li>
-                                <li><b>9:30</b> André Nicolai Petelski (QUITEX-UTN)</li>
-                                <li><b>9:45</b> Estefania Gonzalez Solveyra (INS-UNSAM)</li>
-                                <li><b>10:00</b> Sofia Patané (CIDeN-UNQ)</li>
-                            </ul>
-                        </div>
-                        <div class="sala">
-                            <h5>SALA 2</h5>
-                            <ul>
-                                <li><b>9:00</b> Andres De Virgiliis (IFLYSIB-UNLP)</li>
-                                <li><b>9:15</b> Lucia Belen Pizarro (INIFTA-UNLP)</li>
-                                <li><b>9:30</b> Ingrid Rincon Valdivieso (IDAS-UNRC)</li>
-                                <li><b>9:45</b> Claudio Pastorino (CAC-CNEA)</li>
-                                <li><b>10:00</b> Cintia Belen Contreras (INS-UNSAM)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+                <td>09:00 - 10:15</td>
+                <td>
+                    <h4 style="margin-top:0; margin-bottom: 1rem; color: #004e7c;">Charlas Cortas</h4>
+                    <div class="salas-container">
+                        <div class="sala">
+                            <h5>SALA 1</h5>
+                            <ul>
+                                <li><b>9:00</b> Eugenia Apuzzo (INIFTA-UNLP)</li>
+                                <li><b>9:15</b> Alejo Melfi (FCEIA-UNR)</li>
+                                <li><b>9:30</b> André Nicolai Petelski (QUITEX-UTN)</li>
+                                <li><b>9:45</b> Estefania Gonzalez Solveyra (INS-UNSAM)</li>
+                                <li><b>10:00</b> Sofia Patané (CIDeN-UNQ)</li>
+                            </ul>
+                        </div>
+                        <div class="sala">
+                            <h5>SALA 2</h5>
+                            <ul>
+                                <li><b>9:00</b> Andres De Virgiliis (IFLYSIB-UNLP)</li>
+                                <li><b>9:15</b> Lucia Belen Pizarro (INIFTA-UNLP)</li>
+                                <li><b>9:30</b> Ingrid Rincon Valdivieso (IDAS-UNRC)</li>
+                                <li><b>9:45</b> Claudio Pastorino (CAC-CNEA)</li>
+                                <li><b>10:00</b> Cintia Belen Contreras (INS-UNSAM)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            </tr>
             <tr style="background-color: #eaf4fb;"><td>10:15</td><td>Coffee Break</td></tr>
-            <tr><td>10:45</td><td>Mateus Cardoso</td></tr>
-            <tr><td>11:20</td><td>Juan Giussi</td></tr>
-            <tr><td>11:55</td><td>Martin Conda Sheridan</td></tr>
+            <tr><td>10:45</td><td>Charla Invitada: Mateus Cardoso</td></tr>
+            <tr><td>11:20</td><td>Charla Invitada: Juan Giussi</td></tr>
+            <tr><td>11:55</td><td>Charla Invitada: Martin Conda Sheridan</td></tr>
             <tr style="background-color: #eaf4fb;"><td>12:30</td><td>Almuerzo</td></tr>
-            <tr><td>14:15</td><td>Paula Angelome</td></tr>
-            <tr><td>14:50</td><td>Mario Tagliazucchi</td></tr>
+            <tr><td>14:15</td><td>Charla Invitada: Paula Angelome</td></tr>
+            <tr><td>14:50</td><td>Charla Invitada: Mario Tagliazucchi</td></tr>
             <tr style="background-color: #eaf4fb;"><td>15:30</td><td>Coffee Break</td></tr>
             <tr>
-                <td>16:00 - 18:00</td>
-                <td>
-                    <div class="mesa-redonda-container">
-                        <div class="flyer-img">
-                            <img src="flyer.jpeg" alt="Flyer del evento Economía del Conocimiento en Acción">
-                        </div>
-                        <div class="flyer-info">
-                            <h3>Economía del Conocimiento en Acción</h3>
-                            <p>Vinculación Tecnológica, Startups e Inversión</p>
-                            <h4>Oradores</h4>
-                            <ul>
-                                <li><b>Federico Marque</b> (General Partner y COO de GRIDX VC)</li>
-                                <li><b>Fernanda Salgado</b> (Gerente Comercial y Transferencia Tecnológica en Y-TEC)</li>
-                                <li><b>Luis Pierpauli</b> (Cofundador y CEO de Gisens Biotech)</li>
-                                <li><b>Guillermo Lentini</b> (Cofundador y COO de Tomorrow Foods)</li>
-                                <li><b>Gonzalo Marquez</b> (Presidente de Incubadora Minerva UNLP)</li>
-                                <li><b>Lisandro Bril</b> (Fundador y General Partner de Oikos VC)</li>
-                            </ul>
-                            <h4>Moderador</h4>
-                            <p><b>Esteban Piccinini</b> (Cofundador y CSO de Gisens Biotech)</p>
-                            <p class="detalles">Lugar: Edificio Karakachoff, 2do Subsuelo</p>
-                            <a href=" https://www.eventbrite.com.ar/e/entradas-economia-del-conocimiento-en-accion-1653022287159" class="btn-inscribite">Inscribite acá</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+                <td>16:00 - 18:00</td>
+                <td>
+                    <div class="mesa-redonda-container">
+                        <div class="flyer-img">
+                            <img src="flyer.jpeg" alt="Flyer del evento Economía del Conocimiento en Acción">
+                        </div>
+                        <div class="flyer-info">
+                            <h4>Conversatorio</h4>
+                            <h3>Economía del Conocimiento en Acción</h3>
+                            <p>Vinculación Tecnológica, Startups e Inversión</p>
+                            <h4>Oradores</h4>
+                            <ul>
+                                <li><b>Federico Marque</b> (General Partner y COO de GRIDX VC)</li>
+                                <li><b>Fernanda Salgado</b> (Gerente Comercial y Transferencia Tecnológica en Y-TEC)</li>
+                                <li><b>Luis Pierpauli</b> (Cofundador y CEO de Gisens Biotech)</li>
+                                <li><b>Guillermo Lentini</b> (Cofundador y COO de Tomorrow Foods)</li>
+                                <li><b>Gonzalo Marquez</b> (Presidente de Incubadora Minerva UNLP)</li>
+                                <li><b>Lisandro Bril</b> (Fundador y General Partner de Oikos VC)</li>
+                            </ul>
+                            <h4>Moderador</h4>
+                            <p><b>Esteban Piccinini</b> (Cofundador y CSO de Gisens Biotech)</p>
+                            <p class="detalles">Lugar: Edificio Karakachoff, 2do Subsuelo</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
             <tr style="background-color: #eaf4fb;"><td>18:00</td><td>Pausa (10 min)</td></tr>
-            <tr><td>18:10</td><td>Entrega Premios y Cierre del congreso</td></tr>
+            <tr style="background-color: #fffbe6;"><td>18:10</td><td>Entrega Premios y Cierre del congreso</td></tr>
             <tr style="background-color: #004e7c; color: white;"><td>18:40</td><td>Finaliza segundo día</td></tr>
           </tbody>
         </table>
